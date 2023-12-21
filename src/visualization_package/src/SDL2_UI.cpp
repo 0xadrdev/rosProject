@@ -110,7 +110,7 @@ void SDL2_UI::drawText(std::string s, int x_center, int y_center)
     // with `blockiness` in InitializeFontStuff).
 
     // Pixels from our text
-    if (s.length()==0) {
+    if (s.length() == 0) {
         // Nothing to write, so just return
         return;
     }
