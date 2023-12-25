@@ -39,11 +39,12 @@ class SubpubBallPhysics: public rclcpp::Node {
       pongPhysics_.updatePosition(msg.x, msg.y);
 
       // Setting up the message. 
-      auto ball_pos_msg = tutorial_interfaces::msg::Ball();
 
       double ball_pos_x = pongPhysics_.getBallPosX(); // Use the class object to compute physics
       double ball_pos_y = pongPhysics_.getBallPosY(); // Use the class object to compute physics
 
+      auto ball_pos_msg = tutorial_interfaces::msg::Ball();
+      
       ball_pos_msg.x = ball_pos_x;
       ball_pos_msg.y = ball_pos_y;
 

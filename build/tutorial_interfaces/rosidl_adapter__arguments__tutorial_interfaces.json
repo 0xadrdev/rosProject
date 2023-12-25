@@ -1,8 +1,0 @@
-{
-  "package_name": "tutorial_interfaces",
-  "non_idl_tuples": [
-    "/home/ram-user/Desktop/rosProject/src/tutorial_interfaces:msg/Ball.msg",
-    "/home/ram-user/Desktop/rosProject/src/tutorial_interfaces:msg/Score.msg",
-    "/home/ram-user/Desktop/rosProject/src/tutorial_interfaces:msg/Vel.msg"
-  ]
-}

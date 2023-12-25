@@ -1,8 +1,0 @@
-source;share/paddle_physics/hook/cmake_prefix_path.ps1
-source;share/paddle_physics/hook/cmake_prefix_path.dsv
-source;share/paddle_physics/hook/cmake_prefix_path.sh
-source;share/paddle_physics/local_setup.bash
-source;share/paddle_physics/local_setup.dsv
-source;share/paddle_physics/local_setup.ps1
-source;share/paddle_physics/local_setup.sh
-source;share/paddle_physics/local_setup.zsh

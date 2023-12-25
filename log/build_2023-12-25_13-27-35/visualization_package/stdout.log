@@ -1,3 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
-[ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/my_node.cpp.o[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m

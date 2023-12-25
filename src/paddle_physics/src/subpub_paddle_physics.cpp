@@ -20,9 +20,12 @@ class SubpubPaddlePhysics : public rclcpp::Node
     : Node("subpub_paddle_physics")
     {
       // Subscriptions
-      keyCodeSub_ = this->create_subscription<std_msgs::msg::Int16>(
-      "/keyboard_input/key", 1,std::bind(&SubpubPaddlePhysics::key_callback, this, _1));
-      lightPosSub_ = this->create_subscription<std_msgs::msg::Float64>(
+      keyCodeSub_ = this -> create_subscription<std_msgs::msg::Int16>(
+        "/keyboard_input/key", 
+        1,
+        std::bind(&SubpubPaddlePhysics::key_callback, this, _1));
+
+      lightPosSub_ = this -> create_subscription<std_msgs::msg::Float64>(
       "light_position", 1,std::bind(&SubpubPaddlePhysics::light_callback, this, _1));
       
       // Publishing
@@ -77,10 +80,6 @@ class SubpubPaddlePhysics : public rclcpp::Node
       // Setting up the message. 
       auto right_paddle_pos_msg = std_msgs::msg::Float64();
       
-      //double paddlePosition = -1000;
-      //if (paddlePosition == -1000) {
-      //    paddlePosition = 300; 
-      //}
       double velY = 50;
       if (lightInput >= 150 && rightPaddlePosition <= 520) {
           right_paddle_pos_msg.data = rightPaddlePosition + velY;
@@ -103,16 +102,15 @@ class SubpubPaddlePhysics : public rclcpp::Node
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr lightPosSub_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr paddle_pos_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr right_paddle_pos_publisher_;
+
     // Initializing the paddle position
     double paddlePosition = 300;
     double rightPaddlePosition = 300;
 };
 
 
-//int main(int argc, char ** argv) {
+// Initializing and running the subscribed and publishing node
 int main(int argc, char* argv[]) {
-  
-  // Initializing and running the subscribed and publishing node
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<SubpubPaddlePhysics>());
   rclcpp::shutdown();

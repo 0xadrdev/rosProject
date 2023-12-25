@@ -85,8 +85,8 @@ void KeyboardInputNode::spin()
 int KeyboardInputNode::keyLoop()
 {
   char c;
-
   std::thread{std::bind(&KeyboardInputNode::spin, this)}.detach();
+
 
 
   for(;;)
