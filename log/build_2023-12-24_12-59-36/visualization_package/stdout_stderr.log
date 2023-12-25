@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m
+[ 50%] [32m[1mLinking CXX executable visualization_package[0m
+[100%] Built target visualization_package
+-- Install configuration: ""
+-- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/lib/visualization_package/visualization_package
+-- Set runtime path of "/home/ram-user/Desktop/rosProject/install/visualization_package/lib/visualization_package/visualization_package" to ""
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/ament_index/resource_index/package_run_dependencies/visualization_package
+-- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/ament_index/resource_index/parent_prefix_path/visualization_package
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/ament_prefix_path.sh
+-- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/path.sh
+-- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/path.dsv
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.bash
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.sh
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.zsh
+-- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.dsv
+-- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/package.dsv
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/ament_index/resource_index/packages/visualization_package
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/cmake/visualization_packageConfig.cmake
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/cmake/visualization_packageConfig-version.cmake
+-- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/package.xml

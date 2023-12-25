@@ -1,0 +1,6 @@
+Invoking command in '/home/ram-user/Desktop/rosProject/build/paddle_physics': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ram-user/Desktop/rosProject/src/paddle_physics -DCMAKE_INSTALL_PREFIX=/home/ram-user/Desktop/rosProject/install/paddle_physics
+Invoked command in '/home/ram-user/Desktop/rosProject/build/paddle_physics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ram-user/Desktop/rosProject/src/paddle_physics -DCMAKE_INSTALL_PREFIX=/home/ram-user/Desktop/rosProject/install/paddle_physics
+Invoking command in '/home/ram-user/Desktop/rosProject/build/paddle_physics': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/paddle_physics -- -j2 -l2
+Invoked command in '/home/ram-user/Desktop/rosProject/build/paddle_physics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/paddle_physics -- -j2 -l2
+Invoking command in '/home/ram-user/Desktop/rosProject/build/paddle_physics': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/paddle_physics
+Invoked command in '/home/ram-user/Desktop/rosProject/build/paddle_physics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/paddle_physics

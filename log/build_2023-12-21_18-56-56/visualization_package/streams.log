@@ -1,0 +1,13 @@
+[0.049s] Invoking command in '/home/ram-user/Desktop/rosProject/build/visualization_package': CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/home/ram-user/Desktop/rosProject/install/visualization_package:/home/ram-user/Desktop/rosProject/install/score:/home/ram-user/Desktop/rosProject/install/pong_core:/home/ram-user/Desktop/rosProject/install/cpp_publisher:/home/ram-user/Desktop/rosProject/install/paddle_physics:/home/ram-user/Desktop/rosProject/install/keyboard_input:/home/ram-user/Desktop/rosProject/install/image_input:/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
+[0.142s] [35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[0.214s] [ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/my_node.cpp.o[0m
+[0.227s] [ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m
+[0.370s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/my_node.cpp:8:10:[m[K [01;31m[Kfatal error: [m[Krclcpp/rclcpp.hpp: No such file or directory
+[0.371s]     8 | #include [01;31m[K"rclcpp/rclcpp.hpp"[m[K
+[0.384s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[0.385s] compilation terminated.
+[0.392s] gmake[2]: *** [CMakeFiles/visualization_package.dir/build.make:76: CMakeFiles/visualization_package.dir/src/my_node.cpp.o] Error 1
+[0.393s] gmake[2]: *** Waiting for unfinished jobs....
+[1.091s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/visualization_package.dir/all] Error 2
+[1.092s] gmake: *** [Makefile:146: all] Error 2
+[1.093s] Invoked command in '/home/ram-user/Desktop/rosProject/build/visualization_package' returned '2': CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/home/ram-user/Desktop/rosProject/install/visualization_package:/home/ram-user/Desktop/rosProject/install/score:/home/ram-user/Desktop/rosProject/install/pong_core:/home/ram-user/Desktop/rosProject/install/cpp_publisher:/home/ram-user/Desktop/rosProject/install/paddle_physics:/home/ram-user/Desktop/rosProject/install/keyboard_input:/home/ram-user/Desktop/rosProject/install/image_input:/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2

@@ -1,0 +1,15 @@
+[0.039s] Invoking command in '/home/ram-user/Desktop/rosProject/build/visualization_package': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
+[0.128s] [35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[0.186s] [ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m
+[0.190s] [ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/SDL2_UI.cpp.o[0m
+[1.021s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:[m[K In member function ‘[01m[Kvoid Pong_field::DrawField()[m[K’:
+[1.021s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:52:31:[m[K [01;31m[Kerror: [m[K‘[01m[KscreenWidth[m[K’ was not declared in this scope
+[1.022s]    52 |   sdl2_ui.drawRectangle(0, 0, [01;31m[KscreenWidth[m[K - 1, wallHeight); // Top wall
+[1.022s]       |                               [01;31m[K^~~~~~~~~~~[m[K
+[1.055s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:53:28:[m[K [01;31m[Kerror: [m[K‘[01m[KscreenHeight[m[K’ was not declared in this scope
+[1.055s]    53 |   sdl2_ui.drawRectangle(0, [01;31m[KscreenHeight[m[K - wallHeight - 1, screenWidth - 1, screenHeight - 1); // Bottom wall
+[1.055s]       |                            [01;31m[K^~~~~~~~~~~~[m[K
+[1.187s] gmake[2]: *** [CMakeFiles/visualization_package.dir/build.make:104: CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o] Error 1
+[1.187s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/visualization_package.dir/all] Error 2
+[1.188s] gmake: *** [Makefile:146: all] Error 2
+[1.212s] Invoked command in '/home/ram-user/Desktop/rosProject/build/visualization_package' returned '2': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2

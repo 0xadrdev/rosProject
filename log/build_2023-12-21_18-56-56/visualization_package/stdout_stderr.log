@@ -1,0 +1,11 @@
+[35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/my_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m
+[01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/my_node.cpp:8:10:[m[K [01;31m[Kfatal error: [m[Krclcpp/rclcpp.hpp: No such file or directory
+    8 | #include [01;31m[K"rclcpp/rclcpp.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/visualization_package.dir/build.make:76: CMakeFiles/visualization_package.dir/src/my_node.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/visualization_package.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,24 @@
+[0.075s] Invoking command in '/home/ram-user/Desktop/rosProject/build/pong_core': CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/home/ram-user/Desktop/rosProject/install/visualization_package:/home/ram-user/Desktop/rosProject/install/score:/home/ram-user/Desktop/rosProject/install/pong_core:/home/ram-user/Desktop/rosProject/install/cpp_publisher:/home/ram-user/Desktop/rosProject/install/paddle_physics:/home/ram-user/Desktop/rosProject/install/keyboard_input:/home/ram-user/Desktop/rosProject/install/image_input:/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/pong_core -- -j2 -l2
+[0.223s] [ 50%] Built target physics
+[0.234s] [100%] Built target logic
+[0.262s] Invoked command in '/home/ram-user/Desktop/rosProject/build/pong_core' returned '0': CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/home/ram-user/Desktop/rosProject/install/visualization_package:/home/ram-user/Desktop/rosProject/install/score:/home/ram-user/Desktop/rosProject/install/pong_core:/home/ram-user/Desktop/rosProject/install/cpp_publisher:/home/ram-user/Desktop/rosProject/install/paddle_physics:/home/ram-user/Desktop/rosProject/install/keyboard_input:/home/ram-user/Desktop/rosProject/install/image_input:/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/pong_core -- -j2 -l2
+[0.376s] Invoking command in '/home/ram-user/Desktop/rosProject/build/pong_core': CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/home/ram-user/Desktop/rosProject/install/visualization_package:/home/ram-user/Desktop/rosProject/install/score:/home/ram-user/Desktop/rosProject/install/pong_core:/home/ram-user/Desktop/rosProject/install/cpp_publisher:/home/ram-user/Desktop/rosProject/install/paddle_physics:/home/ram-user/Desktop/rosProject/install/keyboard_input:/home/ram-user/Desktop/rosProject/install/image_input:/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/pong_core
+[0.389s] -- Install configuration: ""
+[0.391s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/lib/pong_core/logic
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/lib/pong_core/physics
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/ament_index/resource_index/package_run_dependencies/pong_core
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/ament_index/resource_index/parent_prefix_path/pong_core
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/environment/ament_prefix_path.sh
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/environment/ament_prefix_path.dsv
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/environment/path.sh
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/environment/path.dsv
+[0.394s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/local_setup.bash
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/local_setup.sh
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/local_setup.zsh
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/local_setup.dsv
+[0.395s] -- Installing: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/package.dsv
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/ament_index/resource_index/packages/pong_core
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/cmake/pong_coreConfig.cmake
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/cmake/pong_coreConfig-version.cmake
+[0.395s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/pong_core/share/pong_core/package.xml
+[0.405s] Invoked command in '/home/ram-user/Desktop/rosProject/build/pong_core' returned '0': CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/home/ram-user/Desktop/rosProject/install/visualization_package:/home/ram-user/Desktop/rosProject/install/score:/home/ram-user/Desktop/rosProject/install/pong_core:/home/ram-user/Desktop/rosProject/install/cpp_publisher:/home/ram-user/Desktop/rosProject/install/paddle_physics:/home/ram-user/Desktop/rosProject/install/keyboard_input:/home/ram-user/Desktop/rosProject/install/image_input:/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/pong_core

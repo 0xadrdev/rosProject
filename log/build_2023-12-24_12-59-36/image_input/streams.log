@@ -1,0 +1,22 @@
+[0.111s] Invoking command in '/home/ram-user/Desktop/rosProject/build/image_input': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/image_input -- -j2 -l2
+[0.266s] [100%] Built target image
+[0.288s] Invoked command in '/home/ram-user/Desktop/rosProject/build/image_input' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/image_input -- -j2 -l2
+[0.510s] Invoking command in '/home/ram-user/Desktop/rosProject/build/image_input': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/image_input
+[0.558s] -- Install configuration: ""
+[0.566s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/lib/image_input/image
+[0.568s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/ament_index/resource_index/package_run_dependencies/image_input
+[0.570s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/ament_index/resource_index/parent_prefix_path/image_input
+[0.570s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/environment/ament_prefix_path.sh
+[0.570s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/environment/ament_prefix_path.dsv
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/environment/path.sh
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/environment/path.dsv
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/local_setup.bash
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/local_setup.sh
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/local_setup.zsh
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/local_setup.dsv
+[0.571s] -- Installing: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/package.dsv
+[0.571s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/ament_index/resource_index/packages/image_input
+[0.572s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/cmake/image_inputConfig.cmake
+[0.572s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/cmake/image_inputConfig-version.cmake
+[0.572s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/image_input/share/image_input/package.xml
+[0.572s] Invoked command in '/home/ram-user/Desktop/rosProject/build/image_input' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/image_input

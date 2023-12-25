@@ -1,0 +1,6 @@
+Invoking command in '/home/ram-user/Desktop/rosProject/build/image_input': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ram-user/Desktop/rosProject/src/image_input -DCMAKE_INSTALL_PREFIX=/home/ram-user/Desktop/rosProject/install/image_input
+Invoked command in '/home/ram-user/Desktop/rosProject/build/image_input' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ram-user/Desktop/rosProject/src/image_input -DCMAKE_INSTALL_PREFIX=/home/ram-user/Desktop/rosProject/install/image_input
+Invoking command in '/home/ram-user/Desktop/rosProject/build/image_input': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/image_input -- -j2 -l2
+Invoked command in '/home/ram-user/Desktop/rosProject/build/image_input' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/image_input -- -j2 -l2
+Invoking command in '/home/ram-user/Desktop/rosProject/build/image_input': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/image_input
+Invoked command in '/home/ram-user/Desktop/rosProject/build/image_input' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/image_input

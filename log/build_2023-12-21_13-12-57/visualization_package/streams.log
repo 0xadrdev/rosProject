@@ -1,0 +1,12 @@
+[0.035s] Invoking command in '/home/ram-user/Desktop/rosProject/build/visualization_package': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
+[0.099s] [35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[0.127s] [ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/my_node.cpp.o[0m
+[0.147s] [ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/SDL2_UI.cpp.o[0m
+[1.150s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/SDL2_UI.cpp:39:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+[1.151s]    39 | [01;31m[K}[m[K
+[1.151s]       | [01;31m[K^[m[K
+[1.307s] gmake[2]: *** [CMakeFiles/visualization_package.dir/build.make:90: CMakeFiles/visualization_package.dir/src/SDL2_UI.cpp.o] Error 1
+[1.307s] gmake[2]: *** Waiting for unfinished jobs....
+[22.824s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/visualization_package.dir/all] Error 2
+[22.824s] gmake: *** [Makefile:146: all] Error 2
+[22.833s] Invoked command in '/home/ram-user/Desktop/rosProject/build/visualization_package' returned '2': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2

@@ -151,6 +151,7 @@ bool SDL2_UI::processEvents() {
         // quit button
         if (event.type == SDL_QUIT) {
             quit = true;
+            SDL_Quit();
         }
     }
     return quit;

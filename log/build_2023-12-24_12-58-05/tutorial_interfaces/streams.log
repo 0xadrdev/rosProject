@@ -1,0 +1,180 @@
+[0.141s] Invoking command in '/home/ram-user/Desktop/rosProject/build/tutorial_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/tutorial_interfaces -- -j2 -l2
+[0.575s] [  2%] Built target tutorial_interfaces__cpp
+[0.686s] [ 12%] Built target tutorial_interfaces__rosidl_generator_c
+[0.967s] [ 12%] Built target ament_cmake_python_copy_tutorial_interfaces
+[1.081s] [ 23%] Built target tutorial_interfaces__rosidl_typesupport_cpp
+[1.389s] [ 34%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_c
+[1.523s] [ 44%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_cpp
+[1.717s] [ 55%] Built target tutorial_interfaces__rosidl_typesupport_introspection_c
+[1.820s] [ 65%] Built target tutorial_interfaces__rosidl_typesupport_c
+[1.978s] [ 76%] Built target tutorial_interfaces__rosidl_typesupport_introspection_cpp
+[2.738s] running egg_info
+[2.738s] writing tutorial_interfaces.egg-info/PKG-INFO
+[2.741s] writing dependency_links to tutorial_interfaces.egg-info/dependency_links.txt
+[2.751s] writing top-level names to tutorial_interfaces.egg-info/top_level.txt
+[2.755s] reading manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+[2.760s] writing manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+[2.912s] [ 76%] Built target ament_cmake_python_build_tutorial_interfaces_egg
+[3.019s] [ 76%] Built target tutorial_interfaces
+[3.123s] [ 78%] Built target tutorial_interfaces__py
+[3.238s] [ 87%] Built target tutorial_interfaces__rosidl_generator_py
+[3.354s] [ 91%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[3.454s] [ 95%] Built target tutorial_interfaces__rosidl_typesupport_introspection_c__pyext
+[3.566s] [100%] Built target tutorial_interfaces__rosidl_typesupport_c__pyext
+[3.652s] Invoked command in '/home/ram-user/Desktop/rosProject/build/tutorial_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/tutorial_interfaces -- -j2 -l2
+[4.026s] Invoking command in '/home/ram-user/Desktop/rosProject/build/tutorial_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/tutorial_interfaces
+[4.049s] -- Install configuration: ""
+[4.050s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/ament_index/resource_index/rosidl_interfaces/tutorial_interfaces
+[4.050s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[4.050s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[4.050s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/ball.h
+[4.051s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[4.051s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__struct.h
+[4.051s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__functions.c
+[4.051s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__type_support.h
+[4.051s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__type_support.h
+[4.052s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__struct.h
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__functions.c
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__functions.h
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__functions.h
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__struct.h
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__functions.h
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__type_support.h
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__functions.c
+[4.063s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_generator_c__visibility_control.h
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/vel.h
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/score.h
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/library_path.sh
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/library_path.dsv
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_c.so
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.064s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[4.070s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__rosidl_typesupport_fastrtps_c.h
+[4.070s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__rosidl_typesupport_fastrtps_c.h
+[4.070s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__rosidl_typesupport_fastrtps_c.h
+[4.072s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_c.so
+[4.073s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[4.074s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[4.075s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/score.hpp
+[4.075s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[4.076s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__traits.hpp
+[4.091s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__traits.hpp
+[4.091s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__struct.hpp
+[4.091s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__struct.hpp
+[4.091s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__struct.hpp
+[4.091s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__builder.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__builder.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__builder.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__traits.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/vel.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/ball.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__rosidl_typesupport_fastrtps_cpp.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__rosidl_typesupport_fastrtps_cpp.hpp
+[4.092s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/dds_fastrtps
+[4.093s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__rosidl_typesupport_fastrtps_cpp.hpp
+[4.093s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.096s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[4.097s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[4.097s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[4.097s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.097s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[4.097s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__rosidl_typesupport_introspection_c.h
+[4.097s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__type_support.c
+[4.098s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__rosidl_typesupport_introspection_c.h
+[4.098s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__type_support.c
+[4.098s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__type_support.c
+[4.098s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__rosidl_typesupport_introspection_c.h
+[4.113s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_c.so
+[4.119s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_c.so
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__rosidl_typesupport_introspection_cpp.hpp
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__type_support.cpp
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__type_support.cpp
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/score__rosidl_typesupport_introspection_cpp.hpp
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/ball__rosidl_typesupport_introspection_cpp.hpp
+[4.120s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/vel__type_support.cpp
+[4.122s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_cpp.so
+[4.134s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_cpp.so
+[4.134s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/pythonpath.sh
+[4.134s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/pythonpath.dsv
+[4.135s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info
+[4.135s] -- Installing: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[4.135s] -- Installing: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[4.136s] -- Installing: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[4.136s] -- Installing: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/__init__.py
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_c.c
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/libtutorial_interfaces__rosidl_generator_py.so
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg
+[4.136s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/__init__.py
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_score_s.c
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_vel_s.c
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_ball.py
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_score.py
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_vel.py
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_ball_s.c
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[4.137s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[4.222s] Listing '/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces'...
+[4.222s] Listing '/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg'...
+[4.248s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[4.251s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[4.263s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[4.273s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_py.so
+[4.273s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/msg/Ball.idl
+[4.274s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/msg/Score.idl
+[4.274s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/msg/Vel.idl
+[4.274s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/msg/Ball.msg
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/msg/Score.msg
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/msg/Vel.msg
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/ament_index/resource_index/package_run_dependencies/tutorial_interfaces
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/ament_index/resource_index/parent_prefix_path/tutorial_interfaces
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/ament_prefix_path.sh
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/ament_prefix_path.dsv
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/path.sh
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/environment/path.dsv
+[4.275s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.bash
+[4.276s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.sh
+[4.276s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.zsh
+[4.276s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.dsv
+[4.276s] -- Installing: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/package.dsv
+[4.278s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/ament_index/resource_index/packages/tutorial_interfaces
+[4.279s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_cExport.cmake
+[4.285s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_cExport-noconfig.cmake
+[4.286s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[4.286s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.286s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_cppExport.cmake
+[4.290s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.291s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.291s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[4.291s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.295s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cExport.cmake
+[4.295s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[4.298s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[4.298s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.298s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cppExport.cmake
+[4.298s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[4.302s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_pyExport.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/rosidl_cmake-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfacesConfig.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfacesConfig-version.cmake
+[4.303s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/package.xml
+[4.347s] Invoked command in '/home/ram-user/Desktop/rosProject/build/tutorial_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/tutorial_interfaces

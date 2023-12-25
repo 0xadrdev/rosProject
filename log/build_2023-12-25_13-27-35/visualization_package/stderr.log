@@ -1,0 +1,11 @@
+[01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:[m[K In member function ‘[01m[Kvoid Pong_field::DrawField()[m[K’:
+[01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:60:40:[m[K [01;31m[Kerror: [m[K‘[01m[KPADDLE_HEIGHT[m[K’ was not declared in this scope; did you mean ‘[01m[KWALL_HEIGHT[m[K’?
+   60 |   sdl2_ui.drawRectangle(0, batCenter - [01;31m[KPADDLE_HEIGHT[m[K / 2, PADDLE_WIDTH, batCenter + PADDLE_HEIGHT / 2);
+      |                                        [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                        [32m[KWALL_HEIGHT[m[K
+[01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:60:59:[m[K [01;31m[Kerror: [m[K‘[01m[KPADDLE_WIDTH[m[K’ was not declared in this scope
+   60 |   sdl2_ui.drawRectangle(0, batCenter - PADDLE_HEIGHT / 2, [01;31m[KPADDLE_WIDTH[m[K, batCenter + PADDLE_HEIGHT / 2);
+      |                                                           [01;31m[K^~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/visualization_package.dir/build.make:104: CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/visualization_package.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

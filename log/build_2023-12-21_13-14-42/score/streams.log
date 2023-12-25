@@ -1,0 +1,22 @@
+[0.056s] Invoking command in '/home/ram-user/Desktop/rosProject/build/score': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/score -- -j2 -l2
+[0.179s] [100%] Built target score
+[0.210s] Invoked command in '/home/ram-user/Desktop/rosProject/build/score' returned '0': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/score -- -j2 -l2
+[1.134s] Invoking command in '/home/ram-user/Desktop/rosProject/build/score': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/score
+[1.144s] -- Install configuration: ""
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/lib/score/score
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/ament_index/resource_index/package_run_dependencies/score
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/ament_index/resource_index/parent_prefix_path/score
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/environment/ament_prefix_path.sh
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/environment/ament_prefix_path.dsv
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/environment/path.sh
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/environment/path.dsv
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/local_setup.bash
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/local_setup.sh
+[1.145s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/local_setup.zsh
+[1.146s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/local_setup.dsv
+[1.146s] -- Installing: /home/ram-user/Desktop/rosProject/install/score/share/score/package.dsv
+[1.146s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/ament_index/resource_index/packages/score
+[1.146s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/cmake/scoreConfig.cmake
+[1.146s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/cmake/scoreConfig-version.cmake
+[1.146s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/score/share/score/package.xml
+[1.155s] Invoked command in '/home/ram-user/Desktop/rosProject/build/score' returned '0': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/score

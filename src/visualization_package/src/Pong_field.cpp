@@ -42,6 +42,7 @@ void Pong_field::DrawField() {
   int batCenter;
 
   sdl2_ui.clear(); // Clear the draw buffer. This calls SDL2_UI::clear.
+  sdl2_ui.processEvents();
 
   // We draw each element in a different color. This helps with debugging.
 
@@ -49,31 +50,31 @@ void Pong_field::DrawField() {
 
   // Draw walls. They are static so we hard-code them here.
   sdl2_ui.setDrawColor(255, 255, 255, 255);
-  sdl2_ui.drawRectangle(0, 0, screenWidth - 1, wallHeight); // Top wall
-  sdl2_ui.drawRectangle(0, screenHeight - wallHeight - 1, screenWidth - 1, screenHeight - 1); // Bottom wall
+  sdl2_ui.drawRectangle(0, 0, SCREEN_WIDTH - 1, WALL_HEIGHT); // Top wall
+  sdl2_ui.drawRectangle(0, SCREEN_HEIGHT - WALL_HEIGHT - 1, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1); // Bottom wall
 
   // Left bat
   sdl2_ui.setDrawColor(255, 255, 255, 255);
-  batCenter = (int)(170 * sin(yBatLeft / 100)) + screenHeight / 2; // Just some stupid formula. Change yourself :-)
-  // batCenter = (int) (yBatLeft);  // Just some stupid formula. Change yourself :-)
-  sdl2_ui.drawRectangle(0, batCenter - batHeight / 2, batWidth, batCenter + batHeight / 2);
+  // batCenter = (int)(170 * sin(yBatLeft / 100)) + SCREEN_HEIGHT / 2; // Just some stupid formula. Change yourself :-)
+  batCenter = (int) (yBatLeft);  // Just some stupid formula. Change yourself :-)
+  sdl2_ui.drawRectangle(0, batCenter - PADDLE_HEIGHT / 2, PADDLE_WIDTH, batCenter + PADDLE_HEIGHT / 2);
 
   // Right bat
   sdl2_ui.setDrawColor(255, 255, 255, 255);
-  batCenter = (int)(150 * cos(yBatRight / 140)) + screenHeight / 2; // Just some stupid formula. Change yourself :-)
-  // batCenter = (int) (yBatRight);  // Just some stupid formula. Change yourself :-)
-  sdl2_ui.drawRectangle(screenWidth - 1 - batWidth, batCenter - batHeight / 2, screenWidth - 1, batCenter + batHeight / 2);
+  // batCenter = (int)(150 * cos(yBatRight / 140)) + SCREEN_HEIGHT / 2; // Just some stupid formula. Change yourself :-)
+  batCenter = (int) (yBatRight);  // Just some stupid formula. Change yourself :-)
+  sdl2_ui.drawRectangle(SCREEN_WIDTH - 1 - PADDLE_WIDTH, batCenter - PADDLE_HEIGHT / 2, SCREEN_WIDTH - 1, batCenter + PADDLE_HEIGHT / 2);
 
   // Ball
   sdl2_ui.setDrawColor(255, 255, 255, 255); // Ball is white
-  int ballCenterX = (int)(150 * cos(xBall / 40)) + screenWidth / 2; // Just some stupid formula. Change yourself :-)
-  int ballCenterY = (int)(40 * cos(yBall / 35)) + screenHeight / 2; // Just some stupid formula. Change yourself :-)
-  // int ballCenterX = (int) (xBall);  // Just some stupid formula. Change yourself :-)
-  // int ballCenterY = (int) (yBall);  // Just some stupid formula. Change yourself :-)
-  sdl2_ui.drawRectangle(ballCenterX - ballSize / 2, ballCenterY - ballSize / 2, ballCenterX + ballSize / 2, ballCenterY + ballSize / 2);
+  // int ballCenterX = (int)(150 * cos(xBall / 40)) + SCREEN_WIDTH / 2; // Just some stupid formula. Change yourself :-)
+  // int ballCenterY = (int)(40 * cos(yBall / 35)) + SCREEN_HEIGHT / 2; // Just some stupid formula. Change yourself :-)
+  int ballCenterX = (int) (xBall);  // Just some stupid formula. Change yourself :-)
+  int ballCenterY = (int) (yBall);  // Just some stupid formula. Change yourself :-)
+  sdl2_ui.drawRectangle(ballCenterX - BALL_SIZE / 2, ballCenterY - BALL_SIZE / 2, ballCenterX + BALL_SIZE / 2, ballCenterY + BALL_SIZE / 2);
 
   // Text
-  sdl2_ui.drawText(fieldText, screenWidth / 2, screenHeight / 4);
+  sdl2_ui.drawText(fieldText, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4);
 
   // Show it on the screen
   sdl2_ui.present(); // This calls SDL2_UI::present

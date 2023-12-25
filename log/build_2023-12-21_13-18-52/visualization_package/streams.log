@@ -1,0 +1,28 @@
+[0.019s] Invoking command in '/home/ram-user/Desktop/rosProject/build/visualization_package': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
+[0.100s] [35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[0.139s] [ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/my_node.cpp.o[0m
+[9.709s] [ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/SDL2_UI.cpp.o[0m
+[10.661s] [ 75%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m
+[21.337s] [100%] [32m[1mLinking CXX executable visualization_package[0m
+[22.913s] [100%] Built target visualization_package
+[22.950s] Invoked command in '/home/ram-user/Desktop/rosProject/build/visualization_package' returned '0': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
+[23.054s] Invoking command in '/home/ram-user/Desktop/rosProject/build/visualization_package': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/visualization_package
+[23.069s] -- Install configuration: ""
+[23.070s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/lib/visualization_package/visualization_package
+[23.139s] -- Set runtime path of "/home/ram-user/Desktop/rosProject/install/visualization_package/lib/visualization_package/visualization_package" to ""
+[23.139s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/ament_index/resource_index/package_run_dependencies/visualization_package
+[23.140s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/ament_index/resource_index/parent_prefix_path/visualization_package
+[23.147s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/ament_prefix_path.sh
+[23.158s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/ament_prefix_path.dsv
+[23.159s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/path.sh
+[23.161s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/environment/path.dsv
+[23.163s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.bash
+[23.164s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.sh
+[23.164s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.zsh
+[23.164s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/local_setup.dsv
+[23.165s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/package.dsv
+[23.166s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/ament_index/resource_index/packages/visualization_package
+[23.168s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/cmake/visualization_packageConfig.cmake
+[23.168s] -- Installing: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/cmake/visualization_packageConfig-version.cmake
+[23.169s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/visualization_package/share/visualization_package/package.xml
+[23.169s] Invoked command in '/home/ram-user/Desktop/rosProject/build/visualization_package' returned '0': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/visualization_package

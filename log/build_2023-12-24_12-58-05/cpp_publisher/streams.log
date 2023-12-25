@@ -1,0 +1,24 @@
+[0.079s] Invoking command in '/home/ram-user/Desktop/rosProject/build/cpp_publisher': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/cpp_publisher -- -j2 -l2
+[0.324s] [ 50%] Built target talker
+[0.542s] [100%] Built target listener
+[0.668s] Invoked command in '/home/ram-user/Desktop/rosProject/build/cpp_publisher' returned '0': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/cpp_publisher -- -j2 -l2
+[1.732s] Invoking command in '/home/ram-user/Desktop/rosProject/build/cpp_publisher': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/cpp_publisher
+[1.755s] -- Install configuration: ""
+[1.760s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/lib/cpp_publisher/talker
+[1.772s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/lib/cpp_publisher/listener
+[1.773s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/ament_index/resource_index/package_run_dependencies/cpp_publisher
+[1.777s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/ament_index/resource_index/parent_prefix_path/cpp_publisher
+[1.778s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/environment/ament_prefix_path.sh
+[1.784s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/environment/ament_prefix_path.dsv
+[1.784s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/environment/path.sh
+[1.785s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/environment/path.dsv
+[1.786s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/local_setup.bash
+[1.786s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/local_setup.sh
+[1.787s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/local_setup.zsh
+[1.787s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/local_setup.dsv
+[1.802s] -- Installing: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/package.dsv
+[1.804s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/ament_index/resource_index/packages/cpp_publisher
+[1.806s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/cmake/cpp_publisherConfig.cmake
+[1.807s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/cmake/cpp_publisherConfig-version.cmake
+[1.808s] -- Up-to-date: /home/ram-user/Desktop/rosProject/install/cpp_publisher/share/cpp_publisher/package.xml
+[1.845s] Invoked command in '/home/ram-user/Desktop/rosProject/build/cpp_publisher' returned '0': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ram-user/Desktop/rosProject/build/cpp_publisher

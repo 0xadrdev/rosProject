@@ -1,0 +1,38 @@
+[0.084s] Invoking command in '/home/ram-user/Desktop/rosProject/build/visualization_package': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
+[0.456s] -- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.112s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[1.713s] -- Found rclcpp: 16.0.3 (/opt/ros/humble/share/rclcpp/cmake)
+[1.969s] -- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.997s] -- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.037s] -- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.131s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.249s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.675s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.688s] -- Found rmw_fastrtps_cpp: 6.2.2 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.388s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.182s] -- Found tutorial_interfaces: 0.0.0 (/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/share/tutorial_interfaces/cmake)
+[4.375s] -- Found ament_lint_auto: 0.12.5 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.641s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.642s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ram-user/Desktop/rosProject/src/visualization_package/include>
+[4.642s] -- Configured cppcheck exclude dirs and/or files: 
+[4.645s] -- Added test 'lint_cmake' to check CMake code style
+[4.653s] -- Added test 'uncrustify' to check C / C++ code style
+[4.654s] -- Configured uncrustify additional arguments: 
+[4.663s] -- Added test 'xmllint' to check XML markup files
+[4.700s] -- Configuring done
+[4.826s] -- Generating done
+[4.841s] -- Build files have been written to: /home/ram-user/Desktop/rosProject/build/visualization_package
+[5.046s] [35m[1mConsolidate compiler generated dependencies of target visualization_package[0m
+[5.112s] [ 25%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/my_node.cpp.o[0m
+[49.987s] [ 50%] [32mBuilding CXX object CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o[0m
+[50.916s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:[m[K In member function ‘[01m[Kvoid Pong_field::DrawField()[m[K’:
+[50.922s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:73:7:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kint ballCenterY[m[K’
+[50.922s]    73 |   int [01;31m[KballCenterY[m[K = (int) (yBall);  // Just some stupid formula. Change yourself :-)
+[50.922s]       |       [01;31m[K^~~~~~~~~~~[m[K
+[50.922s] [01m[K/home/ram-user/Desktop/rosProject/src/visualization_package/src/Pong_field.cpp:71:7:[m[K [01;36m[Knote: [m[K‘[01m[Kint ballCenterY[m[K’ previously declared here
+[50.922s]    71 |   int [01;36m[KballCenterY[m[K = (int)(40 * cos(yBall / 35)) + screenHeight / 2; // Just some stupid formula. Change yourself :-)
+[50.922s]       |       [01;36m[K^~~~~~~~~~~[m[K
+[51.056s] gmake[2]: *** [CMakeFiles/visualization_package.dir/build.make:104: CMakeFiles/visualization_package.dir/src/Pong_field.cpp.o] Error 1
+[51.056s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/visualization_package.dir/all] Error 2
+[51.056s] gmake: *** [Makefile:146: all] Error 2
+[51.190s] Invoked command in '/home/ram-user/Desktop/rosProject/build/visualization_package' returned '2': AMENT_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ram-user/Desktop/rosProject/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ram-user/Desktop/rosProject/build/visualization_package -- -j2 -l2
