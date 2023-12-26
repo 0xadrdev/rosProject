@@ -13,24 +13,23 @@ void logic::checkCollision() {
 	
 	// Getting all the private data.
 	//ballRadius = this->ballRadius;
-	//wallHeight = this->wallHeight;
-	//screenWidth = this->screenWidth;
-	//screenHeight = this->screenHeight;
-	//batWidth = this->batWidth;
-	//batHeight = this->batHeight;
-	
+	//WALL_HEIGHT = this->WALL_HEIGHT;
+	//SCREEN_WIDTH = this->SCREEN_WIDTH;
+	// SCREEN_HEIGHT = this- SCREEN_HEIGHT;
+	//PADDLE_WIDTH= this->PADDLE_WIDTH;
+	//PADDLE_HEIGHT / = this->PADDLE_HEIGHT / 	
 	// Checking the collision type: 
-	if (ballPosX >= screenWidth + 15) {
+	if (ballPosX >= SCREEN_WIDTH + 15) {
 		collision = 5;
 	} else if (ballPosX <= -15) {
 		collision = 6;
-	} else if (ballPosY - ballSize <= wallHeight) {							        // Top wall
+	} else if (ballPosY - BALL_SIZE <= WALL_HEIGHT) {							        // Top wall
 		collision = 1; 	// Collision with top wall indicator
-	} else if (ballPosY + ballSize/2 >= screenHeight - wallHeight) {						// Bottom wall
+	} else if (ballPosY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT) {						// Bottom wall
 		collision = 2;	// Collision with bottom wall indicator
-	} else if ((ballPosX - ballSize/2 <= batWidth + ballSize/2) && (abs(padPosLeft - ballPosY - ballSize/2) <= batHeight/2) ){	// Left bat
+	} else if ((ballPosX - BALL_SIZE / 2 <= PADDLE_WIDTH + BALL_SIZE/2) && (abs(padPosLeft - ballPosY - BALL_SIZE/2) <= PADDLE_HEIGHT / 2) ){	// Left bat
 		collision = 3; 	// Collision with left bat
-	} else if ((ballPosX + ballSize/2 >= screenWidth - batWidth - ballSize/2) && (abs(padPosRight - ballPosY - ballSize/2) <= batHeight/2)) {	// Right bat
+	} else if ((ballPosX + BALL_SIZE / 2 >= SCREEN_WIDTH - PADDLE_WIDTH- BALL_SIZE / 2) && (abs(padPosRight - ballPosY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2)) {	// Right bat
 		collision = 4;	// Collision with right bat
 	} else {
 		collision = 0; 	// No collision takes place

@@ -48,26 +48,35 @@ class SubpubPaddlePhysics : public rclcpp::Node
       // Setting up the message. 
       auto paddle_pos_msg = std_msgs::msg::Float64();
       
-      //double paddlePosition = -1000;
-      //if (paddlePosition == -1000) {
-      //    paddlePosition = 300; 
-      //}
       double velY = 5;
-      if (keyInput == 115 && paddlePosition <= 520) {
+      if (keyInput == 115 && paddlePosition <= 520) { // 115 -> W
           paddle_pos_msg.data = paddlePosition + velY;
       	  paddlePosition = paddlePosition + velY;
-      } else if (keyInput == 119 && paddlePosition >= 80) {
+      } else if (keyInput == 119 && paddlePosition >= 80) { // 119 -> S
       	  paddle_pos_msg.data = paddlePosition - velY;
       	  paddlePosition = paddlePosition - velY;
       } else {
       	  paddle_pos_msg.data = paddlePosition; 
       }
+
+      auto right_paddle_pos_msg = std_msgs::msg::Float64();
+
+      if (keyInput == 66 && rightPaddlePosition <= 520) {
+          right_paddle_pos_msg.data = rightPaddlePosition + velY;
+      	  rightPaddlePosition = rightPaddlePosition + velY;
+      } else if (keyInput == 65 && rightPaddlePosition >= 80) {
+      	  right_paddle_pos_msg.data = rightPaddlePosition - velY;
+      	  rightPaddlePosition = rightPaddlePosition - velY;
+      } else {
+      	  right_paddle_pos_msg.data = rightPaddlePosition; 
+      }
       
       // Publish the message
       paddle_pos_publisher_->publish(paddle_pos_msg);
+      right_paddle_pos_publisher_->publish(right_paddle_pos_msg);
       
       RCLCPP_INFO(this->get_logger(), "Publishing first_paddle_position: %1f", paddle_pos_msg.data);
-      
+      RCLCPP_INFO(this->get_logger(), "Publishing second_paddle_position: %1f", right_paddle_pos_msg.data);
     }
     
     void light_callback(const std_msgs::msg::Float64::SharedPtr msg)

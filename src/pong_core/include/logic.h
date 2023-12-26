@@ -36,16 +36,25 @@ private:
 	double padPosLeft;// = 300; // Speed of the ball. 
 	double padPosRight;// = 300; // Direction of movement of the ball. 
 	int collision;// = 0; // Variable storing the type of collision. 
+
+	static const int SCREEN_WIDTH = 1000;
+    static const int SCREEN_HEIGHT = 600;
+    static const int fontSize = 160;
+
+    static const int WALL_HEIGHT = 15;
+    static const int PADDLE_WIDTH = 5;
+    static const int PADDLE_HEIGHT = 100; // Make sure this is even
+    static const int BALL_SIZE = 30 / 2; // Make sure this is even
 	
 	// Size settings. All in pixels.
-        static const int screenWidth = 1000;
-        static const int screenHeight = 600;
-        static const int fontSize = 160;
+	// static const int screenWidth = 1000;
+	// static const int screenHeight = 600;
+	// static const int fontSize = 160;
 
-        static const int wallHeight = 30;
-        static const int batWidth = 30;
-        static const int batHeight = 100; // Make sure this is even
-        static const int ballSize = 30/2; // Make sure this is even
+	// static const int wallHeight = 30;
+	// static const int batWidth = 30;
+	// static const int batHeight = 100; // Make sure this is even
+	// static const int ballSize = 30/2; // Make sure this is even
 };
 
 #endif // BALL_PHYSICS_H
