@@ -1,3 +1,11 @@
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
+
 #include <stdexcept>
 #include "sensor_msgs/msg/image.hpp"
 #include "sensor_msgs/image_encodings.hpp"

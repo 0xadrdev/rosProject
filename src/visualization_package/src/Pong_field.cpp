@@ -1,4 +1,12 @@
-/* Pong_field.cpp */ #include <string>
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
+
+#include <string>
 
 #include "../include/Pong_field.h"
 

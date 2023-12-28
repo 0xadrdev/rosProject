@@ -1,7 +1,11 @@
-/**
- * \file
- * Description of SDL2_UI.h file.
- */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
+
 #include <string>
 #include <iostream>
 #include "../include/SDL2_UI.h"

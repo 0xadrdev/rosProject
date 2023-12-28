@@ -1,4 +1,10 @@
-/* logic.h */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
 
 #ifndef LOGIC_H
 #define LOGIC_H

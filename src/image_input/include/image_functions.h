@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : image_functions.h
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
+
 #include <stdexcept>
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/image.hpp"

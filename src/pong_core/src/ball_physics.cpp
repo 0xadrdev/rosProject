@@ -1,4 +1,10 @@
-/* ball_physics.cpp */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
 
 #include "ball_physics.h"
 

@@ -1,4 +1,10 @@
-/* ball_physics.h */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
 
 #ifndef BALL_PHYSICS_H
 #define BALL_PHYSICS_H

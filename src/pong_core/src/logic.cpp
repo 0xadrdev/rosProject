@@ -1,7 +1,12 @@
-/* logic.cpp */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
 
 #include "logic.h"
-
 #include <cmath>
 
 logic::logic(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col)

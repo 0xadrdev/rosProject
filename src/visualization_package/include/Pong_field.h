@@ -1,4 +1,11 @@
-/* Pong_field.h */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
+
 #include <string>
 #include "SDL2_UI.h"
 

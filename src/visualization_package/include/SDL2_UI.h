@@ -1,7 +1,10 @@
-/**
- * \file
- * Description of SDL2_UI.h file.
- */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
 
 #ifndef _SDL2SRC_UI_H_
 #define _SDL2SRC_UI_H_

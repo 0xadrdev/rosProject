@@ -4,7 +4,8 @@
   <name>paddle_physics</name>
   <version>0.0.0</version>
   <description>Package keyboard input of the traditional Pong game</description>
-  <maintainer email="i.kuijper@student.utwente.nl">Idse Kuijper</maintainer>
+  <maintainer email="j.perezdiago@student.utwente.nl">Jordi Perez Diago</maintainer>
+
   <license>Apache license 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

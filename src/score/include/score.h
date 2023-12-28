@@ -1,4 +1,10 @@
-/* score.h */
+//==============================================================
+// Filename :
+// Authors : Jordi Perez Diago 
+// Group : 
+// License : Apache license 2.0
+// Description :
+//==============================================================
 
 #ifndef SCORE_H
 #define Score_H
