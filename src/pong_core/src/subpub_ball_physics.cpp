@@ -32,7 +32,7 @@ class SubpubBallPhysics: public rclcpp::Node {
 
     void vel_callback(const tutorial_interfaces::msg::Vel & msg) {
       // Confirming data is read
-      RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
 
       //ball_physics pongPhysics_;
 
@@ -51,7 +51,7 @@ class SubpubBallPhysics: public rclcpp::Node {
       // Publish the message
       ball_pos_publisher_ -> publish(ball_pos_msg);
 
-      RCLCPP_INFO(this -> get_logger(), "Publishing ball_position: (%f, %f)", ball_pos_msg.x, ball_pos_msg.y);
+      // RCLCPP_INFO(this -> get_logger(), "Publishing ball_position: (%f, %f)", ball_pos_msg.x, ball_pos_msg.y);
 
     }
 

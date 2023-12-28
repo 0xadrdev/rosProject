@@ -40,25 +40,25 @@ class MinimalSubscriber : public rclcpp::Node
   private:
   
     void ball_callback(const tutorial_interfaces::msg::Ball & msg) const {
-      RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
 
       field_->setXYBall(msg.x, msg.y);
     }
     
     void first_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg) const {
-      RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
+      // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
 
       field_->setYBatLeft(msg->data);
     }
 
     void second_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg) const {
-      RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
+      // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
 
       field_->setYBatRight(msg->data);
     }
 
     void score_callback(const tutorial_interfaces::msg::Score & msg) const {
-      RCLCPP_INFO(this->get_logger(), "Received score: %d - %d", msg.first, msg.second);
+      // RCLCPP_INFO(this->get_logger(), "Received score: %d - %d", msg.first, msg.second);
 
       field_ -> setFieldText(std::to_string(msg.first) + std::string(" - ") + std::to_string(msg.second));
       field_ -> DrawField();

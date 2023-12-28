@@ -102,7 +102,7 @@ int KeyboardInputNode::keyLoop()
       return -1;
     }
 
-    RCLCPP_INFO(nh_->get_logger(), "value: %3d = 0x%02X\n", c, c);
+    // RCLCPP_INFO(nh_->get_logger(), "value: %3d = 0x%02X\n", c, c);
        
     std_msgs::msg::Int16 keyCode;
     

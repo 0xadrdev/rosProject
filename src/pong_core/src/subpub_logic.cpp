@@ -42,7 +42,7 @@ class SubpubLogic : public rclcpp::Node
     private:
     void ball_callback(const tutorial_interfaces::msg::Ball & msg) {
     	// Confirming data is read correctly
-	RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+	// RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
     	
     	// Update the ball position using the message from the subscription
         pongLogic_.setBallPosX(msg.x);
@@ -53,14 +53,14 @@ class SubpubLogic : public rclcpp::Node
     
     void first_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg)
     {
-      RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
+      // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
       pongLogic_.setPadPosLeft(msg->data);
       //pongLogic_.setPadPosRight(msg->data);	// Only done for testing (control both paddles with one input, REMOVE LATER
     }
 
     void second_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg)
     {
-      RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
+      // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
       pongLogic_.setPadPosRight(msg->data);
     }
     
@@ -77,7 +77,7 @@ class SubpubLogic : public rclcpp::Node
 	// Publishing the updated ball velocity. 
         ball_vel_publisher_->publish(ball_vel_msg);
 
-        RCLCPP_INFO(this->get_logger(), "Publishing ball_velocity: (%f, %f)", ball_vel_msg.x, ball_vel_msg.y);
+        // RCLCPP_INFO(this->get_logger(), "Publishing ball_velocity: (%f, %f)", ball_vel_msg.x, ball_vel_msg.y);
         
     }
 

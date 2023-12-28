@@ -42,7 +42,7 @@ class SubpubPaddlePhysics : public rclcpp::Node
     void key_callback(const std_msgs::msg::Int16::SharedPtr msg)
     {
       // Confirming data is read
-      RCLCPP_INFO_STREAM(this->get_logger(), "I heard '" << msg->data << "'");
+      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard '" << msg->data << "'");
       int keyInput = msg->data;
       
       // Setting up the message. 
@@ -75,14 +75,14 @@ class SubpubPaddlePhysics : public rclcpp::Node
       paddle_pos_publisher_->publish(paddle_pos_msg);
       right_paddle_pos_publisher_->publish(right_paddle_pos_msg);
       
-      RCLCPP_INFO(this->get_logger(), "Publishing first_paddle_position: %1f", paddle_pos_msg.data);
-      RCLCPP_INFO(this->get_logger(), "Publishing second_paddle_position: %1f", right_paddle_pos_msg.data);
+      // RCLCPP_INFO(this->get_logger(), "Publishing first_paddle_position: %1f", paddle_pos_msg.data);
+      // RCLCPP_INFO(this->get_logger(), "Publishing second_paddle_position: %1f", right_paddle_pos_msg.data);
     }
     
     void light_callback(const std_msgs::msg::Float64::SharedPtr msg)
     {
       // Confirming data is read
-      RCLCPP_INFO_STREAM(this->get_logger(), "I heard '" << msg->data << "'");
+      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard '" << msg->data << "'");
       
       int lightInput = msg->data; // Holding the light high means low value, holding it low means high value.
       
@@ -103,7 +103,7 @@ class SubpubPaddlePhysics : public rclcpp::Node
       // Publish the message
       right_paddle_pos_publisher_->publish(right_paddle_pos_msg);
       
-      RCLCPP_INFO(this->get_logger(), "Publishing second_paddle_position: %1f", right_paddle_pos_msg.data);
+      // RCLCPP_INFO(this->get_logger(), "Publishing second_paddle_position: %1f", right_paddle_pos_msg.data);
       
     }
     

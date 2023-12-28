@@ -110,7 +110,7 @@ class SubpubLight : public rclcpp::Node
       // Publish the message
       paddle_pos_publisher_->publish(paddle_pos_msg);
       
-      RCLCPP_INFO(this->get_logger(), "Publishing light_position: %f", paddle_pos_msg.data);
+      // RCLCPP_INFO(this->get_logger(), "Publishing light_position: %f", paddle_pos_msg.data);
       
     }
     

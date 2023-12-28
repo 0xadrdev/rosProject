@@ -38,7 +38,7 @@ class SubpubScore : public rclcpp::Node
     void pos_callback(const tutorial_interfaces::msg::Ball & msg)
     {
       // Confirming data is read
-      RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
       
       // Computing score updates using object
       score_.setBallPosX(msg.x);
@@ -58,7 +58,7 @@ class SubpubScore : public rclcpp::Node
       // Publish the message
       score_publisher_->publish(score_msg);
       
-      RCLCPP_INFO(this->get_logger(), "Publishing score: (%d - %d)", score_msg.first, score_msg.second);
+      // RCLCPP_INFO(this->get_logger(), "Publishing score: (%d - %d)", score_msg.first, score_msg.second);
       
     }
     
