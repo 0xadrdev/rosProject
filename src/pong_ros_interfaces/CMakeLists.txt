@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(paddle_physics)
+project(pong_ros_interfaces)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,24 +7,24 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
-add_executable(paddle_physics
-    src/subpub_paddle_physics.cpp
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+set(msg_files
+  "msg/Ball.msg"
+  "msg/Score.msg"
+  "msg/Vel.msg"
 )
-ament_target_dependencies(paddle_physics rclcpp std_msgs)
 
-# Check whether this is needed if no header files
-#target_include_directories(paddle_physics PUBLIC
-#  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#  $<INSTALL_INTERFACE:include>)
-#target_compile_features(physics PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-
-#install(TARGETS suppub_paddle_physics
-install(TARGETS 
-  paddle_physics
-  DESTINATION lib/${PROJECT_NAME})
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Ball.msg"
+  "msg/Score.msg"
+  "msg/Vel.msg"
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

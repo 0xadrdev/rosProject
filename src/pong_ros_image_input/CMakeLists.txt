@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(score)
+project(pong_ros_image_input)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,24 +7,28 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(tutorial_interfaces REQUIRED)                      # For custom interface.
+find_package(sensor_msgs REQUIRED)    
 
-add_executable(score
-    src/subpub_score.cpp
-    src/score.cpp
+add_executable(image
+    src/subpub_light.cpp
+    src/image_functions.cpp
 )
-ament_target_dependencies(score rclcpp std_msgs tutorial_interfaces)
+ament_target_dependencies(image rclcpp std_msgs sensor_msgs)
 
-target_include_directories(score PUBLIC
+target_include_directories(image PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(score PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(image PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
+#install(TARGETS suppub_logic
 install(TARGETS 
-  score
+  image
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

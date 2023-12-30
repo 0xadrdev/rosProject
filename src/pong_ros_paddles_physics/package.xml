@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>visualization_package</name>
+  <name>pong_ros_paddles_physics</name>
   <version>0.0.0</version>
-  <description>Package visualizing the traditional Pong game</description>
+  <description>Package keyboard input of the traditional Pong game</description>
   <maintainer email="j.perezdiago@student.utwente.nl">Jordi Perez Diago</maintainer>
 
   <license>Apache license 2.0</license>
@@ -11,7 +11,6 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rclcpp</depend> 
   <depend>std_msgs</depend>
-  <depend>tutorial_interfaces</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

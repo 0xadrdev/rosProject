@@ -1,8 +1,8 @@
 <launch>
   <node pkg="pong_core" exec="physics" name="physics"/>
   <node pkg="score" exec="score" name="score"/>
-  <node pkg="paddle_physics" exec="paddle_physics" name="paddle_physics"/>
-  <node pkg="score" exec="score" name="score"/>
+  <node pkg="pong_ros_paddles_physics" exec="pong_ros_paddles_physics" name="pong_ros_paddles_physics"/>
+  <node pkg="pong_ros_score" exec="pong_ros_score" name="pong_ros_score"/>
   <node pkg="visualization_package" exec="visualization_package" name="visualization_package"/>
   <node pkg="pong_core" exec="logic" name="logic"/> 
 </launch>

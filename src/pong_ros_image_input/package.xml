@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>image_input</name>
+  <name>pong_ros_image_input</name>
   <version>0.0.0</version>
   <description>Package of image analysis Pong game</description>
   <maintainer email="j.perezdiago@student.utwente.nl">Jordi Perez Diago</maintainer>

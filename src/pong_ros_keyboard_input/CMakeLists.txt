@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(tutorial_interfaces)
+project(pong_ros_keyboard_input)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,29 +7,24 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+
+find_package(std_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-find_package(geometry_msgs REQUIRED)
-find_package(rosidl_default_generators REQUIRED)
+add_executable(pong_ros_keyboard_input src/keyboard_input.cpp)
+target_include_directories(pong_ros_keyboard_input PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(pong_ros_keyboard_input PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+ament_target_dependencies(pong_ros_keyboard_input rclcpp std_msgs)
 
-set(msg_files
-  "msg/Ball.msg"
-  "msg/Score.msg"
-  "msg/Vel.msg"
-  # etc
-)
+# target_link_libraries(pong_ros_keyboard_input rclcpp std_msgs)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
-  #${msg_files}
-  "msg/Ball.msg"
-  "msg/Score.msg"
-  "msg/Vel.msg"
-  #"msg/Sphere.msg"
-  #"srv/AddThreeInts.srv"
-  #DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
-)
+install(TARGETS pong_ros_keyboard_input
+  DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -42,5 +37,12 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+
+# Install launch files.
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+)
 
 ament_package()

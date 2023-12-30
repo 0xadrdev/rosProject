@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(keyboard_input)
+project(pong_ros_score)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,23 +7,24 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+
 find_package(rclcpp REQUIRED)
-
 find_package(std_msgs REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(tutorial_interfaces REQUIRED)                      # For custom interface.
 
-add_executable(keyboard_input src/keyboard_input.cpp)
-target_include_directories(keyboard_input PUBLIC
+add_executable(pong_ros_score
+    src/subpub_score.cpp
+    src/score.cpp
+)
+ament_target_dependencies(pong_ros_score rclcpp std_msgs tutorial_interfaces)
+
+target_include_directories(pong_ros_score PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(keyboard_input PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(keyboard_input rclcpp std_msgs)
+target_compile_features(pong_ros_score PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-# target_link_libraries(keyboard_input rclcpp std_msgs)
-
-install(TARGETS keyboard_input
+install(TARGETS 
+  pong_ros_score
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
@@ -37,12 +38,5 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
-
-# Install launch files.
-install(DIRECTORY
-  launch
-  DESTINATION share/${PROJECT_NAME}/
-)
 
 ament_package()

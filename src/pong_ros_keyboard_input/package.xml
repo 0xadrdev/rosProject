@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>score</name>
+  <name>pong_ros_keyboard_input</name>
   <version>0.0.0</version>
-  <description>Package score for the traditional Pong game</description>
+  <description>TODO: Package description</description>
   <maintainer email="j.perezdiago@student.utwente.nl">Jordi Perez Diago</maintainer>
-
+  <license>TODO: License declaration</license>
   <license>Apache license 2.0</license>
-  
-  <buildtool_depend>ament_cmake</buildtool_depend>
-  <depend>rclcpp</depend> 
-  <depend>std_msgs</depend>
-  <depend>tutorial_interfaces</depend>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <depend>std_msgs</depend>
+
+  <exec_depend>ros2launch</exec_depend>
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
