@@ -10,13 +10,13 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-add_executable(pong_ros_paddles_physics
+add_executable(${PROJECT_NAME}
     src/subpub_paddle_physics.cpp
 )
-ament_target_dependencies(pong_ros_paddles_physics rclcpp std_msgs)
+ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs)
 
 install(TARGETS 
-  pong_ros_paddles_physics
+  ${PROJECT_NAME}
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

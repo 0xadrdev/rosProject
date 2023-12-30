@@ -15,8 +15,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include "tutorial_interfaces/msg/ball.hpp" 
-#include "tutorial_interfaces/msg/score.hpp" 
+#include "pong_ros_interfaces/msg/ball.hpp" 
+#include "pong_ros_interfaces/msg/score.hpp" 
 
 #include "score.h"
 
@@ -29,11 +29,11 @@ class SubpubScore : public rclcpp::Node
     : Node("subpub_score")
     {
       // Subscriptions
-      ballPosSub_ = this->create_subscription<tutorial_interfaces::msg::Ball>(
+      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::Ball>(
       "ball_position", 10,std::bind(&SubpubScore::pos_callback, this, _1));
       
       // Publishing
-      score_publisher_ = this->create_publisher<tutorial_interfaces::msg::Score>("score", 10);
+      score_publisher_ = this->create_publisher<pong_ros_interfaces::msg::Score>("score", 10);
       
       // Initialize the class object used to compute the ball physics
       score_ = score(); 
@@ -43,7 +43,7 @@ class SubpubScore : public rclcpp::Node
 
   private:
   
-    void pos_callback(const tutorial_interfaces::msg::Ball & msg)
+    void pos_callback(const pong_ros_interfaces::msg::Ball & msg)
     {
       // Confirming data is read
       // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
@@ -55,7 +55,7 @@ class SubpubScore : public rclcpp::Node
       /////////////////////Object computation///////////////////////////////
       
       // Setting up the message. 
-      auto score_msg = tutorial_interfaces::msg::Score();
+      auto score_msg = pong_ros_interfaces::msg::Score();
       
       int score_first = score_.getScoreFirst(); // Use the class object to compute physics
       int score_second = score_.getScoreSecond(); // Use the class object to compute physics
@@ -70,8 +70,8 @@ class SubpubScore : public rclcpp::Node
       
     }
     
-    rclcpp::Subscription<tutorial_interfaces::msg::Ball>::SharedPtr ballPosSub_;
-    rclcpp::Publisher<tutorial_interfaces::msg::Score>::SharedPtr score_publisher_;
+    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ballPosSub_;
+    rclcpp::Publisher<pong_ros_interfaces::msg::Score>::SharedPtr score_publisher_;
     // Initialize the class object used to compute the ball physics
     score score_;
     /////////////////////Object initialization///////////////////////////////

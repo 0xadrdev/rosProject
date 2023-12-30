@@ -7,47 +7,38 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-
-# Discover where rclcpp is
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-#find_package(cstlib REQUIRED)
-find_package(tutorial_interfaces REQUIRED)                      # For custom interface.
-
+find_package(pong_ros_interfaces REQUIRED) 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-
-# add_executable(my_node src/my_node.cpp)
-#add_executable(${PROJECT_NAME}
-#    src/subpub_logic.cpp
-#    src/logic.cpp
-#    src/subpub_ball_physics.cpp
-#    src/ball_physics.cpp
-#)
-#ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs tutorial_interfaces)             # For custom interface.
-
+# package executables 
 add_executable(logic
     src/subpub_logic.cpp
     src/logic.cpp
 )
-ament_target_dependencies(logic rclcpp std_msgs tutorial_interfaces)
+
+ament_target_dependencies(logic rclcpp std_msgs pong_ros_interfaces)
 
 add_executable(physics 
     src/subpub_ball_physics.cpp
     src/ball_physics.cpp
 )
-ament_target_dependencies(physics rclcpp std_msgs tutorial_interfaces)
+
+ament_target_dependencies(physics rclcpp std_msgs pong_ros_interfaces)
 
 target_include_directories(physics PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
+
 target_compile_features(physics PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 target_include_directories(logic PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
+
 target_compile_features(logic PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 #install(TARGETS suppub_logic

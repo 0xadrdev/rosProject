@@ -12,12 +12,10 @@
 #include <cstdio>
 #include <iostream>
 #include <memory>
-
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include "tutorial_interfaces/msg/ball.hpp" 
-#include "tutorial_interfaces/msg/vel.hpp" 
-
+#include "pong_ros_interfaces/msg/ball.hpp" 
+#include "pong_ros_interfaces/msg/vel.hpp" 
 #include "logic.h"
 
 using std::placeholders::_1;
@@ -29,7 +27,7 @@ class SubpubLogic : public rclcpp::Node
     : Node("subpub_logic")
     {
       // Subscriptions
-      ballPosSub_ = this->create_subscription<tutorial_interfaces::msg::Ball>(
+      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::Ball>(
       "ball_position", 10, std::bind(&SubpubLogic::ball_callback, this, _1));
       firstPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
       "first_paddle_position", 10, std::bind(&SubpubLogic::first_paddle_callback, this, _1));
@@ -37,18 +35,18 @@ class SubpubLogic : public rclcpp::Node
       "second_paddle_position", 10, std::bind(&SubpubLogic::second_paddle_callback, this, _1));
       
       // Publishing
-      ball_vel_publisher_ = this->create_publisher<tutorial_interfaces::msg::Vel>("ball_velocity", 10);
+      ball_vel_publisher_ = this->create_publisher<pong_ros_interfaces::msg::Vel>("ball_velocity", 10);
       
       // Initialize the class object used to compute the logic
       pongLogic_ = logic();
       
       // Initialize a timer for the iteration speed of the game
-      timer_ = this->create_wall_timer(std::chrono::milliseconds(15), std::bind(&SubpubLogic::timer_callback, this));
+      timer_ = this->create_wall_timer(std::chrono::milliseconds(16), std::bind(&SubpubLogic::timer_callback, this));
       
     }
     
     private:
-    void ball_callback(const tutorial_interfaces::msg::Ball & msg) {
+    void ball_callback(const pong_ros_interfaces::msg::Ball & msg) {
     	// Confirming data is read correctly
 	// RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
     	
@@ -74,7 +72,7 @@ class SubpubLogic : public rclcpp::Node
     
     void timer_callback() {
         
-        auto ball_vel_msg = tutorial_interfaces::msg::Vel();
+        auto ball_vel_msg = pong_ros_interfaces::msg::Vel();
         
         // Using the logic class
         pongLogic_.checkCollision();
@@ -90,10 +88,10 @@ class SubpubLogic : public rclcpp::Node
     }
 
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Subscription<tutorial_interfaces::msg::Ball>::SharedPtr ballPosSub_;
+    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ballPosSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr firstPaddleSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr secondPaddleSub_;
-    rclcpp::Publisher<tutorial_interfaces::msg::Vel>::SharedPtr ball_vel_publisher_;
+    rclcpp::Publisher<pong_ros_interfaces::msg::Vel>::SharedPtr ball_vel_publisher_;
     logic pongLogic_;
 };
 

@@ -10,21 +10,21 @@ find_package(ament_cmake REQUIRED)
 
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(tutorial_interfaces REQUIRED)                      # For custom interface.
+find_package(pong_ros_interfaces REQUIRED)                      # For custom interface.
 
-add_executable(pong_ros_score
+add_executable(${PROJECT_NAME}
     src/subpub_score.cpp
     src/score.cpp
 )
-ament_target_dependencies(pong_ros_score rclcpp std_msgs tutorial_interfaces)
+ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs pong_ros_interfaces)
 
-target_include_directories(pong_ros_score PUBLIC
+target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(pong_ros_score PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 install(TARGETS 
-  pong_ros_score
+  ${PROJECT_NAME}
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

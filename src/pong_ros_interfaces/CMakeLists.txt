@@ -7,12 +7,11 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-
-find_package(geometry_msgs REQUIRED)
-find_package(rosidl_default_generators REQUIRED)
 
 set(msg_files
   "msg/Ball.msg"

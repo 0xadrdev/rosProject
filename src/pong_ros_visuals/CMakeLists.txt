@@ -11,7 +11,7 @@ find_package(ament_cmake REQUIRED)
 # Discover where rclcpp is
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(tutorial_interfaces REQUIRED)                      # For custom interface.
+find_package(pong_ros_interfaces REQUIRED)                      # For custom interface.
 
 # Discover where SDL2 is
 find_package(SDL2 REQUIRED)
@@ -29,7 +29,7 @@ add_executable(${PROJECT_NAME}
     src/Pong_field.cpp
 )
 #ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs)
-ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs tutorial_interfaces)             # For custom interface.
+ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs pong_ros_interfaces)             # For custom interface.
 
 # Include the SDL2 libraries (as found above) for this executable
 target_link_directories(${PROJECT_NAME} PUBLIC ${SDL2_LINK_DIRS})

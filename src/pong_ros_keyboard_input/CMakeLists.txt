@@ -8,20 +8,20 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-
 find_package(std_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(pong_ros_keyboard_input src/keyboard_input.cpp)
-target_include_directories(pong_ros_keyboard_input PUBLIC
+add_executable(${PROJECT_NAME} src/keyboard_input.cpp)
+
+target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(pong_ros_keyboard_input PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(pong_ros_keyboard_input rclcpp std_msgs)
 
-# target_link_libraries(pong_ros_keyboard_input rclcpp std_msgs)
+target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs)
 
 install(TARGETS pong_ros_keyboard_input
   DESTINATION lib/${PROJECT_NAME})
@@ -37,7 +37,6 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
 
 # Install launch files.
 install(DIRECTORY
