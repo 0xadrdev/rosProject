@@ -24,9 +24,7 @@ using std::placeholders::_1;
 class MinimalSubscriber : public rclcpp::Node
 {
   public:
-    MinimalSubscriber()
-    : Node("visualization_node")
-    {
+    MinimalSubscriber() : Node("visualization_node") {
       ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::Ball>(
       "ball_position", 10, std::bind(&MinimalSubscriber::ball_callback, this, _1));
 
@@ -42,7 +40,6 @@ class MinimalSubscriber : public rclcpp::Node
       // Initialize the Pong_field object
       field_ = std::make_shared<Pong_field>();
       field_->DrawField();
-      
     }
 
   private:
@@ -50,19 +47,19 @@ class MinimalSubscriber : public rclcpp::Node
     void ball_callback(const pong_ros_interfaces::msg::Ball & msg) const {
       // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
 
-      field_->setXYBall(msg.x, msg.y);
+      field_ -> setXYBall(msg.x, msg.y);
     }
     
     void first_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg) const {
       // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
 
-      field_->setYBatLeft(msg->data);
+      field_ -> setYBatLeft(msg->data);
     }
 
     void second_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg) const {
       // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
 
-      field_->setYBatRight(msg->data);
+      field_ -> setYBatRight(msg->data);
     }
 
     void score_callback(const pong_ros_interfaces::msg::Score & msg) const {
@@ -72,16 +69,17 @@ class MinimalSubscriber : public rclcpp::Node
       field_ -> DrawField();
     }
     
-    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ballPosSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr firstPaddleSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr secondPaddleSub_;
+
+    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ballPosSub_;
     rclcpp::Subscription<pong_ros_interfaces::msg::Score>::SharedPtr scoreSub_;
     
     std::shared_ptr<Pong_field> field_;
 };
 
 
-int main(int argc, char ** argv) {
+int main(int argc, char** argv) {
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<MinimalSubscriber>());
   rclcpp::shutdown();

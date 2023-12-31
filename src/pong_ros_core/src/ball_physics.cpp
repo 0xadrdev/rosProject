@@ -19,10 +19,6 @@ void ball_physics::updatePosition(double velX, double velY) {
 	double newY = ballPosY + velY;
 	
 	// Updating the stored values
-	//this->setBallPosX(newX);
-	//this->setBallPosY(newY); 
-	//setBallPosX(newX);
-	//setBallPosY(newY); 
 	ballPosX = newX;
 	ballPosY = newY;
 }

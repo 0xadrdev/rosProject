@@ -29,8 +29,10 @@ class SubpubLogic : public rclcpp::Node
       // Subscriptions
       ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::Ball>(
       "ball_position", 10, std::bind(&SubpubLogic::ball_callback, this, _1));
+
       firstPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
       "first_paddle_position", 10, std::bind(&SubpubLogic::first_paddle_callback, this, _1));
+      
       secondPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
       "second_paddle_position", 10, std::bind(&SubpubLogic::second_paddle_callback, this, _1));
       
@@ -41,7 +43,7 @@ class SubpubLogic : public rclcpp::Node
       pongLogic_ = logic();
       
       // Initialize a timer for the iteration speed of the game
-      timer_ = this->create_wall_timer(std::chrono::milliseconds(16), std::bind(&SubpubLogic::timer_callback, this));
+      timer_ = this->create_wall_timer(std::chrono::milliseconds(1000 / 60), std::bind(&SubpubLogic::timer_callback, this));
       
     }
     
@@ -80,7 +82,7 @@ class SubpubLogic : public rclcpp::Node
         ball_vel_msg.x = pongLogic_.getBallVelX();
         ball_vel_msg.y = pongLogic_.getBallVelY();
 
-	// Publishing the updated ball velocity. 
+	      // Publishing the updated ball velocity. 
         ball_vel_publisher_->publish(ball_vel_msg);
 
         // RCLCPP_INFO(this->get_logger(), "Publishing ball_velocity: (%f, %f)", ball_vel_msg.x, ball_vel_msg.y);
@@ -97,9 +99,7 @@ class SubpubLogic : public rclcpp::Node
 
 int main(int argc, char* argv[]) {
     rclcpp::init(argc, argv);
-
     rclcpp::spin(std::make_shared<SubpubLogic>());
-    
     rclcpp::shutdown();
 
     return 0;
