@@ -14,13 +14,13 @@ find_package(rosidl_default_generators REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 set(msg_files
-  "msg/Ball.msg"
+  "msg/BallPosition.msg"
   "msg/Score.msg"
   "msg/Vel.msg"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Ball.msg"
+  "msg/BallPosition.msg"
   "msg/Score.msg"
   "msg/Vel.msg"
 )

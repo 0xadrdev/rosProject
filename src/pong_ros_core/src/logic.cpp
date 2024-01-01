@@ -32,9 +32,6 @@ void logic::checkCollision() {
 	} else {
 		collision = 0; 	// No collision takes place
 	}
-	
-	// Updating the stored values, dont think this is needed as the member function can access private members. 
-	//this->setCollision(collision); 
 }
 
 void logic::updateVelocity() {

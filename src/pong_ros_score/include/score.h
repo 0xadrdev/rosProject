@@ -36,7 +36,7 @@ private:
 	bool test;
 	
 	// Size settings. All in pixels.
-        static const int screenWidth = 1000;
+  static const int screenWidth = 1000;
 };
 
 #endif // SCORE_H

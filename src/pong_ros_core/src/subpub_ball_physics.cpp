@@ -14,7 +14,7 @@
 #include <memory>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include "pong_ros_interfaces/msg/ball.hpp"
+#include "pong_ros_interfaces/msg/BallPosition.hpp"
 #include "pong_ros_interfaces/msg/vel.hpp"
 
 #include "ball_physics.h"
@@ -63,12 +63,11 @@ class SubpubBallPhysics: public rclcpp::Node {
 
     }
 
-  rclcpp::Subscription < pong_ros_interfaces::msg::Vel > ::SharedPtr ballVelSub_;
-  rclcpp::Publisher < pong_ros_interfaces::msg::Ball > ::SharedPtr ball_pos_publisher_;
-  ball_physics pongPhysics_;
+    rclcpp::Subscription < pong_ros_interfaces::msg::Vel > ::SharedPtr ballVelSub_;
+    rclcpp::Publisher < pong_ros_interfaces::msg::Ball > ::SharedPtr ball_pos_publisher_;
+    ball_physics pongPhysics_;
 };
 
-//int main(int argc, char ** argv) {
 int main(int argc, char * argv[]) {
 
   //ball_physics pongPhysics_;
