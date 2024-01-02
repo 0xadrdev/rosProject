@@ -16,7 +16,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
 #include "std_msgs/msg/int32.hpp"
-#include "pong_ros_interfaces/msg/ball.hpp" 
+#include "pong_ros_interfaces/msg/ball_position.hpp" 
 #include "pong_ros_interfaces/msg/score.hpp"
 
 using std::placeholders::_1;
@@ -25,7 +25,7 @@ class MinimalSubscriber : public rclcpp::Node
 {
   public:
     MinimalSubscriber() : Node("visualization_node") {
-      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::Ball>(
+      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
       "ball_position", 10, std::bind(&MinimalSubscriber::ball_callback, this, _1));
 
       firstPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
@@ -44,7 +44,7 @@ class MinimalSubscriber : public rclcpp::Node
 
   private:
   
-    void ball_callback(const pong_ros_interfaces::msg::Ball & msg) const {
+    void ball_callback(const pong_ros_interfaces::msg::BallPosition & msg) const {
       // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
 
       field_ -> setXYBall(msg.x, msg.y);
@@ -72,7 +72,7 @@ class MinimalSubscriber : public rclcpp::Node
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr firstPaddleSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr secondPaddleSub_;
 
-    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ballPosSub_;
+    rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ballPosSub_;
     rclcpp::Subscription<pong_ros_interfaces::msg::Score>::SharedPtr scoreSub_;
     
     std::shared_ptr<Pong_field> field_;

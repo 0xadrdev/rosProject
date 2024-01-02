@@ -26,7 +26,7 @@ class SubpubLogic : public rclcpp::Node
     SubpubLogic()
     : Node("subpub_logic") {
       // Subscriptions
-      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::Ball>(
+      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
       "ball_position", 10, std::bind(&SubpubLogic::ball_callback, this, _1));
 
       firstPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
@@ -46,7 +46,7 @@ class SubpubLogic : public rclcpp::Node
     }
     
     private:
-    void ball_callback(const pong_ros_interfaces::msg::Ball & msg) {
+    void ball_callback(const pong_ros_interfaces::msg::BallPosition & msg) {
     	// Confirming data is read correctly
 	    // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
     	
@@ -85,7 +85,7 @@ class SubpubLogic : public rclcpp::Node
 
     rclcpp::TimerBase::SharedPtr timer_;
 
-    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ballPosSub_;
+    rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ballPosSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr firstPaddleSub_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr secondPaddleSub_;
 

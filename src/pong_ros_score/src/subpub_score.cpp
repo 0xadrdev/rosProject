@@ -15,7 +15,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include "pong_ros_interfaces/msg/ball.hpp" 
+#include "pong_ros_interfaces/msg/ball_position.hpp" 
 #include "pong_ros_interfaces/msg/score.hpp" 
 
 #include "score.h"
@@ -27,7 +27,7 @@ class SubpubScore : public rclcpp::Node {
     SubpubScore() : Node("subpub_score") {
 
       // Subscriptions
-      ball_position_subscription = this -> create_subscription<pong_ros_interfaces::msg::Ball>(
+      ball_position_subscription = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
       "ball_position", 10,std::bind(&SubpubScore::handle_ball_position_subscription, this, _1));
       
       // Publishers 
@@ -39,7 +39,7 @@ class SubpubScore : public rclcpp::Node {
 
   private:
   
-    void handle_ball_position_subscription(const pong_ros_interfaces::msg::Ball & msg) {
+    void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & msg) {
       // Confirming data is read
 
       // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
@@ -68,7 +68,7 @@ class SubpubScore : public rclcpp::Node {
       // RCLCPP_INFO(this->get_logger(), "Publishing score: (%d - %d)", score_message.first, score_message.second);
     }
     
-    rclcpp::Subscription<pong_ros_interfaces::msg::Ball>::SharedPtr ball_position_subscription;
+    rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ball_position_subscription;
     rclcpp::Publisher<pong_ros_interfaces::msg::Score>::SharedPtr score_publisher_;
     score score_;
 };

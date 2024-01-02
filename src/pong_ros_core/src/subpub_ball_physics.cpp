@@ -14,7 +14,7 @@
 #include <memory>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
-#include "pong_ros_interfaces/msg/BallPosition.hpp"
+#include "pong_ros_interfaces/msg/ball_position.hpp"
 #include "pong_ros_interfaces/msg/vel.hpp"
 
 #include "ball_physics.h"
@@ -28,7 +28,7 @@ class SubpubBallPhysics: public rclcpp::Node {
       "ball_velocity", 10, std::bind( & SubpubBallPhysics::vel_callback, this, _1));
 
     // Publishing
-    ball_pos_publisher_ = this -> create_publisher < pong_ros_interfaces::msg::Ball > ("ball_position", 10);
+    ball_pos_publisher_ = this -> create_publisher < pong_ros_interfaces::msg::BallPosition > ("ball_position", 10);
 
     // Initialize the class object used to compute the ball physics
     pongPhysics_ = ball_physics();
@@ -51,7 +51,7 @@ class SubpubBallPhysics: public rclcpp::Node {
       double ball_pos_x = pongPhysics_.getBallPosX(); // Use the class object to compute physics
       double ball_pos_y = pongPhysics_.getBallPosY(); // Use the class object to compute physics
 
-      auto ball_pos_msg = pong_ros_interfaces::msg::Ball();
+      auto ball_pos_msg = pong_ros_interfaces::msg::BallPosition();
       
       ball_pos_msg.x = ball_pos_x;
       ball_pos_msg.y = ball_pos_y;
@@ -64,7 +64,7 @@ class SubpubBallPhysics: public rclcpp::Node {
     }
 
     rclcpp::Subscription < pong_ros_interfaces::msg::Vel > ::SharedPtr ballVelSub_;
-    rclcpp::Publisher < pong_ros_interfaces::msg::Ball > ::SharedPtr ball_pos_publisher_;
+    rclcpp::Publisher < pong_ros_interfaces::msg::BallPosition > ::SharedPtr ball_pos_publisher_;
     ball_physics pongPhysics_;
 };
 
