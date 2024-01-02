@@ -9,6 +9,9 @@
 #include <string>
 
 #include "../include/Pong_field.h"
+#include "../../pong_ros_core/include/constants.h"
+
+using namespace pong_ros_constants;
 
 
 /** Set the vertical position of the left bat.

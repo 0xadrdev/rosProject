@@ -8,26 +8,19 @@
 
 #include <string>
 #include "SDL2_UI.h"
+#include "../../pong_ros_core/include/constants.h"
+
+using namespace pong_ros_constants;
 
 class Pong_field {
 private:
-    // Size settings. All in pixels.
-    static const int SCREEN_WIDTH = 1000;
-    static const int SCREEN_HEIGHT = 600;
-    static const int fontSize = 160;
-
-    static const int WALL_HEIGHT = 15;
-    static const int PADDLE_WIDTH = 5;
-    static const int PADDLE_HEIGHT = 100; // Make sure this is even
-    static const int BALL_SIZE = 30; // Make sure this is even
-
     // (copy of) state
     double yBatLeft  = 300; /// Vertical position of right bat. Units are up to the project group
     double yBatRight = 300; /// Vertical position of right bat. Units are up to the project group
     double xBall = 0; /// Horizontal position of the (center of) the ball. Units are up to the project group
     double yBall = 0; /// Vertical position of the (center of) the ball. Units are up to the project group
-    std::string fieldText="";
 
+    std::string fieldText="";
 
 public:
     

@@ -7,7 +7,11 @@
 //==============================================================
 
 #include "logic.h"
+#include "../include/constants.h"
+
 #include <cmath>
+
+using namespace pong_ros_constants;
 
 logic::logic(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col)
 	: ballPosX(posX), ballPosY(posY), ballVelX(velX), ballVelY(velY), padPosLeft(padLeft), padPosRight(padRight), collision(col)

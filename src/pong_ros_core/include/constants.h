@@ -16,8 +16,8 @@ namespace pong_ros_constants {
   constexpr int SCREEN_HEIGHT = 600;
   constexpr int fontSize = 160;
 
-  constexpr int WALL_HEIGHT = 15;
-  constexpr int PADDLE_WIDTH = 5;
+  constexpr int WALL_HEIGHT = 15; // 30
+  constexpr int PADDLE_WIDTH = 5; // 30 
   constexpr int PADDLE_HEIGHT = 100; // Make sure this is even
   constexpr int BALL_SIZE = 30; // Make sure this is even
 
