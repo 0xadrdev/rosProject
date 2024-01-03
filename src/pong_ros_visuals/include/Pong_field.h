@@ -28,7 +28,7 @@ public:
      * Default
      */
     Pong_field ():
-        sdl2_ui("Traditional Pong game - SDfR-CBL 2", SCREEN_WIDTH, SCREEN_HEIGHT , fontSize)
+        sdl2_ui(SCREEN_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, fontSize)
     {}
 
     /** Set the vertical position of the left bat.

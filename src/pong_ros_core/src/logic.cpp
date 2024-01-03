@@ -22,19 +22,19 @@ void logic::checkCollision() {
 	
 	// Checking the collisionType type: 
 	if (ballPositionX + 15 >= SCREEN_WIDTH) {
-		collisionType = 5; // outside right
+		collisionType = OUTSIDE_RIGHT_COLLISION; // outside right
 	} else if (ballPositionX - 15 <= 0) {
-		collisionType = 6; // outside left 
+		collisionType = OUTSIDE_LEFT_COLLISION; // outside left 
 	} else if (ballPositionY - BALL_SIZE / 2 <= WALL_HEIGHT) {							        // Top wall
-		collisionType = 1; 	// collisionType with top wall indicator
+		collisionType = TOP_WALL_COLLISION; 	// collisionType with top wall indicator
 	} else if (ballPositionY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT) {						// Bottom wall
-		collisionType = 2;	// collisionType with bottom wall indicator
+		collisionType = BOTTOM_WALL_COLLISION;	// collisionType with bottom wall indicator
 	} else if ((ballPositionX - BALL_SIZE / 4 <= PADDLE_WIDTH + BALL_SIZE / 4) && (abs(padPosLeft - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2) ){	// Left bat
-		collisionType = 3; 	// collisionType with left bat
+		collisionType = LEFT_PADDLE_COLLISION; 	// collisionType with left bat
 	} else if ((ballPositionX + BALL_SIZE / 4 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 4) && (abs(padPosRight - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2)) {	// Right bat
-		collisionType = 4;	// collisionType with right bat
+		collisionType = RIGHT_PADDLE_COLLISION;	// collisionType with right bat
 	} else {
-		collisionType = 0; 	// No collisionType takes place
+		collisionType = NO_COLLISION; 	// No collisionType takes place
 	}
 
   // if (ballPosX >= screenWidth + 15) {
@@ -56,22 +56,22 @@ void logic::checkCollision() {
 
 void logic::updateBallVelocity() {
 	// On the basis of the collisionType type determine the reflection
-	if (collisionType == 1) {											// Top wall
+	if (collisionType == TOP_WALL_COLLISION) {											// Top wall
 		ballVelocityX = ballVelocityX;
 		ballVelocityY = -ballVelocityY;
-	} else if (collisionType == 2) {										// Bottom wall
+	} else if (collisionType == BOTTOM_WALL_COLLISION) {										// Bottom wall
 		ballVelocityX = ballVelocityX;
 		ballVelocityY = -ballVelocityY;
-	} else if (collisionType == 3) {										// Left bat
+	} else if (collisionType == LEFT_PADDLE_COLLISION) {										// Left bat
 		ballVelocityX = abs(ballVelocityX);
 		ballVelocityY = ballVelocityY;
-	} else if (collisionType == 4) {										// Right bat
+	} else if (collisionType == RIGHT_PADDLE_COLLISION) {										// Right bat
 		ballVelocityX = -abs(ballVelocityX);
 		ballVelocityY = ballVelocityY;
-	} else if (collisionType == 5) {										// Outside right
+	} else if (collisionType == OUTSIDE_RIGHT_COLLISION) {										// Outside right
 		ballVelocityX = -abs(ballVelocityX);
 		ballVelocityY = ballVelocityY;
-	} else if (collisionType == 6) {										// Outside left
+	} else if (collisionType == OUTSIDE_LEFT_COLLISION) {										// Outside left
 		ballVelocityX = abs(ballVelocityX);
 		ballVelocityY = ballVelocityY;
 	} else {												// No collisionType

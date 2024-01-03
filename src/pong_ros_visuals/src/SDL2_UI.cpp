@@ -11,7 +11,7 @@
 #include "../include/SDL2_UI.h"
 
 
-SDL2_UI::SDL2_UI(std::string title, int sizeX, int sizeY, int fontSize): 
+SDL2_UI::SDL2_UI(const std::string title, int sizeX, int sizeY, int fontSize): 
     sizeX(sizeX), // sizeX in pixels
     sizeY(sizeY) // sizeY in pixels
 {
