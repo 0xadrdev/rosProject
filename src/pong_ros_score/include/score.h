@@ -15,24 +15,24 @@ public:
 	// Constructor
 	score(double posX = 500, double posY = 300, int first = 0, int second = 0, bool test = false); 
 	
-	void updateScore();
+	void updatePlayersScores();
 	
-	double getBallPosX() const;
-	double getBallPosY() const;
-	int getScoreFirst() const;
-	int getScoreSecond() const;
+	double getBallPositionX() const;
+	double getBallPositionY() const;
+	int getScoreLeftPlayer() const;
+	int getScoreRightPlayer() const;
 	
-	void setBallPosX(double posX);
-	void setBallPosY(double posY);
-	void setScoreFirst(int first);
-	void setScoreSecond(int second);
+	void setBallPositionX(double posX);
+	void setBallPositionY(double posY);
+	void setScoreLeftPlayer(int first);
+	void setScoreRightPlayer(int second);
 
 private:
 	// Variables storing ball position
-	double ballPosX; // Horizontal position of the center of the ball.
-	double ballPosY; // Vertical position of the center of the ball.
-	int scoreFirst; // Speed of the ball. 
-	int scoreSecond; // Direction of movement of the ball. 
+	double ballPositionX; // Horizontal position of the center of the ball.
+	double ballPositionY; // Vertical position of the center of the ball.
+	int scoreLeftPlayer; // Speed of the ball. 
+	int scoreRightPlayer; // Direction of movement of the ball. 
 	bool test;
 	
 	// Size settings. All in pixels.

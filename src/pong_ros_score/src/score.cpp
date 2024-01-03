@@ -9,22 +9,22 @@
 #include "score.h"
 
 score::score(double posX, double posY, int first, int second, bool testInput)
-	: ballPosX(posX), ballPosY(posY), scoreFirst(first), scoreSecond(second), test(testInput)
+	: ballPositionX(posX), ballPositionY(posY), scoreLeftPlayer(first), scoreRightPlayer(second), test(testInput)
 {}
 
 // Updating the position
-void score::updateScore() {
+void score::updatePlayersScores() {
 
 	// Computing whether a score was made
-	if (ballPosX <= 0 && test == false) {
-		scoreFirst++;
+	if (ballPositionX <= 0 && test == false) {
+		scoreLeftPlayer++;
 		test = true;
-	} else if (ballPosX >= screenWidth && test == false) {
-		scoreSecond++;
+	} else if (ballPositionX >= screenWidth && test == false) {
+		scoreRightPlayer++;
 		test = true;
-	} else if (ballPosX <= 0 && test == true) {
+	} else if (ballPositionX <= 0 && test == true) {
 		test = true;
-	} else if (ballPosX >= screenWidth && test == true ) {
+	} else if (ballPositionX >= screenWidth && test == true ) {
 		test = true; 
 	} else {
 		test = false;
@@ -33,29 +33,29 @@ void score::updateScore() {
 }
 
 // Retrieving the class private data
-double score::getBallPosX() const {
-	return ballPosX;
+double score::getBallPositionX() const {
+	return ballPositionX;
 }
-double score::getBallPosY() const {
-	return ballPosY;
+double score::getBallPositionY() const {
+	return ballPositionY;
 }
-int score::getScoreFirst() const {
-	return scoreFirst; 
+int score::getScoreLeftPlayer() const {
+	return scoreLeftPlayer; 
 }
-int score::getScoreSecond() const {
-	return scoreSecond;
+int score::getScoreRightPlayer() const {
+	return scoreRightPlayer;
 }
 
 // Setting the class private data
-void score::setBallPosX(double posX) {
-	ballPosX = posX;
+void score::setBallPositionX(double posX) {
+	ballPositionX = posX;
 }
-void score::setBallPosY(double posY) {
-	ballPosY = posY;
+void score::setBallPositionY(double posY) {
+	ballPositionY = posY;
 }
-void score::setScoreFirst(int first) {
-	scoreFirst = first;
+void score::setScoreLeftPlayer(int first) {
+	scoreLeftPlayer = first;
 }
-void score::setScoreSecond(int second) {
-	scoreSecond = second;
+void score::setScoreRightPlayer(int second) {
+	scoreRightPlayer = second;
 }

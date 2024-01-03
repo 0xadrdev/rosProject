@@ -48,19 +48,19 @@ class SubpubScore : public rclcpp::Node {
 
       // TODO: Solo publico el mensaje cuando cambia el score, es decir cuando updateScore me devuelve True; 
       
-      score_.setBallPosX(msg.x);
-      score_.setBallPosY(msg.y);
+      score_.setBallPositionX(msg.x);
+      score_.setBallPositionY(msg.y);
 
-      score_.updateScore();
+      score_.updatePlayersScores();
       
       // Setting up the message. 
       auto score_message = pong_ros_interfaces::msg::Score();
       
-      int score_player_left = score_.getScoreFirst(); // Use the class object to compute physics
-      int score_player_right = score_.getScoreSecond(); // Use the class object to compute physics
+      int score_left_player = score_.getScoreLeftPlayer(); // Use the class object to compute physics
+      int score_right_player = score_.getScoreRightPlayer(); // Use the class object to compute physics
       
-      score_message.first = score_player_left;
-      score_message.second = score_player_right;
+      score_message.first = score_left_player;
+      score_message.second = score_right_player;
       
       // Publish the message
       score_publisher_ -> publish(score_message);
