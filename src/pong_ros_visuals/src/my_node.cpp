@@ -65,7 +65,8 @@ class MinimalSubscriber : public rclcpp::Node
     void score_callback(const pong_ros_interfaces::msg::Score & msg) const {
       // RCLCPP_INFO(this->get_logger(), "Received score: %d - %d", msg.first, msg.second);
 
-      field_ -> setFieldText(std::to_string(msg.first) + std::string(" - ") + std::to_string(msg.second));
+      // field_ -> setFieldText(std::to_string(msg.first) + std::to_string(msg.second));
+      field_ -> setFieldText(std::to_string(msg.first) + std::string("  ") + std::to_string(msg.second));
       field_ -> DrawField();
     }
     

@@ -48,10 +48,10 @@ void logic::updateVelocity() {
 		ballVelY = -ballVelY;
 	} else if (collision == 3) {										// Left bat
 		ballVelX = abs(ballVelX);
-		ballVelY = ballVelY + 1;
+		ballVelY = ballVelY;
 	} else if (collision == 4) {										// Right bat
 		ballVelX = -abs(ballVelX);
-		ballVelY = ballVelY + 1;
+		ballVelY = ballVelY;
 	} else if (collision == 5) {										// Outside right
 		ballVelX = -abs(ballVelX);
 		ballVelY = ballVelY;

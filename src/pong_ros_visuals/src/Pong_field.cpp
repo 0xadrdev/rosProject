@@ -61,8 +61,9 @@ void Pong_field::DrawField() {
 
   // Draw walls. They are static so we hard-code them here.
   sdl2_ui.setDrawColor(255, 255, 255, 255);
+  sdl2_ui.drawRectangle(SCREEN_WIDTH / 2 - 5 / 2, 0, SCREEN_WIDTH / 2 + 5, SCREEN_HEIGHT); // Middle wall. 
   sdl2_ui.drawRectangle(0, 0, SCREEN_WIDTH - 1, WALL_HEIGHT); // Top wall
-  sdl2_ui.drawRectangle(0, SCREEN_HEIGHT - WALL_HEIGHT - 1, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1); // Bottom wall
+  sdl2_ui.drawRectangle(0, SCREEN_HEIGHT - WALL_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT); // Bottom wall
 
   // Left bat
   sdl2_ui.setDrawColor(255, 255, 255, 255);
@@ -85,7 +86,7 @@ void Pong_field::DrawField() {
   sdl2_ui.drawRectangle(ballCenterX - BALL_SIZE / 2, ballCenterY - BALL_SIZE / 2, ballCenterX + BALL_SIZE / 2, ballCenterY + BALL_SIZE / 2);
 
   // Text
-  sdl2_ui.drawText(fieldText, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4);
+  sdl2_ui.drawText(fieldText, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 50);
 
   // Show it on the screen
   sdl2_ui.present(); // This calls SDL2_UI::present
