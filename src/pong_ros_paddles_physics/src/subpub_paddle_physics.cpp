@@ -54,10 +54,10 @@ class SubpubPaddlePhysics : public rclcpp::Node
       auto paddle_position_msg = std_msgs::msg::Float64();
       
       double paddle_velocity = 5;
-      if (key_code == 115 && paddlePosition <= 520) { // 115  ->  W
+      if (key_code == 115 && paddlePosition < 535) { // 115  ->  W
           paddle_position_msg.data = paddlePosition + paddle_velocity;
       	  paddlePosition = paddlePosition + paddle_velocity;
-      } else if (key_code == 119 && paddlePosition >= 80) { // 119  ->  S
+      } else if (key_code == 119 && paddlePosition > 65) { // 119  ->  S
       	  paddle_position_msg.data = paddlePosition - paddle_velocity;
       	  paddlePosition = paddlePosition - paddle_velocity;
       } else {
@@ -66,10 +66,10 @@ class SubpubPaddlePhysics : public rclcpp::Node
 
       auto right_paddle_position_msg = std_msgs::msg::Float64();
 
-      if (key_code == 66 && rightPaddlePosition <= 520) {
+      if (key_code == 66 && rightPaddlePosition < 535) {
           right_paddle_position_msg.data = rightPaddlePosition + paddle_velocity;
       	  rightPaddlePosition = rightPaddlePosition + paddle_velocity;
-      } else if (key_code == 65 && rightPaddlePosition >= 80) {
+      } else if (key_code == 65 && rightPaddlePosition > 65) {
       	  right_paddle_position_msg.data = rightPaddlePosition - paddle_velocity;
       	  rightPaddlePosition = rightPaddlePosition - paddle_velocity;
       } else {
@@ -80,7 +80,7 @@ class SubpubPaddlePhysics : public rclcpp::Node
       left_paddle_position_publisher_ -> publish(paddle_position_msg);
       right_paddle_position_publisher_ -> publish(right_paddle_position_msg);
       
-      // RCLCPP_INFO(this -> get_logger(), "Publishing first_paddle_position: %1f", paddle_position_msg.data);
+      RCLCPP_INFO(this -> get_logger(), "Publishing first_paddle_position: %1f", paddle_position_msg.data);
       // RCLCPP_INFO(this -> get_logger(), "Publishing second_paddle_position: %1f", right_paddle_position_msg.data);
     }
     
@@ -95,7 +95,7 @@ class SubpubPaddlePhysics : public rclcpp::Node
       auto right_paddle_position_msg = std_msgs::msg::Float64();
       
       double paddle_velocity = 50;
-      if (lightInput >= 150 && rightPaddlePosition <= 520) {
+      if (lightInput >= 150 && rightPaddlePosition <= 5) {
           right_paddle_position_msg.data = rightPaddlePosition + paddle_velocity;
       	  rightPaddlePosition = rightPaddlePosition + paddle_velocity;
       } else if (lightInput <= 100 && rightPaddlePosition >= 80) {
