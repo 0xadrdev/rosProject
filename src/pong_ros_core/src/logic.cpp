@@ -21,21 +21,37 @@ logic::logic(double posX, double posY, double velX, double velY, double padLeft,
 void logic::checkCollision() {
 	
 	// Checking the collisionType type: 
-	if (ballPositionX >= SCREEN_WIDTH + 15) {
-		collisionType = 5;
-	} else if (ballPositionX <= -15) {
-		collisionType = 6;
-	} else if (ballPositionY - BALL_SIZE <= WALL_HEIGHT) {							        // Top wall
+	if (ballPositionX + 15 >= SCREEN_WIDTH) {
+		collisionType = 5; // outside right
+	} else if (ballPositionX - 15 <= 0) {
+		collisionType = 6; // outside left 
+	} else if (ballPositionY - BALL_SIZE / 2 <= WALL_HEIGHT) {							        // Top wall
 		collisionType = 1; 	// collisionType with top wall indicator
 	} else if (ballPositionY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT) {						// Bottom wall
 		collisionType = 2;	// collisionType with bottom wall indicator
-	} else if ((ballPositionX - BALL_SIZE / 2 <= PADDLE_WIDTH + BALL_SIZE / 2) && (abs(padPosLeft - ballPositionY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2) ){	// Left bat
+	} else if ((ballPositionX - BALL_SIZE / 4 <= PADDLE_WIDTH + BALL_SIZE / 4) && (abs(padPosLeft - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2) ){	// Left bat
 		collisionType = 3; 	// collisionType with left bat
-	} else if ((ballPositionX + BALL_SIZE / 2 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 2) && (abs(padPosRight - ballPositionY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2)) {	// Right bat
+	} else if ((ballPositionX + BALL_SIZE / 4 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 4) && (abs(padPosRight - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2)) {	// Right bat
 		collisionType = 4;	// collisionType with right bat
 	} else {
 		collisionType = 0; 	// No collisionType takes place
 	}
+
+  // if (ballPosX >= screenWidth + 15) {
+	// 	collision = 5;
+	// } else if (ballPosX <= -15) {
+	// 	collision = 6;
+	// } else if (ballPosY - ballSize <= wallHeight) {							        // Top wall
+	// 	collision = 1; 	// Collision with top wall indicator
+	// } else if (ballPosY + ballSize/2 >= screenHeight - wallHeight) {						// Bottom wall
+	// 	collision = 2;	// Collision with bottom wall indicator
+	// } else if ((ballPosX - ballSize/2 <= batWidth + ballSize/2) && (abs(padPosLeft - ballPosY - ballSize/2) <= batHeight/2) ){	// Left bat
+	// 	collision = 3; 	// Collision with left bat
+	// } else if ((ballPosX + ballSize/2 >= screenWidth - batWidth - ballSize/2) && (abs(padPosRight - ballPosY - ballSize/2) <= batHeight/2)) {	// Right bat
+	// 	collision = 4;	// Collision with right bat
+	// } else {
+	// 	collision = 0; 	// No collision takes place
+	// }
 }
 
 void logic::updateBallVelocity() {

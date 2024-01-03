@@ -16,10 +16,10 @@ score::score(double posX, double posY, int first, int second, bool testInput)
 void score::updatePlayersScores() {
 
 	// Computing whether a score was made
-	if (ballPositionX <= 0 && test == false) {
+	if (ballPositionX - 15 <= 0 && test == false) {
 		scoreLeftPlayer++;
 		test = true;
-	} else if (ballPositionX >= screenWidth && test == false) {
+	} else if (ballPositionX + 15 >= screenWidth && test == false) {
 		scoreRightPlayer++;
 		test = true;
 	} else if (ballPositionX <= 0 && test == true) {

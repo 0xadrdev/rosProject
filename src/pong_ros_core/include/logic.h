@@ -34,7 +34,7 @@ public:
 	void setPadPosRight(double velY);
 
 private:
-  static const int BALL_SIZE = 30 / 2; // Make sure this is even
+  // static const int BALL_SIZE = 30 / 2; // Make sure this is even
 
 
 	// Variables storing ball position
