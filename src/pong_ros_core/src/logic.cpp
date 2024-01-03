@@ -14,68 +14,68 @@
 using namespace pong_ros_constants;
 
 logic::logic(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col)
-	: ballPosX(posX), ballPosY(posY), ballVelX(velX), ballVelY(velY), padPosLeft(padLeft), padPosRight(padRight), collision(col)
+	: ballPositionX(posX), ballPositionY(posY), ballVelocityX(velX), ballVelocityY(velY), padPosLeft(padLeft), padPosRight(padRight), collisionType(col)
 {}
 
-// Checking the collision:
+// Checking the collisionType:
 void logic::checkCollision() {
 	
-	// Checking the collision type: 
-	if (ballPosX >= SCREEN_WIDTH + 15) {
-		collision = 5;
-	} else if (ballPosX <= -15) {
-		collision = 6;
-	} else if (ballPosY - BALL_SIZE <= WALL_HEIGHT) {							        // Top wall
-		collision = 1; 	// Collision with top wall indicator
-	} else if (ballPosY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT) {						// Bottom wall
-		collision = 2;	// Collision with bottom wall indicator
-	} else if ((ballPosX - BALL_SIZE / 2 <= PADDLE_WIDTH + BALL_SIZE / 2) && (abs(padPosLeft - ballPosY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2) ){	// Left bat
-		collision = 3; 	// Collision with left bat
-	} else if ((ballPosX + BALL_SIZE / 2 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 2) && (abs(padPosRight - ballPosY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2)) {	// Right bat
-		collision = 4;	// Collision with right bat
+	// Checking the collisionType type: 
+	if (ballPositionX >= SCREEN_WIDTH + 15) {
+		collisionType = 5;
+	} else if (ballPositionX <= -15) {
+		collisionType = 6;
+	} else if (ballPositionY - BALL_SIZE <= WALL_HEIGHT) {							        // Top wall
+		collisionType = 1; 	// collisionType with top wall indicator
+	} else if (ballPositionY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT) {						// Bottom wall
+		collisionType = 2;	// collisionType with bottom wall indicator
+	} else if ((ballPositionX - BALL_SIZE / 2 <= PADDLE_WIDTH + BALL_SIZE / 2) && (abs(padPosLeft - ballPositionY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2) ){	// Left bat
+		collisionType = 3; 	// collisionType with left bat
+	} else if ((ballPositionX + BALL_SIZE / 2 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 2) && (abs(padPosRight - ballPositionY - BALL_SIZE / 2) <= PADDLE_HEIGHT / 2)) {	// Right bat
+		collisionType = 4;	// collisionType with right bat
 	} else {
-		collision = 0; 	// No collision takes place
+		collisionType = 0; 	// No collisionType takes place
 	}
 }
 
-void logic::updateVelocity() {
-	// On the basis of the collision type determine the reflection
-	if (collision == 1) {											// Top wall
-		ballVelX = ballVelX;
-		ballVelY = -ballVelY;
-	} else if (collision == 2) {										// Bottom wall
-		ballVelX = ballVelX;
-		ballVelY = -ballVelY;
-	} else if (collision == 3) {										// Left bat
-		ballVelX = abs(ballVelX);
-		ballVelY = ballVelY;
-	} else if (collision == 4) {										// Right bat
-		ballVelX = -abs(ballVelX);
-		ballVelY = ballVelY;
-	} else if (collision == 5) {										// Outside right
-		ballVelX = -abs(ballVelX);
-		ballVelY = ballVelY;
-	} else if (collision == 6) {										// Outside left
-		ballVelX = abs(ballVelX);
-		ballVelY = ballVelY;
-	} else {												// No collision
-		ballVelX = ballVelX;
-		ballVelY = ballVelY;
+void logic::updateBallVelocity() {
+	// On the basis of the collisionType type determine the reflection
+	if (collisionType == 1) {											// Top wall
+		ballVelocityX = ballVelocityX;
+		ballVelocityY = -ballVelocityY;
+	} else if (collisionType == 2) {										// Bottom wall
+		ballVelocityX = ballVelocityX;
+		ballVelocityY = -ballVelocityY;
+	} else if (collisionType == 3) {										// Left bat
+		ballVelocityX = abs(ballVelocityX);
+		ballVelocityY = ballVelocityY;
+	} else if (collisionType == 4) {										// Right bat
+		ballVelocityX = -abs(ballVelocityX);
+		ballVelocityY = ballVelocityY;
+	} else if (collisionType == 5) {										// Outside right
+		ballVelocityX = -abs(ballVelocityX);
+		ballVelocityY = ballVelocityY;
+	} else if (collisionType == 6) {										// Outside left
+		ballVelocityX = abs(ballVelocityX);
+		ballVelocityY = ballVelocityY;
+	} else {												// No collisionType
+		ballVelocityX = ballVelocityX;
+		ballVelocityY = ballVelocityY;
 	}
 }
 
 // Retrieving the class private data
-double logic::getBallPosX() const {
-	return ballPosX;
+double logic::getBallPositionX() const {
+	return ballPositionX;
 }
-double logic::getBallPosY() const {
-	return ballPosY;
+double logic::getBallPositionY() const {
+	return ballPositionY;
 }
-double logic::getBallVelX() const {
-	return ballVelX; 
+double logic::getBallVelocityX() const {
+	return ballVelocityX; 
 }
-double logic::getBallVelY() const {
-	return ballVelY;
+double logic::getBallVelocityY() const {
+	return ballVelocityY;
 }
 double logic::getPadPosLeft() const {
 	return padPosLeft;
@@ -85,17 +85,17 @@ double logic::getPadPosRight() const {
 }
 
 // Setting the class private data
-void logic::setBallPosX(double posX) {
-	ballPosX = posX;
+void logic::setBallPositionX(double posX) {
+	ballPositionX = posX;
 }
-void logic::setBallPosY(double posY) {
-	ballPosY = posY;
+void logic::setBallPositionY(double posY) {
+	ballPositionY = posY;
 }
-void logic::setBallVelX(double velX) {
-	ballVelX = velX;
+void logic::setBallVelocityX(double velX) {
+	ballVelocityX = velX;
 }
-void logic::setBallVelY(double velY) {
-	ballVelY = velY;
+void logic::setBallVelocityY(double velY) {
+	ballVelocityY = velY;
 }
 void logic::setPadPosLeft(double padLeft) {
 	padPosLeft = padLeft;

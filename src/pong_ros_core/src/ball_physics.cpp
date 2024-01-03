@@ -9,44 +9,44 @@
 #include "ball_physics.h"
 
 ball_physics::ball_physics(double posX, double posY, double velX, double velY)
-	: ballPosX(posX), ballPosY(posY), ballVelX(velX), ballVelY(velY)
+	: ballPositionX(posX), ballPositionY(posY), ballVelocityX(velX), ballVelocityY(velY)
 {}
 
 // Updating the position
-void ball_physics::updatePosition(double velX, double velY) {
+void ball_physics::updateBallPosition(double velX, double velY) {
 	// Computing new position
-	double newX = ballPosX + velX;
-	double newY = ballPosY + velY;
+	double new_ball_position_x = ballPositionX + velX;
+	double new_ball_position_y = ballPositionY + velY;
 	
 	// Updating the stored values
-	ballPosX = newX;
-	ballPosY = newY;
+	ballPositionX = new_ball_position_x;
+	ballPositionY = new_ball_position_y;
 }
 
 // Retrieving the class private data
-double ball_physics::getBallPosX() const {
-	return ballPosX;
+double ball_physics::getBallPositionX() const {
+	return ballPositionX;
 }
-double ball_physics::getBallPosY() const {
-	return ballPosY;
+double ball_physics::getBallPositionY() const {
+	return ballPositionY;
 }
-double ball_physics::getBallVelX() const {
-	return ballVelX; 
+double ball_physics::getBallVelocityX() const {
+	return ballVelocityX; 
 }
-double ball_physics::getBallVelY() const {
-	return ballVelY;
+double ball_physics::getBallVelocityY() const {
+	return ballVelocityY;
 }
 
 // Setting the class private data
-void ball_physics::setBallPosX(double posX) {
-	ballPosX = posX;
+void ball_physics::setBallPositionX(double posX) {
+	ballPositionX = posX;
 }
-void ball_physics::setBallPosY(double posY) {
-	ballPosY = posY;
+void ball_physics::setBallPositionY(double posY) {
+	ballPositionY = posY;
 }
-void ball_physics::setBallVelX(double velX) {
-	ballVelX = velX;
+void ball_physics::setBallVelocityX(double velX) {
+	ballVelocityX = velX;
 }
-void ball_physics::setBallVelY(double velY) {
-	ballVelY = velY;
+void ball_physics::setBallVelocityY(double velY) {
+	ballVelocityY = velY;
 }

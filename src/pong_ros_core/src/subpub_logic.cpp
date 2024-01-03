@@ -26,17 +26,17 @@ class SubpubLogic : public rclcpp::Node
     SubpubLogic()
     : Node("subpub_logic") {
       // Subscriptions
-      ballPosSub_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
-      "ball_position", 10, std::bind(&SubpubLogic::ball_callback, this, _1));
+      ball_position_subscription_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
+      "ball_position", 10, std::bind(&SubpubLogic::handle_ball_position_subscription, this, _1));
 
-      firstPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
-      "first_paddle_position", 10, std::bind(&SubpubLogic::first_paddle_callback, this, _1));
+      left_paddle_subscription_ = this->create_subscription<std_msgs::msg::Float64>(
+      "first_paddle_position", 10, std::bind(&SubpubLogic::handle_left_paddle_subscription, this, _1));
       
-      secondPaddleSub_ = this->create_subscription<std_msgs::msg::Float64>(
-      "second_paddle_position", 10, std::bind(&SubpubLogic::second_paddle_callback, this, _1));
+      right_paddle_subscription_ = this->create_subscription<std_msgs::msg::Float64>(
+      "second_paddle_position", 10, std::bind(&SubpubLogic::handle_right_paddle_subscription, this, _1));
       
       // Publishing
-      ball_vel_publisher_ = this->create_publisher<pong_ros_interfaces::msg::Vel>("ball_velocity", 10);
+      ball_velocity_publisher_ = this->create_publisher<pong_ros_interfaces::msg::Vel>("ball_velocity", 10);
       
       // Initialize the class object used to compute the logic
       pongLogic_ = logic();
@@ -46,22 +46,22 @@ class SubpubLogic : public rclcpp::Node
     }
     
     private:
-    void ball_callback(const pong_ros_interfaces::msg::BallPosition & msg) {
+    void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & msg) {
     	// Confirming data is read correctly
 	    // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
     	
     	// Update the ball position using the message from the subscription
-        pongLogic_.setBallPosX(msg.x);
-        pongLogic_.setBallPosY(msg.y);
+        pongLogic_.setBallPositionX(msg.x);
+        pongLogic_.setBallPositionY(msg.y);
     }
     
-    void first_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg)
+    void handle_left_paddle_subscription(const std_msgs::msg::Float64::SharedPtr msg)
     {
       // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
       pongLogic_.setPadPosLeft(msg->data);
     }
 
-    void second_paddle_callback(const std_msgs::msg::Float64::SharedPtr msg)
+    void handle_right_paddle_subscription(const std_msgs::msg::Float64::SharedPtr msg)
     {
       // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
       pongLogic_.setPadPosRight(msg->data);
@@ -72,12 +72,12 @@ class SubpubLogic : public rclcpp::Node
         
         // Using the logic class
         pongLogic_.checkCollision();
-        pongLogic_.updateVelocity();
-        ball_vel_msg.x = pongLogic_.getBallVelX();
-        ball_vel_msg.y = pongLogic_.getBallVelY();
+        pongLogic_.updateBallVelocity();
+        ball_vel_msg.x = pongLogic_.getBallVelocityX();
+        ball_vel_msg.y = pongLogic_.getBallVelocityY();
 
 	      // Publishing the updated ball velocity. 
-        ball_vel_publisher_ -> publish(ball_vel_msg);
+        ball_velocity_publisher_ -> publish(ball_vel_msg);
 
         // RCLCPP_INFO(this->get_logger(), "Publishing ball_velocity: (%f, %f)", ball_vel_msg.x, ball_vel_msg.y);
         
@@ -85,11 +85,11 @@ class SubpubLogic : public rclcpp::Node
 
     rclcpp::TimerBase::SharedPtr timer_;
 
-    rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ballPosSub_;
-    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr firstPaddleSub_;
-    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr secondPaddleSub_;
+    rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ball_position_subscription_;
+    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr left_paddle_subscription_;
+    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr right_paddle_subscription_;
 
-    rclcpp::Publisher<pong_ros_interfaces::msg::Vel>::SharedPtr ball_vel_publisher_;
+    rclcpp::Publisher<pong_ros_interfaces::msg::Vel>::SharedPtr ball_velocity_publisher_;
 
     logic pongLogic_;
 };
