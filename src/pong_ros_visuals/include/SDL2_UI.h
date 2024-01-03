@@ -38,25 +38,25 @@ class SDL2_UI
     virtual ~SDL2_UI();
 
     /// Clears the draw buffer (black).
-    void clear();
+    void clearWindow();
 
     /// Presents the draw buffer to the screen.
-    void present();
+    void render();
 
     /// Draw pixel
-    void drawPixel(int x, int y);
+    void setPixel(int x, int y);
 
     /// Draw filled rectangle
-    void drawRectangle(int x1, int y1, int x2, int y2);
+    void setRectangle(int x1, int y1, int x2, int y2);
 
     /// Draw text. Font and font size are fixed (change in SDL2_UI.cpp if needed).
     /// Text is always white.
-    void drawText(std::string s, int x_center, int y_center);
+    void setText(std::string s, int x_center, int y_center);
 
     /// Set the foreground color for the next drawing action
-    void setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+    void setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
 
-    bool processEvents();
+    bool handleWindowEvents();
 
   private:
     /// Main SDL2_UI window.

@@ -70,21 +70,21 @@ void SDL2_UI::DestroyFontStuff() {
 }
 
 /// Clears the draw buffer (black).
-void SDL2_UI::clear()
+void SDL2_UI::clearWindow()
 {
-    setDrawColor(0, 0, 0, 255);
+    setColor(0, 0, 0, 255);
     SDL_RenderClear(renderer);
-    setDrawColor(255, 255, 255, 255);
+    setColor(255, 255, 255, 255);
 }
 
 /// Presents the draw buffer to the screen.
-void SDL2_UI::present()
+void SDL2_UI::render()
 {
     SDL_RenderPresent(renderer);
 }
 
 /// Draw pixel, coordinate (0,0) is the top-left pixel
-void SDL2_UI::drawPixel(int x, int y)
+void SDL2_UI::setPixel(int x, int y)
 {
     SDL_RenderDrawPoint(renderer, x, y);
 }
@@ -94,19 +94,19 @@ void SDL2_UI::drawPixel(int x, int y)
  *  Coordinate (0,0) is the top-left pixel
  *  The most recent color is used for drawin.
 */
-void SDL2_UI::drawRectangle(int x1, int y1, int x2, int y2)
+void SDL2_UI::setRectangle(int x1, int y1, int x2, int y2)
 {
   SDL_Rect r;
   r.x = x1; r.y = y1; r.w = x2-x1; r.h = y2-y1;
   SDL_RenderFillRect(renderer, &r);
 }
 
-void SDL2_UI::setDrawColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+void SDL2_UI::setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 {
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-void SDL2_UI::drawText(std::string s, int x_center, int y_center)
+void SDL2_UI::setText(std::string s, int x_center, int y_center)
 { 
     // This is a very basic and non-optimized implementation. It can only use one font 
     // and font size (specified in InitializeFontStuff).
@@ -148,7 +148,7 @@ void SDL2_UI::drawText(std::string s, int x_center, int y_center)
  * 
  * @return true if the user has clicked the 'close' button on the top right; false otherwise
  */
-bool SDL2_UI::processEvents() {
+bool SDL2_UI::handleWindowEvents() {
     SDL_Event event;
     bool quit = false;
     while (SDL_PollEvent(&event)) {
