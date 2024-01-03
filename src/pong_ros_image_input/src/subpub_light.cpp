@@ -47,12 +47,15 @@ class SubpubLight : public rclcpp::Node
     void image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
     {
       // Confirming data is read
-      //RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.header << "' y: '" << msg.width << "'");
       
       //ball_physics pongPhysics_;
       
       int width = getImageWidth(msg);
       int height = getImageHeight(msg);
+
+      RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << width << "' y: '" << height << "'");
+
       
       //double value = width + height - width;
       // Grayscaling the image:
@@ -118,7 +121,7 @@ class SubpubLight : public rclcpp::Node
       // Publish the message
       paddle_pos_publisher_->publish(paddle_pos_msg);
       
-      // RCLCPP_INFO(this->get_logger(), "Publishing light_position: %f", paddle_pos_msg.data);
+      RCLCPP_INFO(this->get_logger(), "Publishing light_position: %f", paddle_pos_msg.data);
       
     }
     

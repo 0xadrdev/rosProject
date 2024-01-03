@@ -29,6 +29,7 @@ for the entire pong game to work. Make sure you have the webcam connected in the
 	cd <pong_game_ws>
 	. install/setup.bash
 	ros2 launch image_input image
+  ros2 run pong_ros_image_input image
 8. In new terminal:
 	cd <pong_game_ws>
 	. install/setup.bash
