@@ -10,41 +10,41 @@
 #define PONG_CONTROLLER_H
 
 class PongController {
-	
-public:
-	// Constructor
-	PongController(double posX = 500, double posY = 300, double velX = 2, double velY = 1, double padLeft = 300, double padRight = 300, int col = 0); 
-	
-	void checkCollision();
-	
-	void updateBallVelocity();
-	
-	double getBallPositionX() const;
-	double getBallPositionY() const;
-	double getBallVelocityX() const;
-	double getBallVelocityY() const;
-	double getLeftPaddlePosition() const;
-	double getRightPaddlePosition() const;
-	
-	void setBallPositionX(double posX);
-	void setBallPositionY(double posY);
-	void setBallVelocityX(double velX);
-	void setBallVelocityY(double velY);
-	void setLeftPaddlePosition(double velX);
-	void setRightPaddlePosition(double velY);
+  public:
+    // Constructor
+    PongController(double posX = 500, double posY = 300, double velX = 2, double velY = 1, double padLeft = 300, double padRight = 300, int col = 0); 
+    
+    void checkCollision();
+    
+    void updateBallVelocity();
 
-private:
-  // static const int BALL_SIZE = 30 / 2; // Make sure this is even
+    void incrementVelocity();
+    
+    double getBallPositionX() const;
+    double getBallPositionY() const;
+    double getBallVelocityX() const;
+    double getBallVelocityY() const;
+    double getLeftPaddlePosition() const;
+    double getRightPaddlePosition() const;
+    
+    void setBallPositionX(double posX);
+    void setBallPositionY(double posY);
+    void setBallVelocityX(double velX);
+    void setBallVelocityY(double velY);
+    void setLeftPaddlePosition(double velX);
+    void setRightPaddlePosition(double velY);
 
+  private:
 
-	// Variables storing ball position
-	double ballPositionX;// = 500; // Horizontal position of the center of the ball.
-	double ballPositionY;// = 300; // Vertical position of the center of the ball.
-	double ballVelocityX; // = 0; // Speed of the ball. 
-	double ballVelocityY;// = 0; // Direction of movement of the ball. 
-	double leftPaddlePosition;// = 300; // Speed of the ball. 
-	double rightPaddlePosition;// = 300; // Direction of movement of the ball. 
-	int collisionType;// = 0; // Variable storing the type of collision. 
+    // Variables storing ball position
+    double ballPositionX;// = 500; // Horizontal position of the center of the ball.
+    double ballPositionY;// = 300; // Vertical position of the center of the ball.
+    double ballVelocityX; // = 0; // Speed of the ball. 
+    double ballVelocityY;// = 0; // Direction of movement of the ball. 
+    double leftPaddlePosition;// = 300; // Speed of the ball. 
+    double rightPaddlePosition;// = 300; // Direction of movement of the ball. 
+    int collisionType;// = 0; // Variable storing the type of collision. 
+    double velocityIncrement = 1;
 };
 
 #endif // BALL_PHYSICS_H

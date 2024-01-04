@@ -38,24 +38,35 @@ void PongController::checkCollision() {
 	}
 }
 
+void PongController::incrementVelocity() {
+  if (collisionType == RIGHT_PADDLE_COLLISION || collisionType == LEFT_PADDLE_COLLISION) {
+    velocityIncrement += 0.5;
+  } else if (collisionType == OUTSIDE_LEFT_COLLISION || collisionType == OUTSIDE_RIGHT_COLLISION) {
+    ballVelocityX = ballVelocityX / velocityIncrement;
+    ballVelocityY = ballVelocityY / velocityIncrement;
+    velocityIncrement = 1;
+  }
+}
+
 void PongController::updateBallVelocity() {
 	// On the basis of the collisionType type determine the reflection
-	if (collisionType == TOP_WALL_COLLISION) {											// Top wall
+
+	if (collisionType == TOP_WALL_COLLISION) {
 		ballVelocityX = ballVelocityX;
 		ballVelocityY = -ballVelocityY;
-	} else if (collisionType == BOTTOM_WALL_COLLISION) {										// Bottom wall
+	} else if (collisionType == BOTTOM_WALL_COLLISION) {									
 		ballVelocityX = ballVelocityX;
 		ballVelocityY = -ballVelocityY;
-	} else if (collisionType == LEFT_PADDLE_COLLISION) {										// Left bat
-		ballVelocityX = abs(ballVelocityX);
-		ballVelocityY = ballVelocityY;
-	} else if (collisionType == RIGHT_PADDLE_COLLISION) {										// Right bat
+	} else if (collisionType == LEFT_PADDLE_COLLISION) {								
+		ballVelocityX = abs(ballVelocityX) * velocityIncrement;
+		ballVelocityY = ballVelocityY * velocityIncrement;
+	} else if (collisionType == RIGHT_PADDLE_COLLISION) {				
+		ballVelocityX = -abs(ballVelocityX) * velocityIncrement;
+		ballVelocityY = ballVelocityY * velocityIncrement;
+	} else if (collisionType == OUTSIDE_RIGHT_COLLISION) {
 		ballVelocityX = -abs(ballVelocityX);
 		ballVelocityY = ballVelocityY;
-	} else if (collisionType == OUTSIDE_RIGHT_COLLISION) {										// Outside right
-		ballVelocityX = -abs(ballVelocityX);
-		ballVelocityY = ballVelocityY;
-	} else if (collisionType == OUTSIDE_LEFT_COLLISION) {										// Outside left
+	} else if (collisionType == OUTSIDE_LEFT_COLLISION) {
 		ballVelocityX = abs(ballVelocityX);
 		ballVelocityY = ballVelocityY;
 	} else {												// No collisionType

@@ -80,6 +80,8 @@ class PongControllerNode:public rclcpp::Node
 
           pongController_.updateBallVelocity();
 
+          pongController_.incrementVelocity();
+
           ball_vel_msg.x = pongController_.getBallVelocityX();
           ball_vel_msg.y = pongController_.getBallVelocityY();
 
