@@ -13,8 +13,8 @@ find_package(std_msgs REQUIRED)
 find_package(pong_ros_interfaces REQUIRED)                      # For custom interface.
 
 add_executable(${PROJECT_NAME}
-    src/subpub_score.cpp
-    src/score.cpp
+    src/PlayersScoresNode.cpp
+    src/PlayersScores.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs pong_ros_interfaces)
 

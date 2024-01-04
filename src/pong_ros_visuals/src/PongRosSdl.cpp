@@ -8,10 +8,10 @@
 
 #include <string>
 #include <iostream>
-#include "../include/SDL2_UI.h"
+#include "../include/PongRosSdl.h"
 
 
-SDL2_UI::SDL2_UI(const std::string title, int sizeX, int sizeY, int fontSize): 
+PongRosSdl::PongRosSdl(const std::string title, int sizeX, int sizeY, int fontSize): 
     sizeX(sizeX), // sizeX in pixels
     sizeY(sizeY) // sizeY in pixels
 {
@@ -28,8 +28,8 @@ SDL2_UI::SDL2_UI(const std::string title, int sizeX, int sizeY, int fontSize):
 }
 
 
-/// Destructor fully de-initializes the SDL2_UI, including closing the main window.
-SDL2_UI::~SDL2_UI() {
+/// Destructor fully de-initializes the PongRosSdl, including closing the main window.
+PongRosSdl::~PongRosSdl() {
     DestroyFontStuff();
     if (renderer)
         SDL_DestroyRenderer(renderer);
@@ -39,7 +39,7 @@ SDL2_UI::~SDL2_UI() {
 }
 
 /// Initialize Font rendering stuff
-void SDL2_UI::InitializeFontStuff(int fontSize) {
+void PongRosSdl::InitializeFontStuff(int fontSize) {
     // For simplicty, font type and blockiness are hard-coded.
     // We take a font that is most probably available in your Linux/Ubuntu distribution.
     // If it cannot be found, type in a terminal:
@@ -60,17 +60,17 @@ void SDL2_UI::InitializeFontStuff(int fontSize) {
         printf("Could not load font %s\n",fontFilePath);
         printf("Make sure that the font (%s) is in the given directory.\n\n",fontFilePath);
         printf("If the font  cannot be found, type in a terminal:\n  fc-list | grep "".ttf"" ");
-        printf("and choose one of the listed fonts. Include the full path in SDL2_UI.cpp\n");
+        printf("and choose one of the listed fonts. Include the full path in PongRosSdl.cpp\n");
         exit(1);
     }
 }
 
-void SDL2_UI::DestroyFontStuff() {
+void PongRosSdl::DestroyFontStuff() {
     TTF_Quit();
 }
 
 /// Clears the draw buffer (black).
-void SDL2_UI::clearWindow()
+void PongRosSdl::clearWindow()
 {
     setColor(0, 0, 0, 255);
     SDL_RenderClear(renderer);
@@ -78,13 +78,13 @@ void SDL2_UI::clearWindow()
 }
 
 /// Presents the draw buffer to the screen.
-void SDL2_UI::render()
+void PongRosSdl::render()
 {
     SDL_RenderPresent(renderer);
 }
 
 /// Draw pixel, coordinate (0,0) is the top-left pixel
-void SDL2_UI::setPixel(int x, int y)
+void PongRosSdl::setPixel(int x, int y)
 {
     SDL_RenderDrawPoint(renderer, x, y);
 }
@@ -94,19 +94,19 @@ void SDL2_UI::setPixel(int x, int y)
  *  Coordinate (0,0) is the top-left pixel
  *  The most recent color is used for drawin.
 */
-void SDL2_UI::setRectangle(int x1, int y1, int x2, int y2)
+void PongRosSdl::setRectangle(int x1, int y1, int x2, int y2)
 {
   SDL_Rect r;
   r.x = x1; r.y = y1; r.w = x2-x1; r.h = y2-y1;
   SDL_RenderFillRect(renderer, &r);
 }
 
-void SDL2_UI::setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+void PongRosSdl::setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 {
     SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-void SDL2_UI::setText(std::string s, int x_center, int y_center)
+void PongRosSdl::setText(std::string s, int x_center, int y_center)
 { 
     // This is a very basic and non-optimized implementation. It can only use one font 
     // and font size (specified in InitializeFontStuff).
@@ -148,7 +148,7 @@ void SDL2_UI::setText(std::string s, int x_center, int y_center)
  * 
  * @return true if the user has clicked the 'close' button on the top right; false otherwise
  */
-bool SDL2_UI::handleWindowEvents() {
+bool PongRosSdl::handleWindowEvents() {
     SDL_Event event;
     bool quit = false;
     while (SDL_PollEvent(&event)) {

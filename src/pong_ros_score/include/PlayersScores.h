@@ -6,14 +6,14 @@
 // Description :
 //==============================================================
 
-#ifndef SCORE_H
-#define Score_H
+#ifndef PLAYERS_SCORES_H
+#define PLAYERS_SCORES_H
 
-class score {
+class PlayersScores {
 	
 public:
 	// Constructor
-	score(double posX = 500, double posY = 300, int first = 0, int second = 0, bool test = false); 
+	PlayersScores(double posX = 500, double posY = 300, int first = 0, int second = 0, bool test = false); 
 	
 	void updatePlayersScores();
 	
@@ -39,6 +39,6 @@ private:
   static const int screenWidth = 1000;
 };
 
-#endif // SCORE_H
+#endif // PLAYERS_SCORE_H
 	
 	

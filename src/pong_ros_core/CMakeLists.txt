@@ -16,15 +16,15 @@ find_package(pong_ros_interfaces REQUIRED)
 
 # package executables 
 add_executable(logic
-    src/subpub_logic.cpp
-    src/logic.cpp
+    src/PongControllerNode.cpp
+    src/PongController.cpp
 )
 
 ament_target_dependencies(logic rclcpp std_msgs pong_ros_interfaces)
 
 add_executable(physics 
-    src/subpub_ball_physics.cpp
-    src/ball_physics.cpp
+    src/BallPhysicsNode.cpp
+    src/BallPhysics.cpp
 )
 
 ament_target_dependencies(physics rclcpp std_msgs pong_ros_interfaces)

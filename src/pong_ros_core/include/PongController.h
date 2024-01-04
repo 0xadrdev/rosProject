@@ -6,14 +6,14 @@
 // Description :
 //==============================================================
 
-#ifndef LOGIC_H
-#define LOGIC_H
+#ifndef PONG_CONTROLLER_H
+#define PONG_CONTROLLER_H
 
-class logic {
+class PongController {
 	
 public:
 	// Constructor
-	logic(double posX = 500, double posY = 300, double velX = 2, double velY = 1, double padLeft = 300, double padRight = 300, int col = 0); 
+	PongController(double posX = 500, double posY = 300, double velX = 2, double velY = 1, double padLeft = 300, double padRight = 300, int col = 0); 
 	
 	void checkCollision();
 	
@@ -30,8 +30,8 @@ public:
 	void setBallPositionY(double posY);
 	void setBallVelocityX(double velX);
 	void setBallVelocityY(double velY);
-	void setPadPosLeft(double velX);
-	void setPadPosRight(double velY);
+	void setLeftPaddlePosition(double velX);
+	void setRightPaddlePosition(double velY);
 
 private:
   // static const int BALL_SIZE = 30 / 2; // Make sure this is even

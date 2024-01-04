@@ -7,12 +7,12 @@
 //==============================================================
 
 #include <string>
-#include "SDL2_UI.h"
-#include "../../pong_ros_core/include/constants.h"
+#include "PongRosSdl.h"
+#include "../../pong_ros_core/include/Constants.h"
 
 using namespace pong_ros_constants;
 
-class Pong_field {
+class PongVisualization {
 private:
     // (copy of) state
     double leftPaddlePosition  = 300; /// Vertical position of right bat. Units are up to the project group
@@ -27,8 +27,8 @@ public:
     /** Constructor
      * Default
      */
-    Pong_field ():
-        sdl2_ui(SCREEN_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, fontSize)
+    PongVisualization ():
+        pong_ros_sdl(SCREEN_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT, FONT_SIZE)
     {}
 
     /** Set the vertical position of the left bat.
@@ -61,8 +61,8 @@ public:
     void render();
 
     /** The screen canvas. Public so that you can
-     * interact with from outside the Pong_field class.
+     * interact with from outside the PongVisualization class.
      */
-    SDL2_UI sdl2_ui;
+    PongRosSdl pong_ros_sdl;
 
 };

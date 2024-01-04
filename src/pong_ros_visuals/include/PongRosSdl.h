@@ -6,8 +6,8 @@
 // Description :
 //==============================================================
 
-#ifndef _SDL2SRC_UI_H_
-#define _SDL2SRC_UI_H_
+#ifndef PONG_ROS_SDLH_
+#define PONG_ROS_SDLH_
 
 #include <cstdint>
 #include <SDL2/SDL.h>
@@ -16,7 +16,7 @@
 /**
  * Description of SDL2_UI class
  */
-class SDL2_UI
+class PongRosSdl
 {
   public:
     const int sizeX; 
@@ -27,15 +27,16 @@ class SDL2_UI
     /// Creates a main (SDL) window for rendering.
     ///
     /// \param Dimensions (pixels) of the window to be created.
-    SDL2_UI(std::string title, int sizeX, int sizeY, int fontSize);
+    PongRosSdl(std::string title, int sizeX, int sizeY, int fontSize);
 
-    // SDL2_UI objects should not be copied or moved.
-    SDL2_UI(const SDL2_UI&) = delete;
-    SDL2_UI(const SDL2_UI&&) = delete;
-    SDL2_UI &operator=(const SDL2_UI &) = delete;
+      // SDL2_UI objects should not be copied or moved.
+    PongRosSdl(const PongRosSdl&) = delete;
+    PongRosSdl(const PongRosSdl&&) = delete;
+    
+    PongRosSdl &operator=(const PongRosSdl &) = delete;
 
     /// Destructor fully de-initializes the SDL2_UI, including closing the main window.
-    virtual ~SDL2_UI();
+    virtual ~PongRosSdl();
 
     /// Clears the draw buffer (black).
     void clearWindow();

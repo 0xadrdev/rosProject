@@ -15,7 +15,7 @@ namespace pong_ros_constants {
   constexpr char SCREEN_TITLE[] = "Classic ping pong game in ROS2. ";
   constexpr int SCREEN_WIDTH = 1000;
   constexpr int SCREEN_HEIGHT = 600;
-  constexpr int fontSize = 160;
+  constexpr int FONT_SIZE = 160;
   
   // Pong game constants. 
 

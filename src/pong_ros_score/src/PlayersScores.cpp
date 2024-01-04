@@ -6,14 +6,14 @@
 // Description :
 //==============================================================
 
-#include "score.h"
+#include "PlayersScores.h"
 
-score::score(double posX, double posY, int first, int second, bool testInput)
+PlayersScores::PlayersScores(double posX, double posY, int first, int second, bool testInput)
 	: ballPositionX(posX), ballPositionY(posY), scoreLeftPlayer(first), scoreRightPlayer(second), test(testInput)
 {}
 
 // Updating the position
-void score::updatePlayersScores() {
+void PlayersScores::updatePlayersScores() {
 
 	// Computing whether a score was made
 	if (ballPositionX - 15 <= 0 && test == false) {
@@ -33,29 +33,29 @@ void score::updatePlayersScores() {
 }
 
 // Retrieving the class private data
-double score::getBallPositionX() const {
+double PlayersScores::getBallPositionX() const {
 	return ballPositionX;
 }
-double score::getBallPositionY() const {
+double PlayersScores::getBallPositionY() const {
 	return ballPositionY;
 }
-int score::getScoreLeftPlayer() const {
+int PlayersScores::getScoreLeftPlayer() const {
 	return scoreLeftPlayer; 
 }
-int score::getScoreRightPlayer() const {
+int PlayersScores::getScoreRightPlayer() const {
 	return scoreRightPlayer;
 }
 
 // Setting the class private data
-void score::setBallPositionX(double posX) {
+void PlayersScores::setBallPositionX(double posX) {
 	ballPositionX = posX;
 }
-void score::setBallPositionY(double posY) {
+void PlayersScores::setBallPositionY(double posY) {
 	ballPositionY = posY;
 }
-void score::setScoreLeftPlayer(int first) {
+void PlayersScores::setScoreLeftPlayer(int first) {
 	scoreLeftPlayer = first;
 }
-void score::setScoreRightPlayer(int second) {
+void PlayersScores::setScoreRightPlayer(int second) {
 	scoreRightPlayer = second;
 }

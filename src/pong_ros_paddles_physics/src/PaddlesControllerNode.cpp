@@ -20,18 +20,18 @@
 
 using std::placeholders::_1;
 
-class SubpubPaddlePhysics : public rclcpp::Node
+class PaddlesControllerNode : public rclcpp::Node
 {
   public:
-    SubpubPaddlePhysics()
-    : Node("subpub_paddle_physics")
+    PaddlesControllerNode()
+    : Node("paddles_controller_node")
     {
       // Subscriptions
       keyboard_input_subscription_ = this -> create_subscription<std_msgs::msg::Int16>(
-        "/keyboard_input/key", 1, std::bind(&SubpubPaddlePhysics::handle_keyboard_input_subscription, this, _1));
+        "/keyboard_input/key", 1, std::bind(&PaddlesControllerNode::handle_keyboard_input_subscription, this, _1));
 
       light_position_subscription_ = this -> create_subscription<std_msgs::msg::Float64>(
-      "light_position", 1,std::bind(&SubpubPaddlePhysics::handle_light_position_subscription, this, _1));
+      "light_position", 1,std::bind(&PaddlesControllerNode::handle_light_position_subscription, this, _1));
       
       // Publishing
       left_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>("first_paddle_position", 10);
@@ -43,6 +43,20 @@ class SubpubPaddlePhysics : public rclcpp::Node
     }
 
   private:
+
+    // Paddle position
+
+    double leftPaddlePosition = 300;
+    double rightPaddlePosition = 300;
+
+    // Ros2 declarations. 
+
+    rclcpp::Subscription<std_msgs::msg::Int16>::SharedPtr keyboard_input_subscription_;
+    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr light_position_subscription_;
+    rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr left_paddle_position_publisher_;
+    rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr right_paddle_position_publisher_;
+
+    // Subscriptions handlers. 
   
     void handle_keyboard_input_subscription(const std_msgs::msg::Int16::SharedPtr msg)
     {
@@ -54,14 +68,14 @@ class SubpubPaddlePhysics : public rclcpp::Node
       auto paddle_position_msg = std_msgs::msg::Float64();
       
       double paddle_velocity = 5;
-      if (key_code == 115 && paddlePosition < 535) { // 115  ->  W
-          paddle_position_msg.data = paddlePosition + paddle_velocity;
-      	  paddlePosition = paddlePosition + paddle_velocity;
-      } else if (key_code == 119 && paddlePosition > 65) { // 119  ->  S
-      	  paddle_position_msg.data = paddlePosition - paddle_velocity;
-      	  paddlePosition = paddlePosition - paddle_velocity;
+      if (key_code == 115 && leftPaddlePosition < 535) { // 115  ->  W
+          paddle_position_msg.data = leftPaddlePosition + paddle_velocity;
+      	  leftPaddlePosition = leftPaddlePosition + paddle_velocity;
+      } else if (key_code == 119 && leftPaddlePosition > 65) { // 119  ->  S
+      	  paddle_position_msg.data = leftPaddlePosition - paddle_velocity;
+      	  leftPaddlePosition = leftPaddlePosition - paddle_velocity;
       } else {
-      	  paddle_position_msg.data = paddlePosition; 
+      	  paddle_position_msg.data = leftPaddlePosition; 
       }
 
       auto right_paddle_position_msg = std_msgs::msg::Float64();
@@ -109,24 +123,14 @@ class SubpubPaddlePhysics : public rclcpp::Node
       right_paddle_position_publisher_ -> publish(right_paddle_position_msg);
       
       // RCLCPP_INFO(this -> get_logger(), "Publishing second_paddle_position: %1f", right_paddle_position_msg.data);
-      
     }
-    
-    rclcpp::Subscription<std_msgs::msg::Int16>::SharedPtr keyboard_input_subscription_;
-    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr light_position_subscription_;
-    rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr left_paddle_position_publisher_;
-    rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr right_paddle_position_publisher_;
-
-    // Initializing the paddle position
-    double paddlePosition = 300;
-    double rightPaddlePosition = 300;
 };
 
+// Initializing the node. 
 
-// Initializing and running the subscribed and publishing node
 int main(int argc, char* argv[]) {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<SubpubPaddlePhysics>());
+  rclcpp::spin(std::make_shared<PaddlesControllerNode>());
   rclcpp::shutdown();
   
   return 0;

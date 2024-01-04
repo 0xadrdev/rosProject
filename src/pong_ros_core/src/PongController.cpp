@@ -6,19 +6,19 @@
 // Description :
 //==============================================================
 
-#include "logic.h"
-#include "../include/constants.h"
+#include "PongController.h"
+#include "../include/Constants.h"
 
 #include <cmath>
 
 using namespace pong_ros_constants;
 
-logic::logic(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col)
+PongController::PongController(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col)
 	: ballPositionX(posX), ballPositionY(posY), ballVelocityX(velX), ballVelocityY(velY), padPosLeft(padLeft), padPosRight(padRight), collisionType(col)
 {}
 
 // Checking the collisionType:
-void logic::checkCollision() {
+void PongController::checkCollision() {
 	
 	// Checking the collisionType type: 
 	if (ballPositionX + 15 >= SCREEN_WIDTH) {
@@ -54,7 +54,7 @@ void logic::checkCollision() {
 	// }
 }
 
-void logic::updateBallVelocity() {
+void PongController::updateBallVelocity() {
 	// On the basis of the collisionType type determine the reflection
 	if (collisionType == TOP_WALL_COLLISION) {											// Top wall
 		ballVelocityX = ballVelocityX;
@@ -81,41 +81,41 @@ void logic::updateBallVelocity() {
 }
 
 // Retrieving the class private data
-double logic::getBallPositionX() const {
+double PongController::getBallPositionX() const {
 	return ballPositionX;
 }
-double logic::getBallPositionY() const {
+double PongController::getBallPositionY() const {
 	return ballPositionY;
 }
-double logic::getBallVelocityX() const {
+double PongController::getBallVelocityX() const {
 	return ballVelocityX; 
 }
-double logic::getBallVelocityY() const {
+double PongController::getBallVelocityY() const {
 	return ballVelocityY;
 }
-double logic::getPadPosLeft() const {
+double PongController::getPadPosLeft() const {
 	return padPosLeft;
 }
-double logic::getPadPosRight() const {
+double PongController::getPadPosRight() const {
 	return padPosRight; 
 }
 
 // Setting the class private data
-void logic::setBallPositionX(double posX) {
+void PongController::setBallPositionX(double posX) {
 	ballPositionX = posX;
 }
-void logic::setBallPositionY(double posY) {
+void PongController::setBallPositionY(double posY) {
 	ballPositionY = posY;
 }
-void logic::setBallVelocityX(double velX) {
+void PongController::setBallVelocityX(double velX) {
 	ballVelocityX = velX;
 }
-void logic::setBallVelocityY(double velY) {
+void PongController::setBallVelocityY(double velY) {
 	ballVelocityY = velY;
 }
-void logic::setPadPosLeft(double padLeft) {
+void PongController::setLeftPaddlePosition(double padLeft) {
 	padPosLeft = padLeft;
 }
-void logic::setPadPosRight(double padRight) {
+void PongController::setRightPaddlePosition(double padRight) {
 	padPosRight = padRight;
 }

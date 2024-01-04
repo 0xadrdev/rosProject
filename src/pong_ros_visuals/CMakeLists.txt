@@ -24,9 +24,9 @@ set(SDL2_TTF_LIBRARIES SDL2_ttf)
 
 # add_executable(my_node src/my_node.cpp)
 add_executable(${PROJECT_NAME}
-    src/my_node.cpp
-    src/SDL2_UI.cpp
-    src/Pong_field.cpp
+    src/PongVisualizationNode.cpp
+    src/PongVisualization.cpp
+    src/PongRosSdl.cpp
 )
 #ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs)
 ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs pong_ros_interfaces)             # For custom interface.

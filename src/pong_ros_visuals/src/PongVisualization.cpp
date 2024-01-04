@@ -8,8 +8,8 @@
 
 #include <string>
 
-#include "../include/Pong_field.h"
-#include "../../pong_ros_core/include/constants.h"
+#include "../include/PongVisualization.h"
+#include "../../pong_ros_core/include/Constants.h"
 
 using namespace pong_ros_constants;
 
@@ -17,21 +17,21 @@ using namespace pong_ros_constants;
 /** Set the vertical position of the left bat.
  * Units are up to the project group.
  */
-void Pong_field::setLeftPaddlePosition(double v_) {
+void PongVisualization::setLeftPaddlePosition(double v_) {
   leftPaddlePosition = v_;
 }
 
 /** Set the vertical position of the right bat.
  * Units are up to the project group.
  */
-void Pong_field::setRightPaddlePosition(double v_) {
+void PongVisualization::setRightPaddlePosition(double v_) {
   rightPaddlePosition = v_;
 }
 
 /** Set the horizontal and vertical position of the (center of) the ball.
  * Units are up to the project group.
  */
-void Pong_field::setBallPosition(double x_, double y_) {
+void PongVisualization::setBallPosition(double x_, double y_) {
   ballPositionX = x_;
   ballPositionY = y_;
 }
@@ -42,50 +42,50 @@ void Pong_field::setBallPosition(double x_, double y_) {
  *  The text is shown until a new text is set.
  *  To remove the text, send an empty string, "".
  */
-void Pong_field::setFieldText(std::string s_) {
+void PongVisualization::setFieldText(std::string s_) {
   fieldText = s_;
 }
 
 /** Draw the current state of all objects on the screen. Just call this
  * function regularly and you'll be fine...
  */
-void Pong_field::render() {
+void PongVisualization::render() {
   int batCenter;
 
-  sdl2_ui.clearWindow(); // Clear the draw buffer. This calls SDL2_UI::clear.
-  sdl2_ui.handleWindowEvents();
+  pong_ros_sdl.clearWindow(); // Clear the draw buffer. This calls pong_ros_sdl::clear.
+  pong_ros_sdl.handleWindowEvents();
 
   // We draw each element in a different color. This helps with debugging.
 
   // Draw walls. They are static so we hard-code them here.
-  sdl2_ui.setColor(255, 255, 255, 255);
-  sdl2_ui.setRectangle(SCREEN_WIDTH / 2 - 5 / 2, 0, SCREEN_WIDTH / 2 + 5, SCREEN_HEIGHT); // Middle wall. 
-  sdl2_ui.setRectangle(0, 0, SCREEN_WIDTH - 1, WALL_HEIGHT); // Top wall
-  sdl2_ui.setRectangle(0, SCREEN_HEIGHT - WALL_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT); // Bottom wall
+  pong_ros_sdl.setColor(255, 255, 255, 255);
+  pong_ros_sdl.setRectangle(SCREEN_WIDTH / 2 - 5 / 2, 0, SCREEN_WIDTH / 2 + 5, SCREEN_HEIGHT); // Middle wall. 
+  pong_ros_sdl.setRectangle(0, 0, SCREEN_WIDTH - 1, WALL_HEIGHT); // Top wall
+  pong_ros_sdl.setRectangle(0, SCREEN_HEIGHT - WALL_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT); // Bottom wall
 
   // Left bat
-  sdl2_ui.setColor(255, 255, 255, 255);
+  pong_ros_sdl.setColor(255, 255, 255, 255);
   // batCenter = (int)(170 * sin(leftPaddlePosition / 100)) + SCREEN_HEIGHT / 2; // Just some stupid formula. Change yourself :-)
   batCenter = (int) (leftPaddlePosition);  // Just some stupid formula. Change yourself :-)
-  sdl2_ui.setRectangle(0, batCenter - PADDLE_HEIGHT / 2, PADDLE_WIDTH, batCenter + PADDLE_HEIGHT / 2);
+  pong_ros_sdl.setRectangle(0, batCenter - PADDLE_HEIGHT / 2, PADDLE_WIDTH, batCenter + PADDLE_HEIGHT / 2);
 
   // Right bat
-  sdl2_ui.setColor(255, 255, 255, 255);
+  pong_ros_sdl.setColor(255, 255, 255, 255);
   // batCenter = (int)(150 * cos(rightPaddlePosition / 140)) + SCREEN_HEIGHT / 2; // Just some stupid formula. Change yourself :-)
   batCenter = (int) (rightPaddlePosition);  // Just some stupid formula. Change yourself :-)
-  sdl2_ui.setRectangle(SCREEN_WIDTH - 1 - PADDLE_WIDTH, batCenter - PADDLE_HEIGHT / 2, SCREEN_WIDTH - 1, batCenter + PADDLE_HEIGHT / 2);
+  pong_ros_sdl.setRectangle(SCREEN_WIDTH - 1 - PADDLE_WIDTH, batCenter - PADDLE_HEIGHT / 2, SCREEN_WIDTH - 1, batCenter + PADDLE_HEIGHT / 2);
 
   // Ball
-  sdl2_ui.setColor(255, 255, 255, 255); // Ball is white
+  pong_ros_sdl.setColor(255, 255, 255, 255); // Ball is white
   // int ballCenterX = (int)(150 * cos(ballPositionX / 40)) + SCREEN_WIDTH / 2; // Just some stupid formula. Change yourself :-)
   // int ballCenterY = (int)(40 * cos(ballPositionY / 35)) + SCREEN_HEIGHT / 2; // Just some stupid formula. Change yourself :-)
   int ballCenterX = (int) (ballPositionX);  // Just some stupid formula. Change yourself :-)
   int ballCenterY = (int) (ballPositionY);  // Just some stupid formula. Change yourself :-)
-  sdl2_ui.setRectangle(ballCenterX - BALL_SIZE / 2, ballCenterY - BALL_SIZE / 2, ballCenterX + BALL_SIZE / 2, ballCenterY + BALL_SIZE / 2);
+  pong_ros_sdl.setRectangle(ballCenterX - BALL_SIZE / 2, ballCenterY - BALL_SIZE / 2, ballCenterX + BALL_SIZE / 2, ballCenterY + BALL_SIZE / 2);
 
   // Text
-  sdl2_ui.setText(fieldText, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 50);
+  pong_ros_sdl.setText(fieldText, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 50);
 
   // Show it on the screen
-  sdl2_ui.render(); // This calls SDL2_UI::present
+  pong_ros_sdl.render(); // This calls pong_ros_sdl::present
 }
