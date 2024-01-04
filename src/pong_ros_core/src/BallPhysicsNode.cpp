@@ -42,11 +42,11 @@ class BallPhysicsNode: public rclcpp::Node {
 
     // Subscriptions handlers. 
 
-    void handle_ball_velocity_subscription(const pong_ros_interfaces::msg::BallVelocity & msg) {
+    void handle_ball_velocity_subscription(const pong_ros_interfaces::msg::BallVelocity & ballVelocityMsg) {
       // Confirming data is read
-      // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << ballVelocityMsg.x << "' y: '" << ballVelocityMsg.y << "'");
 
-      ball_physics_.updateBallPosition(msg.x, msg.y);
+      ball_physics_.setBallPosition(ballVelocityMsg.x + ball_physics_.getBallPositionX(), ballVelocityMsg.y + ball_physics_.getBallPositionY());
 
       // Setting up the new ball position message. 
 

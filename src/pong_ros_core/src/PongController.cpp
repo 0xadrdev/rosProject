@@ -22,19 +22,19 @@ void PongController::checkCollision() {
 	
 	// Checking the collisionType type: 
 	if (ballPositionX + 15 >= SCREEN_WIDTH) {
-		collisionType = OUTSIDE_RIGHT_COLLISION; // outside right
+		collisionType = OUTSIDE_RIGHT_COLLISION; 
 	} else if (ballPositionX - 15 <= 0) {
-		collisionType = OUTSIDE_LEFT_COLLISION; // outside left 
-	} else if (ballPositionY - BALL_SIZE / 2 <= WALL_HEIGHT) {							        // Top wall
-		collisionType = TOP_WALL_COLLISION; 	// collisionType with top wall indicator
+		collisionType = OUTSIDE_LEFT_COLLISION;
+	} else if (ballPositionY - BALL_SIZE / 2 <= WALL_HEIGHT) {							       
+		collisionType = TOP_WALL_COLLISION; 	
 	} else if (ballPositionY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT) {						// Bottom wall
-		collisionType = BOTTOM_WALL_COLLISION;	// collisionType with bottom wall indicator
+		collisionType = BOTTOM_WALL_COLLISION;	
 	} else if ((ballPositionX - BALL_SIZE / 4 <= PADDLE_WIDTH + BALL_SIZE / 4) && (abs(leftPaddlePosition - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2) ){	// Left bat
-		collisionType = LEFT_PADDLE_COLLISION; 	// collisionType with left bat
+		collisionType = LEFT_PADDLE_COLLISION; 
 	} else if ((ballPositionX + BALL_SIZE / 4 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 4) && (abs(rightPaddlePosition - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2)) {	// Right bat
-		collisionType = RIGHT_PADDLE_COLLISION;	// collisionType with right bat
+		collisionType = RIGHT_PADDLE_COLLISION;	
 	} else {
-		collisionType = NO_COLLISION; 	// No collisionType takes place
+		collisionType = NO_COLLISION;
 	}
 }
 
@@ -42,8 +42,8 @@ void PongController::incrementVelocity() {
   if (collisionType == RIGHT_PADDLE_COLLISION || collisionType == LEFT_PADDLE_COLLISION) {
     velocityIncrement += 0.5;
   } else if (collisionType == OUTSIDE_LEFT_COLLISION || collisionType == OUTSIDE_RIGHT_COLLISION) {
-    ballVelocityX = ballVelocityX / velocityIncrement;
-    ballVelocityY = ballVelocityY / velocityIncrement;
+    ballVelocityX = ballVelocityX < 0 ? -2 : 2;
+    ballVelocityY = ballVelocityY < 0 ? -1 : 1;
     velocityIncrement = 1;
   }
 }
@@ -52,26 +52,33 @@ void PongController::updateBallVelocity() {
 	// On the basis of the collisionType type determine the reflection
 
 	if (collisionType == TOP_WALL_COLLISION) {
-		ballVelocityX = ballVelocityX;
-		ballVelocityY = -ballVelocityY;
-	} else if (collisionType == BOTTOM_WALL_COLLISION) {									
-		ballVelocityX = ballVelocityX;
-		ballVelocityY = -ballVelocityY;
+    setBallVelocity(ballVelocityX, -ballVelocityY);
+		// ballVelocityX = ballVelocityX;
+		// ballVelocityY = -ballVelocityY;
+	} else if (collisionType == BOTTOM_WALL_COLLISION) {
+    setBallVelocity(ballVelocityX, -ballVelocityY);				
+		// ballVelocityX = ballVelocityX;
+		// ballVelocityY = -ballVelocityY;
 	} else if (collisionType == LEFT_PADDLE_COLLISION) {								
-		ballVelocityX = abs(ballVelocityX) * velocityIncrement;
-		ballVelocityY = ballVelocityY * velocityIncrement;
-	} else if (collisionType == RIGHT_PADDLE_COLLISION) {				
-		ballVelocityX = -abs(ballVelocityX) * velocityIncrement;
-		ballVelocityY = ballVelocityY * velocityIncrement;
+    setBallVelocity(abs(ballVelocityX) * velocityIncrement, ballVelocityY * velocityIncrement);
+		// ballVelocityX = abs(ballVelocityX) * velocityIncrement;
+		// ballVelocityY = ballVelocityY * velocityIncrement;
+	} else if (collisionType == RIGHT_PADDLE_COLLISION) {	
+    setBallVelocity(-abs(ballVelocityX) * velocityIncrement, ballVelocityY * velocityIncrement);			
+		// ballVelocityX = -abs(ballVelocityX) * velocityIncrement;
+		// ballVelocityY = ballVelocityY * velocityIncrement;
 	} else if (collisionType == OUTSIDE_RIGHT_COLLISION) {
-		ballVelocityX = -abs(ballVelocityX);
-		ballVelocityY = ballVelocityY;
+    setBallVelocity(-abs(ballVelocityY), ballVelocityY);
+		// ballVelocityX = -abs(ballVelocityX);
+		// ballVelocityY = ballVelocityY;
 	} else if (collisionType == OUTSIDE_LEFT_COLLISION) {
-		ballVelocityX = abs(ballVelocityX);
-		ballVelocityY = ballVelocityY;
-	} else {												// No collisionType
-		ballVelocityX = ballVelocityX;
-		ballVelocityY = ballVelocityY;
+    setBallVelocity(abs(ballVelocityX), ballVelocityY);
+		// ballVelocityX = abs(ballVelocityX);
+		// ballVelocityY = ballVelocityY;
+	} else { // NO_COLLISION	
+    setBallVelocity(ballVelocityX, ballVelocityY);
+		// ballVelocityX = ballVelocityX;
+		// ballVelocityY = ballVelocityY;
 	}
 }
 
@@ -95,19 +102,29 @@ double PongController::getRightPaddlePosition() const {
 	return rightPaddlePosition; 
 }
 
+void PongController::setBallVelocity(double x, double y) {
+  ballVelocityX = x;
+  ballVelocityY = y;
+}
+
+void PongController::setBallPosition(double x, double y) {
+  ballPositionX = x;
+  ballPositionY = y;
+}
+
 // Setting the class private data
-void PongController::setBallPositionX(double posX) {
-	ballPositionX = posX;
-}
-void PongController::setBallPositionY(double posY) {
-	ballPositionY = posY;
-}
-void PongController::setBallVelocityX(double velX) {
-	ballVelocityX = velX;
-}
-void PongController::setBallVelocityY(double velY) {
-	ballVelocityY = velY;
-}
+// void PongController::setBallPositionX(double posX) {
+// 	ballPositionX = posX;
+// }
+// void PongController::setBallPositionY(double posY) {
+// 	ballPositionY = posY;
+// }
+// void PongController::setBallVelocityX(double velX) {
+// 	ballVelocityX = velX;
+// }
+// void PongController::setBallVelocityY(double velY) {
+// 	ballVelocityY = velY;
+// }
 void PongController::setLeftPaddlePosition(double padLeft) {
 	leftPaddlePosition = padLeft;
 }

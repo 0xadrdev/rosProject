@@ -27,6 +27,7 @@ class PongControllerNode:public rclcpp::Node
   public:
     PongControllerNode()
     : Node("pong_controller_node") {
+      
       // Subscriptions
       ball_position_subscription_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
       TOPIC_BALL_POSITION, 10, std::bind(&PongControllerNode::handle_ball_position_subscription, this, _1));
@@ -56,20 +57,22 @@ class PongControllerNode:public rclcpp::Node
         // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
         
         // Update the ball position using the message from the subscription
-          pongController_.setBallPositionX(msg.x);
-          pongController_.setBallPositionY(msg.y);
+          // pongController_.setBallPositionX(msg.x);
+          // pongController_.setBallPositionY(msg.y);
+
+          pongController_.setBallPosition(msg.x, msg.y);
       }
       
       void handle_left_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg)
       {
         // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
-        pongController_.setLeftPaddlePosition(msg->data);
+        pongController_.setLeftPaddlePosition(msg -> data);
       }
 
       void handle_right_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg)
       {
         // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
-        pongController_.setRightPaddlePosition(msg->data);
+        pongController_.setRightPaddlePosition(msg -> data);
       }
       
       void timer_callback() {
