@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : PongVisualizationNode.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -18,24 +18,26 @@
 #include "std_msgs/msg/int32.hpp"
 #include "pong_ros_interfaces/msg/ball_position.hpp" 
 #include "pong_ros_interfaces/msg/players_scores.hpp"
+#include "../../pong_ros_core/include/Constants.h"
 
 using std::placeholders::_1;
+using namespace pong_ros_constants;
 
 class PongVisualizationNode : public rclcpp::Node
 {
   public:
     PongVisualizationNode():Node("pong_visualization_node") {
       ball_position_subscription_ = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
-      "ball_position", 10, std::bind(&PongVisualizationNode::handle_ball_position_subscription, this, _1));
+      TOPIC_BALL_POSITION, 10, std::bind(&PongVisualizationNode::handle_ball_position_subscription, this, _1));
 
       left_paddle_position_subscription_ = this -> create_subscription<std_msgs::msg::Float64>(
-      "first_paddle_position", 10, std::bind(&PongVisualizationNode::handle_left_paddle_subscription, this, _1));
+      TOPIC_LEFT_PADDLE_POSITION, 10, std::bind(&PongVisualizationNode::handle_left_paddle_subscription, this, _1));
 
       right_paddle_subscription_ = this -> create_subscription<std_msgs::msg::Float64>(
-      "second_paddle_position", 10, std::bind(&PongVisualizationNode::handle_right_paddle_subscription, this, _1));
+      TOPIC_RIGHT_PADDLE_POSITION, 10, std::bind(&PongVisualizationNode::handle_right_paddle_subscription, this, _1));
 
       score_players_subscription = this -> create_subscription<pong_ros_interfaces::msg::PlayersScores>(
-      "score", 10, std::bind(&PongVisualizationNode::handle_players_score_subscription, this, _1));
+      TOPIC_PLAYERS_SCORES, 10, std::bind(&PongVisualizationNode::handle_players_score_subscription, this, _1));
       
       // Initialize the PongVisualization object
       pong_visualization_ = std::make_shared<PongVisualization>();

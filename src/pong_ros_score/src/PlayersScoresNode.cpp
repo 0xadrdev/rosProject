@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename :PlayersScoresNode.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -17,10 +17,11 @@
 #include "std_msgs/msg/float64.hpp"
 #include "pong_ros_interfaces/msg/ball_position.hpp" 
 #include "pong_ros_interfaces/msg/players_scores.hpp" 
-
 #include "PlayersScores.h"
+#include "../../pong_ros_core/include/Constants.h"
 
 using std::placeholders::_1;
+using namespace pong_ros_constants;
 
 class PlayersScoresNode : public rclcpp::Node {
   public:
@@ -28,10 +29,10 @@ class PlayersScoresNode : public rclcpp::Node {
 
       // Subscriptions
       ball_position_subscription = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
-      "ball_position", 10,std::bind(&PlayersScoresNode::handle_ball_position_subscription, this, _1));
+      TOPIC_BALL_POSITION, 10,std::bind(&PlayersScoresNode::handle_ball_position_subscription, this, _1));
       
       // Publishers 
-      score_publisher_ = this -> create_publisher<pong_ros_interfaces::msg::PlayersScores>("score", 10);
+      score_publisher_ = this -> create_publisher<pong_ros_interfaces::msg::PlayersScores>(TOPIC_PLAYERS_SCORES, 10);
       
       // Initialize the class object used to handle the players scores. 
       players_scores_ = PlayersScores(); 

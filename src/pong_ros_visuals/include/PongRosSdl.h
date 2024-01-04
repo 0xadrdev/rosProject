@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : PongRosSdl.h 
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0

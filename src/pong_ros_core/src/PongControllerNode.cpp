@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : PongControllerNode.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -17,8 +17,10 @@
 #include "pong_ros_interfaces/msg/ball_position.hpp" 
 #include "pong_ros_interfaces/msg/ball_velocity.hpp" 
 #include "PongController.h"
+#include "../../pong_ros_core/include/Constants.h"
 
 using std::placeholders::_1;
+using namespace pong_ros_constants;
 
 class PongControllerNode:public rclcpp::Node
 {
@@ -27,16 +29,16 @@ class PongControllerNode:public rclcpp::Node
     : Node("pong_controller_node") {
       // Subscriptions
       ball_position_subscription_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
-      "ball_position", 10, std::bind(&PongControllerNode::handle_ball_position_subscription, this, _1));
+      TOPIC_BALL_POSITION, 10, std::bind(&PongControllerNode::handle_ball_position_subscription, this, _1));
 
       left_paddle_position_subscription_ = this->create_subscription<std_msgs::msg::Float64>(
-      "first_paddle_position", 10, std::bind(&PongControllerNode::handle_left_paddle_position_subscription, this, _1));
+      TOPIC_LEFT_PADDLE_POSITION, 10, std::bind(&PongControllerNode::handle_left_paddle_position_subscription, this, _1));
       
       right_paddle_position_subscription_ = this->create_subscription<std_msgs::msg::Float64>(
-      "second_paddle_position", 10, std::bind(&PongControllerNode::handle_right_paddle_position_subscription, this, _1));
+      TOPIC_RIGHT_PADDLE_POSITION, 10, std::bind(&PongControllerNode::handle_right_paddle_position_subscription, this, _1));
       
       // Publishing
-      ball_velocity_publisher_ = this->create_publisher<pong_ros_interfaces::msg::BallVelocity>("ball_velocity", 10);
+      ball_velocity_publisher_ = this->create_publisher<pong_ros_interfaces::msg::BallVelocity>(TOPIC_BALL_VELOCITY, 10);
       
       // Initialize the class object used to compute the logic
       pongController_ = PongController();

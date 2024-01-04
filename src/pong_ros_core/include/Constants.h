@@ -1,10 +1,11 @@
 //==============================================================
-// Filename :
+// Filename : Constants.h 
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
 // Description :
 //==============================================================
+
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
@@ -34,10 +35,12 @@ namespace pong_ros_constants {
   constexpr int OUTSIDE_RIGHT_COLLISION = 5;
   constexpr int OUTSIDE_LEFT_COLLISION = 6;
 
-  // You can also define constants for specific purposes like topic names
-  const char* const TOPIC_NAVIGATION = "/navigation";
-  const char* const TOPIC_DIAGNOSTICS = "/diagnostics";
-
+  // Topics constants. 
+  constexpr char TOPIC_BALL_POSITION[] = "ball_position";
+  constexpr char TOPIC_BALL_VELOCITY[] = "ball_velocity";
+  constexpr char TOPIC_LEFT_PADDLE_POSITION[] = "left_paddle_position";
+  constexpr char TOPIC_RIGHT_PADDLE_POSITION[] = "right_paddle_position";
+  constexpr char TOPIC_PLAYERS_SCORES[] = "players_scores";
 }
 
 #endif // CONSTANTS_H

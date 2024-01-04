@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : PongVisualization.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0

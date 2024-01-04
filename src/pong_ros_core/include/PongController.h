@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : PongController.h
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -23,8 +23,8 @@ public:
 	double getBallPositionY() const;
 	double getBallVelocityX() const;
 	double getBallVelocityY() const;
-	double getPadPosLeft() const;
-	double getPadPosRight() const;
+	double getLeftPaddlePosition() const;
+	double getRightPaddlePosition() const;
 	
 	void setBallPositionX(double posX);
 	void setBallPositionY(double posY);
@@ -42,8 +42,8 @@ private:
 	double ballPositionY;// = 300; // Vertical position of the center of the ball.
 	double ballVelocityX; // = 0; // Speed of the ball. 
 	double ballVelocityY;// = 0; // Direction of movement of the ball. 
-	double padPosLeft;// = 300; // Speed of the ball. 
-	double padPosRight;// = 300; // Direction of movement of the ball. 
+	double leftPaddlePosition;// = 300; // Speed of the ball. 
+	double rightPaddlePosition;// = 300; // Direction of movement of the ball. 
 	int collisionType;// = 0; // Variable storing the type of collision. 
 };
 

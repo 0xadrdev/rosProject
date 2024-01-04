@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : BallPhysicsNode.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -17,20 +17,22 @@
 #include "std_msgs/msg/float64.hpp"
 #include "pong_ros_interfaces/msg/ball_position.hpp"
 #include "pong_ros_interfaces/msg/ball_velocity.hpp"
-
+#include "../../pong_ros_core/include/Constants.h"
 #include "BallPhysics.h"
 
+using namespace pong_ros_constants;
 using std::placeholders::_1;
+
 
 class BallPhysicsNode: public rclcpp::Node {
   public: BallPhysicsNode(): Node("ball_physics_node") {
 
     // Subscriptions
     ball_velocity_subscription_ = this -> create_subscription <pong_ros_interfaces::msg::BallVelocity> (
-      "ball_velocity", 10, std::bind( & BallPhysicsNode::handle_ball_velocity_subscription, this, _1));
+      TOPIC_BALL_VELOCITY, 10, std::bind( & BallPhysicsNode::handle_ball_velocity_subscription, this, _1));
 
     // Publishers. 
-    ball_position_publisher_ = this -> create_publisher <pong_ros_interfaces::msg::BallPosition> ("ball_position", 10);
+    ball_position_publisher_ = this -> create_publisher <pong_ros_interfaces::msg::BallPosition> (TOPIC_BALL_POSITION, 10);
 
     // Initialize the class object used to compute the ball physics
     ball_physics_ = BallPhysics();

@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : PaddlesControllerNode.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -15,10 +15,10 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int16.hpp"
 #include "std_msgs/msg/float64.hpp"
-
-//#include "ball_physics.h"
+#include "../../pong_ros_core/include/Constants.h"
 
 using std::placeholders::_1;
+using namespace pong_ros_constants;
 
 class PaddlesControllerNode : public rclcpp::Node
 {
@@ -34,8 +34,8 @@ class PaddlesControllerNode : public rclcpp::Node
       "light_position", 1,std::bind(&PaddlesControllerNode::handle_light_position_subscription, this, _1));
       
       // Publishing
-      left_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>("first_paddle_position", 10);
-      right_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>("second_paddle_position", 10);
+      left_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>(TOPIC_LEFT_PADDLE_POSITION, 10);
+      right_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>(TOPIC_RIGHT_PADDLE_POSITION, 10);
       
       // Initialize the class object used to compute the ball physics
       // Could be done, but the simplicity of this task allows for implementation in the ros2 node itself.

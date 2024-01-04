@@ -1,5 +1,5 @@
 //==============================================================
-// Filename :
+// Filename : BallPhysics.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
