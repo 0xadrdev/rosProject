@@ -22,7 +22,7 @@ class PongController {
 
   public:
     // Constructor
-    PongController(double posX = 500, double posY = 300, double velX = 1, double velY = 0, double padLeft = 300, double padRight = 300, int col = 0, double vel = 1); 
+    PongController(double posX = 500, double posY = 300, double velX = 2, double velY = 1, double padLeft = 300, double padRight = 300, int col = 0, double vel = 1); 
     
     void determineCollisionType();
     

@@ -18,7 +18,7 @@ class BallPhysics {
 	
   public:
     // Constructor. 
-    BallPhysics(double posX = 500, double posY = 300, double velX = 0, double velY = 0); 
+    BallPhysics(double posX = 500, double posY = 300, double velX = 2, double velY = 1); 
     
     // Getters. 
     double getBallPositionX() const;
@@ -28,6 +28,7 @@ class BallPhysics {
 
     // Setters. 
     void setBallPosition(double x, double y);
+    void setBallVelocity(double x, double y);
 };
 
 #endif // BALL_PHYSICS_H

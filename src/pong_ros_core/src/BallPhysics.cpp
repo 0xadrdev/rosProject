@@ -31,3 +31,8 @@ void BallPhysics::setBallPosition(double x, double y) {
   ballPositionX = x;
   ballPositionY = y;
 }
+
+void BallPhysics::setBallVelocity(double x, double y) {
+  ballVelocityX = x;
+  ballVelocityY = y;
+}

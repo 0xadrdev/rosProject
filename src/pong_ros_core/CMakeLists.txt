@@ -18,6 +18,7 @@ find_package(pong_ros_interfaces REQUIRED)
 add_executable(logic
     src/PongControllerNode.cpp
     src/PongController.cpp
+    src/BallPhysics.cpp
 )
 
 ament_target_dependencies(logic rclcpp std_msgs pong_ros_interfaces)
