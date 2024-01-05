@@ -1,7 +1,7 @@
 <launch>
-  <node pkg="pong_ros_core" exec="physics" name="physics"/>
+  <!-- <node pkg="pong_ros_core" exec="physics" name="physics"/> -->
   <node pkg="pong_ros_paddles_physics" exec="pong_ros_paddles_physics" name="pong_ros_paddles_physics"/>
   <node pkg="pong_ros_score" exec="pong_ros_score" name="pong_ros_score"/>
   <node pkg="pong_ros_visuals" exec="pong_ros_visuals" name="pong_ros_visuals"/>
-  <node pkg="pong_ros_core" exec="logic" name="logic"/> 
+  <node pkg="pong_ros_core" exec="pong_ros_core" name="pong_ros_core"/> 
 </launch>

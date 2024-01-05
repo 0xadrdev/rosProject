@@ -22,9 +22,9 @@ void PlayersScores::updatePlayersScores() {
 	} else if (ballPositionX + 15 >= screenWidth && test == false) {
 		scoreRightPlayer++;
 		test = true;
-	} else if (ballPositionX <= 0 && test == true) {
+	} else if (ballPositionX - 15 <= 0 && test == true) {
 		test = true;
-	} else if (ballPositionX >= screenWidth && test == true ) {
+	} else if (ballPositionX + 15 >= screenWidth && test == true ) {
 		test = true; 
 	} else {
 		test = false;

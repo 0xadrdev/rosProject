@@ -47,7 +47,7 @@ class PongControllerNode:public rclcpp::Node
       // Initialize the class object used to compute the logic
       pong_controller_ = PongController();
 
-      ball_physics_ = BallPhysics();
+      // ball_physics_ = BallPhysics();
 
       // Initialize a timer for the iteration speed of the game.
       timer_ = this -> create_wall_timer(std::chrono::milliseconds(1000 / 60), std::bind(&PongControllerNode::timer_callback, this));
@@ -55,12 +55,12 @@ class PongControllerNode:public rclcpp::Node
     
     private:
 
-      // Subscriptions handlers. 
-      void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) {
-        // Confirming data is read correctly
-        // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
-        pong_controller_.setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
-      }
+      // // Subscriptions handlers. 
+      // void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) {
+      //   // Confirming data is read correctly
+      //   // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      //   pong_controller_.setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
+      // }
       
       void handle_left_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg) {
         // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
@@ -94,23 +94,24 @@ class PongControllerNode:public rclcpp::Node
 
       void timer_callback() {
 
-          pong_controller_.setBallPosition(ball_physics_.getBallPositionX(), ball_physics_.getBallPositionY());
-          pong_controller_.setBallVelocity(ball_physics_.getBallVelocityX(), ball_physics_.getBallVelocityY());
+          // pong_controller_.setBallPosition(ball_physics_.getBallPositionX(), ball_physics_.getBallPositionY());
+          // pong_controller_.setBallVelocity(ball_physics_.getBallVelocityX(), ball_physics_.getBallVelocityY());
           
           // Using the logic class
           pong_controller_.determineCollisionType();
 
+          // pong_controller_.incrementVelocity(); // Increments the velocity of the ball if it bounces the paddles. 
+
           pong_controller_.updateBallVelocity();
 
-          pong_controller_.incrementVelocity();
 
-          ball_physics_.setBallPosition(pong_controller_.getBallPositionX() + pong_controller_.getBallVelocityX(), pong_controller_.getBallPositionY() +  pong_controller_.getBallVelocityY());
-          ball_physics_.setBallVelocity(pong_controller_.getBallVelocityX(), pong_controller_.getBallVelocityY());
+          // ball_physics_.setBallPosition(pong_controller_.getBallPositionX() + pong_controller_.getBallVelocityX(), pong_controller_.getBallPositionY() +  pong_controller_.getBallVelocityY());
+          // ball_physics_.setBallVelocity(pong_controller_.getBallVelocityX(), pong_controller_.getBallVelocityY());
 
           auto ball_position_msg = pong_ros_interfaces::msg::BallPosition();
 
-          ball_position_msg.x = ball_physics_.getBallPositionX();
-          ball_position_msg.y = ball_physics_.getBallPositionY();
+          ball_position_msg.x = pong_controller_.getBallPositionX();
+          ball_position_msg.y = pong_controller_.getBallPositionY();
 
           // Publishing the updated ball position. 
           ball_position_publisher_ -> publish(ball_position_msg);

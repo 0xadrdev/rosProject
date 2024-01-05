@@ -12,12 +12,19 @@
 
 using namespace pong_ros_constants;
 
-PongController::PongController(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col, double vel)
-	: ballPositionX(posX), ballPositionY(posY), ballVelocityX(velX), ballVelocityY(velY), leftPaddlePosition(padLeft), rightPaddlePosition(padRight), collisionType(col), velocityIncrement(vel)
+// PongController::PongController(double posX, double posY, double velX, double velY, double padLeft, double padRight, int col, double vel)
+// 	: ballPositionX(posX), ballPositionY(posY), ballVelocityX(velX), ballVelocityY(velY), leftPaddlePosition(padLeft), rightPaddlePosition(padRight), collisionType(col), velocityIncrement(vel)
+// {}
+
+PongController::PongController(BallPhysics ball, double padLeft, double padRight, int col, double vel)
+	: ballPhysics(ball), leftPaddlePosition(padLeft), rightPaddlePosition(padRight), collisionType(col), velocityIncrement(vel)
 {}
 
 // Depending the position of the ball a collisionType is setted. 
 void PongController::determineCollisionType() {
+  double ballPositionX = ballPhysics.getBallPositionX();
+  double ballPositionY = ballPhysics.getBallPositionY();
+
 	if (ballPositionX + 15 >= SCREEN_WIDTH && collisionType == NO_COLLISION) {
 		collisionType = OUTSIDE_RIGHT_COLLISION; 
 	} else if (ballPositionX - 15 <= 0 && collisionType == NO_COLLISION) {
@@ -35,53 +42,70 @@ void PongController::determineCollisionType() {
 	}
 }
 
+int PongController::getCollisionType() const {
+  return collisionType;
+}
+
 // Increments the ball velocity if it bounces the paddles of the players.
 // It resets the ball velocity when the ball bounces the outsides. 
 void PongController::incrementVelocity() {
+
   if (collisionType == RIGHT_PADDLE_COLLISION || collisionType == LEFT_PADDLE_COLLISION) {
     velocityIncrement += 0.5;
   } else if (collisionType == OUTSIDE_LEFT_COLLISION || collisionType == OUTSIDE_RIGHT_COLLISION) {
-    ballVelocityX = ballVelocityX < 0 ? -2 : 2;
-    ballVelocityY = ballVelocityY < 0 ? -1 : 1;
+    // double ballVelocityX = ballPhysics.getBallVelocityX() < 0 ? -2 : 2;
+    // double ballVelocityY = ballPhysics.getBallVelocityY() < 0 ? -1 : 1;
+
+    // ballPhysics.setBallVelocity(ballVelocityX, ballVelocityY);
+    ballPhysics = BallPhysics();
     velocityIncrement = 1;
   }
 }
 
 // Depending on the collisionType atrbute updates the ballVelocity. 
 void PongController::updateBallVelocity() {
+  double ballVelocityX = ballPhysics.getBallVelocityX();
+  double ballVelocityY = ballPhysics.getBallVelocityY();
+
 	if (collisionType == TOP_WALL_COLLISION) {
-    setBallVelocity(ballVelocityX, -ballVelocityY);
+    ballPhysics.setBallVelocity(ballVelocityX, -ballVelocityY);
 	} else if (collisionType == BOTTOM_WALL_COLLISION) {
-    setBallVelocity(ballVelocityX, -ballVelocityY);				
+    ballPhysics.setBallVelocity(ballVelocityX, -ballVelocityY);				
 	} else if (collisionType == LEFT_PADDLE_COLLISION) {								
-    setBallVelocity(abs(ballVelocityX) * velocityIncrement, ballVelocityY * velocityIncrement);
+    ballPhysics.setBallVelocity(abs(ballVelocityX) * velocityIncrement, ballVelocityY * velocityIncrement);
 	} else if (collisionType == RIGHT_PADDLE_COLLISION) {	
-    setBallVelocity(-abs(ballVelocityX) * velocityIncrement, ballVelocityY * velocityIncrement);			
+    ballPhysics.setBallVelocity(-abs(ballVelocityX) * velocityIncrement, ballVelocityY * velocityIncrement);			
 	} else if (collisionType == OUTSIDE_RIGHT_COLLISION) {
-    setBallVelocity(-abs(ballVelocityY), ballVelocityY);
+    ballPhysics.setBallVelocity(-abs(ballVelocityY), ballVelocityY);
+    ballPhysics.setBallPosition(500, 300);
+    // ballPhysics = BallPhysics();
 	} else if (collisionType == OUTSIDE_LEFT_COLLISION) {
-    setBallVelocity(abs(ballVelocityX), ballVelocityY);
+    ballPhysics.setBallVelocity(abs(ballVelocityX), ballVelocityY);
+    // ballPhysics = BallPhysics();
+    ballPhysics.setBallPosition(500, 300);
 	} else { // NO_COLLISION	
-    setBallVelocity(ballVelocityX, ballVelocityY);
+    ballPhysics.setBallVelocity(ballVelocityX, ballVelocityY);
 	}
+
+  ballPhysics.setBallPosition(ballPhysics.getBallPositionX() + ballPhysics.getBallVelocityX(), ballPhysics.getBallPositionY() +  ballPhysics.getBallVelocityY());
 }
 
 // Getters for private attributes. 
 double PongController::getBallPositionX() const {
-	return ballPositionX;
+	return ballPhysics.getBallPositionX();
 }
 
 double PongController::getBallPositionY() const {
-	return ballPositionY;
+	return ballPhysics.getBallPositionY();
 }
 
-double PongController::getBallVelocityX() const {
-	return ballVelocityX; 
-}
+// double PongController::getBallVelocityX() const {
+// 	return ballVelocityX; 
+// }
 
-double PongController::getBallVelocityY() const {
-	return ballVelocityY;
-}
+// double PongController::getBallVelocityY() const {
+// 	return ballVelocityY;
+// }
 
 double PongController::getLeftPaddlePosition() const {
 	return leftPaddlePosition;
@@ -92,15 +116,15 @@ double PongController::getRightPaddlePosition() const {
 }
 
 // Setters. 
-void PongController::setBallVelocity(double x, double y) {
-  ballVelocityX = x;
-  ballVelocityY = y;
-}
+// void PongController::setBallVelocity(double x, double y) {
+//   ballVelocityX = x;
+//   ballVelocityY = y;
+// }
 
-void PongController::setBallPosition(double x, double y) {
-  ballPositionX = x;
-  ballPositionY = y;
-}
+// void PongController::setBallPosition(double x, double y) {
+//   ballPositionX = x;
+//   ballPositionY = y;
+// }
 
 void PongController::setLeftPaddlePosition(double padLeft) {
 	leftPaddlePosition = padLeft;

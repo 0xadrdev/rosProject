@@ -15,37 +15,37 @@ find_package(pong_ros_interfaces REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 # package executables 
-add_executable(logic
+add_executable(pong_ros_core
     src/PongControllerNode.cpp
     src/PongController.cpp
     src/BallPhysics.cpp
 )
 
-ament_target_dependencies(logic rclcpp std_msgs pong_ros_interfaces)
+ament_target_dependencies(pong_ros_core rclcpp std_msgs pong_ros_interfaces)
 
-add_executable(physics 
-    src/BallPhysicsNode.cpp
-    src/BallPhysics.cpp
-)
+# add_executable(physics 
+#     src/BallPhysicsNode.cpp
+#     src/BallPhysics.cpp
+# )
 
-ament_target_dependencies(physics rclcpp std_msgs pong_ros_interfaces)
+# ament_target_dependencies(physics rclcpp std_msgs pong_ros_interfaces)
 
-target_include_directories(physics PUBLIC
+# target_include_directories(physics PUBLIC
+#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#   $<INSTALL_INTERFACE:include>)
+
+# target_compile_features(physics PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+target_include_directories(pong_ros_core PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
-target_compile_features(physics PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-
-target_include_directories(logic PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-
-target_compile_features(logic PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(pong_ros_core PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 #install(TARGETS suppub_logic
 install(TARGETS 
-  logic
-  physics
+  # logic
+  pong_ros_core
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
