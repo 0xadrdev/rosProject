@@ -64,14 +64,6 @@ class SubpubLight : public rclcpp::Node
       //grayImage->encoding = sensor_msgs::image_encodings::MONO8; // set the encoding to grayscale
       //grayImage->step = grayImage->width; // set the number of bytes per row to be equal to the image width
 
-      for (int y = 0; y < height; y++) {
-          for (int x = 0; x < width; x++) {
-              int brightness = getPixelBrightness(msg, x, y);
-              setPixelColor(grayImage, x, y, brightness, brightness, brightness);
-          }
-      }
-      
-      // Applying threshold value
       const int THRESHOLD = 50;
 
       for (int y = 0; y < height; y++) {
@@ -82,12 +74,25 @@ class SubpubLight : public rclcpp::Node
               } else {
                   setPixelColor(grayImage, x, y, 0, 0, 0);
               }
+              setPixelColor(grayImage, x, y, brightness, brightness, brightness);
           }
       }
       
+      // Applying threshold value
+
+      // for (int y = 0; y < height; y++) {
+      //     for (int x = 0; x < width; x++) {
+      //         int brightness = getPixelBrightness(msg, x, y);
+      //         if (brightness > THRESHOLD) {
+      //             setPixelColor(grayImage, x, y, 255, 255, 255);
+      //         } else {
+      //             setPixelColor(grayImage, x, y, 0, 0, 0);
+      //         }
+      //     }
+      // }
+      
       // Computing the center of gravity
       int sumBrightness = 0;
-      //int sumX = 0;
       int sumY = 0;
 
       for (int y = 0; y < height; y++) {
@@ -105,13 +110,8 @@ class SubpubLight : public rclcpp::Node
       double centerY = (double) sumY / sumBrightness;
      
       
-      //pongPhysics_.updatePosition(msg.x, msg.y);
-      
       // Setting up the message. 
       auto paddle_pos_msg = std_msgs::msg::Float64();
-      
-      //double ball_pos_x = pongPhysics_.getBallPosX(); // Use the class object to compute physics
-      //double ball_pos_y = pongPhysics_.getBallPosY(); // Use the class object to compute physics
       
       if (std::isnan(centerY)) {
           centerY = 100.0;
@@ -127,17 +127,10 @@ class SubpubLight : public rclcpp::Node
     
     rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr imageSub_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr paddle_pos_publisher_;
-    //ball_physics pongPhysics_;
 };
 
-
-//int main(int argc, char ** argv) {
 int main(int argc, char* argv[]) {
 
-  
-  //ball_physics pongPhysics_;
-  
-  // Initializing and running the subscribed and publishing node
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<SubpubLight>());
   rclcpp::shutdown();

@@ -10,16 +10,13 @@
 #define BALL_PHYSICS_H
 
 class BallPhysics {
-
   private:
-
     double ballPositionX = 500; 
     double ballPositionY = 300; 
     double ballVelocityX = 0; 
     double ballVelocityY = 0; 
 	
   public:
-
     // Constructor. 
     BallPhysics(double posX = 500, double posY = 300, double velX = 0, double velY = 0); 
     

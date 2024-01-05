@@ -27,19 +27,19 @@ class PongControllerNode:public rclcpp::Node
   public:
     PongControllerNode()
     : Node("pong_controller_node") {
-      
+
       // Subscriptions
-      ball_position_subscription_ = this->create_subscription<pong_ros_interfaces::msg::BallPosition>(
+      ball_position_subscription_ = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
       TOPIC_BALL_POSITION, 10, std::bind(&PongControllerNode::handle_ball_position_subscription, this, _1));
 
-      left_paddle_position_subscription_ = this->create_subscription<std_msgs::msg::Float64>(
+      left_paddle_position_subscription_ = this -> create_subscription<std_msgs::msg::Float64>(
       TOPIC_LEFT_PADDLE_POSITION, 10, std::bind(&PongControllerNode::handle_left_paddle_position_subscription, this, _1));
       
-      right_paddle_position_subscription_ = this->create_subscription<std_msgs::msg::Float64>(
+      right_paddle_position_subscription_ = this -> create_subscription<std_msgs::msg::Float64>(
       TOPIC_RIGHT_PADDLE_POSITION, 10, std::bind(&PongControllerNode::handle_right_paddle_position_subscription, this, _1));
       
-      // Publishing
-      ball_velocity_publisher_ = this->create_publisher<pong_ros_interfaces::msg::BallVelocity>(TOPIC_BALL_VELOCITY, 10);
+      // Publishers. 
+      ball_velocity_publisher_ = this -> create_publisher<pong_ros_interfaces::msg::BallVelocity>(TOPIC_BALL_VELOCITY, 10);
       
       // Initialize the class object used to compute the logic
       pongController_ = PongController();
@@ -51,26 +51,18 @@ class PongControllerNode:public rclcpp::Node
     private:
 
       // Subscriptions handlers. 
-
-      void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & msg) {
+      void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) {
         // Confirming data is read correctly
         // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
-        
-        // Update the ball position using the message from the subscription
-          // pongController_.setBallPositionX(msg.x);
-          // pongController_.setBallPositionY(msg.y);
-
-          pongController_.setBallPosition(msg.x, msg.y);
+        pongController_.setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
       }
       
-      void handle_left_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg)
-      {
+      void handle_left_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg) {
         // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
         pongController_.setLeftPaddlePosition(msg -> data);
       }
 
-      void handle_right_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg)
-      {
+      void handle_right_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg) {
         // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
         pongController_.setRightPaddlePosition(msg -> data);
       }
@@ -79,7 +71,7 @@ class PongControllerNode:public rclcpp::Node
           auto ball_vel_msg = pong_ros_interfaces::msg::BallVelocity();
           
           // Using the logic class
-          pongController_.checkCollision();
+          pongController_.determineCollisionType();
 
           pongController_.updateBallVelocity();
 
@@ -95,21 +87,15 @@ class PongControllerNode:public rclcpp::Node
       }
 
       // ROS 2 declarations. 
-
       rclcpp::TimerBase::SharedPtr timer_;
-
       rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ball_position_subscription_;
       rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr left_paddle_position_subscription_;
       rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr right_paddle_position_subscription_;
-
       rclcpp::Publisher<pong_ros_interfaces::msg::BallVelocity>::SharedPtr ball_velocity_publisher_;
-
       PongController pongController_;
 };
 
-
-// Initialing the node. 
-
+// Initializing the node. 
 int main(int argc, char* argv[]) {
     rclcpp::init(argc, argv);
     rclcpp::spin(std::make_shared<PongControllerNode>());

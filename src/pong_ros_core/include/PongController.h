@@ -18,18 +18,19 @@ class PongController {
     double leftPaddlePosition;
     double rightPaddlePosition;
     int collisionType;
-    double velocityIncrement = 1;
+    double velocityIncrement;
 
   public:
     // Constructor
-    PongController(double posX = 500, double posY = 300, double velX = 2, double velY = 1, double padLeft = 300, double padRight = 300, int col = 0); 
+    PongController(double posX = 500, double posY = 300, double velX = 1, double velY = 0, double padLeft = 300, double padRight = 300, int col = 0, double vel = 1); 
     
-    void checkCollision();
+    void determineCollisionType();
     
     void updateBallVelocity();
 
     void incrementVelocity();
     
+    // Getters. 
     double getBallPositionX() const;
     double getBallPositionY() const;
     double getBallVelocityX() const;
@@ -37,18 +38,11 @@ class PongController {
     double getLeftPaddlePosition() const;
     double getRightPaddlePosition() const;
 
+    // Setters. 
     void setBallPosition(double x, double y);
-
     void setBallVelocity(double x, double y); 
-    
-    // void setBallPositionX(double posX);
-    // void setBallPositionY(double posY);
-    // void setBallVelocityX(double velX);
-    // void setBallVelocityY(double velY);
     void setLeftPaddlePosition(double velX);
     void setRightPaddlePosition(double velY);
-
-
 };
 
 #endif // BALL_PHYSICS_H
