@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description : Header of the PonController class. 
+// Description : Header of the PongController class. 
 //==============================================================
 
 #include "BallPhysics.h"

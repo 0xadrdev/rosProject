@@ -10,7 +10,7 @@ class PongVisualization {
     double rightPaddlePosition = 300; /// Vertical position of right bat. Units are up to the project group
     double ballPositionX = 0; /// Horizontal position of the (center of) the ball. Units are up to the project group
     double ballPositionY = 0; /// Vertical position of the (center of) the ball. Units are up to the project group
-    std::string fieldText = "0 - 0";
+    std::string fieldText = "0  0";
 
   public:
     /** Constructor

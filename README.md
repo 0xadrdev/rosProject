@@ -17,7 +17,7 @@ keyboard, while the right paddle can be controlled also with the camera.
 	ros2 launch pong_ros_bringup _launch.xml
 
 Until this point the two paddles can be controlled with the keyboard. If you want to 
-control the right paddle with flash light, do: 
+control the right paddle with the flash light, do: 
 
 1. In a new terminal: 
   ros2 run image_tools cam2image history:=keep_last

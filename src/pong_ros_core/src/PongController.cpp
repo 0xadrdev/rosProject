@@ -45,7 +45,7 @@ void PongController::determineCollisionType() {
 
 void PongController::incrementVelocity() {
   if (collisionType == RIGHT_PADDLE_COLLISION || collisionType == LEFT_PADDLE_COLLISION) {
-    velocityIncrement += 0.5;
+    velocityIncrement += 0.25;
   } else if (collisionType == OUTSIDE_LEFT_COLLISION || collisionType == OUTSIDE_RIGHT_COLLISION) {
     ballPhysics = BallPhysics();
     velocityIncrement = 1;

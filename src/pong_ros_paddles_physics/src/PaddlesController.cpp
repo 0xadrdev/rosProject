@@ -12,18 +12,38 @@ PaddlesController::PaddlesController(double l, double r, double vl, double vr)
 	: leftPaddlePosition(l), rightPaddlePosition(r), leftPaddleVelocity(vl), rightPaddleVelocity(vr)
 {}
 
+/**
+ * @brief Updates the left paddle position to up.
+ * 
+ * @return nothing 
+ */
 void PaddlesController::updateLeftPaddleUp() {
   leftPaddlePosition += leftPaddleVelocity;
 }
 
+/**
+ * @brief Updates the left paddle position to down. 
+ * 
+ * @return nothing 
+ */
 void PaddlesController::updateLeftPaddleDown() {
   leftPaddlePosition -= leftPaddleVelocity;
 }
 
+/**
+ * @brief Updates the right paddle position to up.
+ * 
+ * @return nothing 
+ */
 void PaddlesController::updateRightPaddleUp() {
   rightPaddlePosition += rightPaddleVelocity;
 }
 
+/**
+ * @brief Updates the right paddle position to down. 
+ * 
+ * @return nothing 
+ */
 void PaddlesController::updateRightPaddleDown() {
   rightPaddlePosition -= rightPaddleVelocity;
 }

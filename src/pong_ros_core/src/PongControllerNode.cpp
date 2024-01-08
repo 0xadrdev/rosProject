@@ -15,7 +15,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
 #include "pong_ros_interfaces/msg/ball_position.hpp" 
-#include "pong_ros_interfaces/msg/ball_velocity.hpp"
 
 #include "PongController.h"
 #include "../../pong_ros_core/include/Constants.h"
@@ -59,17 +58,19 @@ class PongControllerNode : public rclcpp::Node {
     void requestAnimationFrame() {
       pong_controller_.determineCollisionType();
 
-      // pong_controller_.incrementVelocity(); // Increments the velocity of the ball if it bounces the paddles. 
+      pong_controller_.incrementVelocity(); // Increments the velocity of the ball if it bounces the paddles. 
 
       pong_controller_.updateBallPosition();
 
       auto ball_position_msg = pong_ros_interfaces::msg::BallPosition();
-
       ball_position_msg.x = pong_controller_.getBallPositionX();
       ball_position_msg.y = pong_controller_.getBallPositionY();
 
       ball_position_publisher_ -> publish(ball_position_msg);
 
+      int collisionDetected = pong_controller_.getCollisionType();
+      if (collisionDetected == NO_COLLISION) return;
+      RCLCPP_INFO(this->get_logger(), "Collision Detected: %d", collisionDetected);
       // RCLCPP_INFO(this->get_logger(), "New ball position: (%f, %f)", ball_position_msg.x, ball_position_msg.y);
     }
 

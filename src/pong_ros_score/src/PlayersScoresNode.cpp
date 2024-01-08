@@ -39,8 +39,6 @@ class PlayersScoresNode : public rclcpp::Node {
 
   private:
     void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) {
-      // TODO: Solo publico el mensaje cuando cambia el score, es decir cuando updateScore me devuelve True; 
-      
       players_scores_.setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
 
       // Update the scores depending on the ball position received. 
