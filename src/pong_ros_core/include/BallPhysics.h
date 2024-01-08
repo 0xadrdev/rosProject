@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : Header of the ball physics class. 
 //==============================================================
 
 #ifndef BALL_PHYSICS_H

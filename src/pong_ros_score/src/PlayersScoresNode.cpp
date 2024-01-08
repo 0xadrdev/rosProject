@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : ROS Node to calculate the scores of the players. 
 //==============================================================
 
 #include <chrono>
@@ -12,7 +12,6 @@
 #include <cstdio>
 #include <iostream>
 #include <memory>
-
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float64.hpp"
 #include "pong_ros_interfaces/msg/ball_position.hpp" 
@@ -40,15 +39,8 @@ class PlayersScoresNode : public rclcpp::Node {
 
   private:
     void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) {
-      // Confirming data is read
-
-      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << ballPositionMsg.x << "' y: '" << ballPositionMsg.y << "'");
-      
       // TODO: Solo publico el mensaje cuando cambia el score, es decir cuando updateScore me devuelve True; 
       
-      // players_scores_.setBallPositionX(ballPositionMsg.x);
-      // players_scores_.setBallPositionY(ballPositionMsg.y);
-
       players_scores_.setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
 
       // Update the scores depending on the ball position received. 
@@ -69,12 +61,11 @@ class PlayersScoresNode : public rclcpp::Node {
       // Publish the message
       score_publisher_ -> publish(new_players_score_msg);
       
-      // RCLCPP_INFO(this->get_logger(), "Publishing score: (%d - %d)", new_players_score_msg.left_player, new_players_score_msg.right_player);
+      // RCLCPP_INFO(this->get_logger(), "New score: (%d - %d)", new_players_score_msg.left_player, new_players_score_msg.right_player);
     }
 
     // ROS2 declarations. 
     PlayersScores players_scores_;
-    
     rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ball_position_subscription;
     rclcpp::Publisher<pong_ros_interfaces::msg::PlayersScores>::SharedPtr score_publisher_;
 };

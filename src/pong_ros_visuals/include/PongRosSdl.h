@@ -1,11 +1,3 @@
-//==============================================================
-// Filename : PongRosSdl.h 
-// Authors : Jordi Perez Diago 
-// Group : 
-// License : Apache license 2.0
-// Description :
-//==============================================================
-
 #ifndef PONG_ROS_SDLH_
 #define PONG_ROS_SDLH_
 

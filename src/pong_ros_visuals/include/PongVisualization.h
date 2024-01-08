@@ -1,11 +1,3 @@
-//==============================================================
-// Filename : PongVisualization.h
-// Authors : Jordi Perez Diago 
-// Group : 
-// License : Apache license 2.0
-// Description :
-//==============================================================
-
 #include <string>
 #include "PongRosSdl.h"
 #include "../../pong_ros_core/include/Constants.h"

@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : PongController Class to manage the logic of the game. 
 //==============================================================
 
 #include <cmath>

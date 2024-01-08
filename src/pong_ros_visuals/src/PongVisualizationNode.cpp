@@ -3,14 +3,13 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : ROS Node to manage the visualizartion of the game. 
 //==============================================================
 
 #include <cstdio>
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <memory>
-
 #include "../include/PongRosSdl.h"
 #include "../include/PongVisualization.h"
 #include "rclcpp/rclcpp.hpp"
@@ -27,6 +26,7 @@ class PongVisualizationNode : public rclcpp::Node {
   public:
     PongVisualizationNode() 
     : Node("pong_visualization_node") {
+      // Subscriptions. 
       ball_position_subscription_ = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
       TOPIC_BALL_POSITION, 10, std::bind(&PongVisualizationNode::handle_ball_position_subscription, this, _1));
 
@@ -39,36 +39,36 @@ class PongVisualizationNode : public rclcpp::Node {
       score_players_subscription = this -> create_subscription<pong_ros_interfaces::msg::PlayersScores>(
       TOPIC_PLAYERS_SCORES, 10, std::bind(&PongVisualizationNode::handle_players_score_subscription, this, _1));
       
-      // Initialize the PongVisualization object
+      // Instance of the PongVisualization class. 
       pong_visualization_ = std::make_shared<PongVisualization>();
       pong_visualization_ -> render();
     }
 
   private:
     void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) const {
-      // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << ballPositionMsg.x << "' y: '" << ballPositionMsg.y << "'");
+      // RCLCPP_INFO_STREAM(this -> get_logger(), "Received new ball position: '" << ballPositionMsg.x << "' y: '" << ballPositionMsg.y << "'");
 
       pong_visualization_ -> setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
       pong_visualization_ -> render();
     }
     
     void handle_left_paddle_subscription(const std_msgs::msg::Float64::SharedPtr leftPaddlePositionMsg) const {
-      // RCLCPP_INFO(this -> get_logger(), "Received first paddle position: %f", leftPaddlePositionMsg -> data);
+      // RCLCPP_INFO(this -> get_logger(), "Received leftPaddlePositionMsg: %f", leftPaddlePositionMsg -> data);
 
       pong_visualization_ -> setLeftPaddlePosition(leftPaddlePositionMsg -> data);
     }
 
-    void handle_right_paddle_subscription(const std_msgs::msg::Float64::SharedPtr rightPaddlePosition) const {
-      // RCLCPP_INFO(this -> get_logger(), "Received second paddle position: %f", rightPaddlePosition -> data);
+    void handle_right_paddle_subscription(const std_msgs::msg::Float64::SharedPtr rightPaddlePositionMsg) const {
+      // RCLCPP_INFO(this -> get_logger(), "Received rightPaddlePositionMsg: %f", rightPaddlePositionMsg -> data);
 
-      pong_visualization_ -> setRightPaddlePosition(rightPaddlePosition -> data);
+      pong_visualization_ -> setRightPaddlePosition(rightPaddlePositionMsg -> data);
     }
 
-    void handle_players_score_subscription(const pong_ros_interfaces::msg::PlayersScores & playersScores) const {
-      // RCLCPP_INFO(this -> get_logger(), "Received score: %d - %d", playersScores.left_player, playersScores.right_player);
+    void handle_players_score_subscription(const pong_ros_interfaces::msg::PlayersScores & playersScoresMsg) const {
+      // RCLCPP_INFO(this -> get_logger(), "Received score: %d - %d", playersScoresMsg.left_player, playersScoresMsg.right_player);
 
-      // pong_visualization_ -> setFieldText(std::to_string(playersScores.left_player) + std::to_string(playersScores.right_player));
-      pong_visualization_ -> setFieldText(std::to_string(playersScores.left_player) + std::string("  ") + std::to_string(playersScores.right_player));
+      // pong_visualization_ -> setFieldText(std::to_string(playersScoresMsg.left_player) + std::to_string(playersScoresMsg.right_player));
+      pong_visualization_ -> setFieldText(std::to_string(playersScoresMsg.left_player) + std::string("  ") + std::to_string(playersScoresMsg.right_player));
     }
 
     // ROS2 declarations. 

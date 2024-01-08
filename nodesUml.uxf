@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>280</w><h>210</h></coordinates><panel_attributes>PongController
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>70</x><y>320</y><w>280</w><h>210</h></coordinates><panel_attributes>PongController
 --
 - ballPhysics: BallPhysics
 - leftPaddlePosition: double
@@ -15,19 +15,13 @@ PongController(BallPhysics, double, double, int)
 + getBallPositionY(): double
 + setLeftPaddlePosition(): double
 + setRightPaddlePosition(): double
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>LightPositionNode
---
-+ setPixelColor(): void
-+ copyImageProperties(): void
-+ getImageWidth(): void
-+ getImageHeight(): void 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>keyboard_input.cpp
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>keyboard_input.cpp
 --
 -id: Long
 --
 #Operation(i: int): int
 /+AbstractOperation()/
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>330</y><w>300</w><h>220</h></coordinates><panel_attributes>PaddlesController
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>330</y><w>300</w><h>220</h></coordinates><panel_attributes>PaddlesController
 --
 - leftPaddlePosition: double
 - rightPaddlePosition: double
@@ -42,7 +36,7 @@ PaddlesConstroller(double, double, double, double)
 + updateRightPaddleUp(): void
 + getLeftPaddlePosition(): double
 + getRightPaddlePosition(): double
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>0</y><w>210</w><h>140</h></coordinates><panel_attributes>PlayersScores
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>0</y><w>210</w><h>140</h></coordinates><panel_attributes>PlayersScores
 --
 - ballPositionX
 - ballPositionY
@@ -52,7 +46,7 @@ PaddlesConstroller(double, double, double, double)
 + getScoreLeftPlayer()
 + getScoreRightPlayer()
 + setBallPosition()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>320</y><w>270</w><h>220</h></coordinates><panel_attributes>PongVisualization
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>710</x><y>320</y><w>270</w><h>220</h></coordinates><panel_attributes>PongVisualization
 --
 leftPaddlePosition: double
 rightPaddlePosition: double
@@ -67,4 +61,10 @@ setBallPosition(double, double): void
 setFieldText(string): void
 render(): void
 pong_ros_sdl: PongRosSdl 
-</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>50</y><w>260</w><h>190</h></coordinates><panel_attributes>image_functions
+--
++ getPixelBrightness(image, int, int): int 
++ setPixelColor(image, int, int, int, int, int)
++ copyImageProperties(image, image): void
++ getImageWidth(image): int
++ getImageHeight(image): int</panel_attributes><additional_attributes></additional_attributes></element></diagram>

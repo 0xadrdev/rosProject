@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : BallPhysics class, to manage the physics of the ball (position and velocity)
 //==============================================================
 
 #include "BallPhysics.h"

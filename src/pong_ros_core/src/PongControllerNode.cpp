@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : Ros Node to control the game. 
 //==============================================================
 
 #include <chrono>
@@ -17,7 +17,6 @@
 #include "pong_ros_interfaces/msg/ball_position.hpp" 
 #include "pong_ros_interfaces/msg/ball_velocity.hpp"
 
-// #include "BallPhysics.h"
 #include "PongController.h"
 #include "../../pong_ros_core/include/Constants.h"
 
@@ -42,23 +41,22 @@ class PongControllerNode : public rclcpp::Node {
       // Instance the pongController class. 
       pong_controller_ = PongController();
 
-      // Setting up a timer to call requestAnimationFrame at 60 FPS for animation updates. 
+      // Setting up a timer to call requestAnimationFrame at 60 FPS. 
       request_animation_frame_ = this -> create_wall_timer(std::chrono::milliseconds(1000 / 60), std::bind(&PongControllerNode::requestAnimationFrame, this));
     }
     
   private:
-    void handle_left_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg) {
-      // RCLCPP_INFO(this->get_logger(), "Received first paddle position: %f", msg->data);
-      pong_controller_.setLeftPaddlePosition(msg -> data);
+    void handle_left_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr leftPaddlePositionMsg) {
+      // RCLCPP_INFO(this->get_logger(), "Left paddle position : %f", leftPaddlePositionMsg -> data);
+      pong_controller_.setLeftPaddlePosition(leftPaddlePositionMsg -> data);
     }
 
-    void handle_right_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr msg) {
-      // RCLCPP_INFO(this->get_logger(), "Received second paddle position: %f", msg->data);
-      pong_controller_.setRightPaddlePosition(msg -> data);
+    void handle_right_paddle_position_subscription(const std_msgs::msg::Float64::SharedPtr rightPaddlePositionMsg) {
+      // RCLCPP_INFO(this->get_logger(), "Right paddle Position: %f", rightPaddlePositionMsg -> data);
+      pong_controller_.setRightPaddlePosition(rightPaddlePositionMsg -> data);
     }
 
     void requestAnimationFrame() {
-      // Using the logic class
       pong_controller_.determineCollisionType();
 
       // pong_controller_.incrementVelocity(); // Increments the velocity of the ball if it bounces the paddles. 
@@ -72,7 +70,7 @@ class PongControllerNode : public rclcpp::Node {
 
       ball_position_publisher_ -> publish(ball_position_msg);
 
-      // RCLCPP_INFO(this->get_logger(), "Publishing ball_velocity: (%f, %f)", ball_position_msg.x, ball_position_msg.y);
+      // RCLCPP_INFO(this->get_logger(), "New ball position: (%f, %f)", ball_position_msg.x, ball_position_msg.y);
     }
 
     // ROS 2 declarations. 

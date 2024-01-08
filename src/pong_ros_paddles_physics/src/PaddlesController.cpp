@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : PaddlesController class to control the paddles physics. 
 //==============================================================
 
 #include "PaddlesController.h"

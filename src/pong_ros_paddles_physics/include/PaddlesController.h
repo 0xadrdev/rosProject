@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : Header of the class PaddlesController. 
 //==============================================================
 
 #ifndef PADDLES_CONTROLLER_H
@@ -20,7 +20,6 @@ class PaddlesController {
     void updateRightPaddleDown();
 
     // Getters 
-
     double getLeftPaddlePosition();
     double getRightPaddlePosition();
 

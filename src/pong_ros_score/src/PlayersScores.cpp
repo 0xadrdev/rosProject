@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : PlayersScores class to manage the scores. 
 //==============================================================
 
 #include "PlayersScores.h"
@@ -16,21 +16,6 @@ PlayersScores::PlayersScores(double posX, double posY, int first, int second)
 {}
 
 bool PlayersScores::updatePlayersScores() {
-	// if (ballPositionX - 15 <= 0 && test == false) {
-	// 	scoreLeftPlayer++;
-	// 	test = true;
-	// } else if (ballPositionX + 15 >= SCREEN_WIDTH && test == false) {
-	// 	scoreRightPlayer++;
-	// 	test = true;
-	// } else if (ballPositionX - 15 <= 0 && test == true) {
-	// 	test = true;
-	// } else if (ballPositionX + 15 >= SCREEN_WIDTH && test == true ) {
-	// 	test = true; 
-	// } else {
-	// 	test = false;
-	// }
-  
-  // 15 = BALL_WIDTH / 2
 	if (ballPositionX - 15 <= 0) {
 		scoreLeftPlayer++;
     return true;

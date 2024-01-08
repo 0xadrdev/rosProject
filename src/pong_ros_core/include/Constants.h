@@ -3,7 +3,7 @@
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description :
+// Description : Here you will find all the constants of the project. 
 //==============================================================
 
 #ifndef CONSTANTS_H
@@ -20,8 +20,8 @@ namespace pong_ros_constants {
   // Pong game constants. 
   constexpr int WALL_HEIGHT = 15; // 30
   constexpr int PADDLE_WIDTH = 5; // 30 
-  constexpr int PADDLE_HEIGHT = 100; // Make sure this is even
-  constexpr int BALL_SIZE = 30; // Make sure this is even
+  constexpr int PADDLE_HEIGHT = 100; // This has to be even, because it is a int. 
+  constexpr int BALL_SIZE = 30; // This has to be even, because it is a int. 
 
   // Collisions types. 
   constexpr int NO_COLLISION = 0;
