@@ -15,7 +15,7 @@ find_package(sensor_msgs REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 add_executable(image
-    src/subpub_light.cpp
+    src/LightPositionNode.cpp
     src/image_functions.cpp
 )
 ament_target_dependencies(image rclcpp std_msgs sensor_msgs)

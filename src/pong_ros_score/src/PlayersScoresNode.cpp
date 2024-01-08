@@ -25,8 +25,8 @@ using namespace pong_ros_constants;
 
 class PlayersScoresNode : public rclcpp::Node {
   public:
-    PlayersScoresNode() : Node("players_scores_node") {
-
+    PlayersScoresNode() 
+    : Node("players_scores_node") {
       // Subscriptions
       ball_position_subscription = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
       TOPIC_BALL_POSITION, 10,std::bind(&PlayersScoresNode::handle_ball_position_subscription, this, _1));
@@ -34,30 +34,33 @@ class PlayersScoresNode : public rclcpp::Node {
       // Publishers 
       score_publisher_ = this -> create_publisher<pong_ros_interfaces::msg::PlayersScores>(TOPIC_PLAYERS_SCORES, 10);
       
-      // Initialize the class object used to handle the players scores. 
+      // Instance of the PlayersScores class. 
       players_scores_ = PlayersScores(); 
     }
 
   private:
-  
-    void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & msg) {
+    void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) {
       // Confirming data is read
 
-      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+      // RCLCPP_INFO_STREAM(this->get_logger(), "I heard x: '" << ballPositionMsg.x << "' y: '" << ballPositionMsg.y << "'");
       
       // TODO: Solo publico el mensaje cuando cambia el score, es decir cuando updateScore me devuelve True; 
       
-      players_scores_.setBallPositionX(msg.x);
-      players_scores_.setBallPositionY(msg.y);
+      players_scores_.setBallPositionX(ballPositionMsg.x);
+      players_scores_.setBallPositionY(ballPositionMsg.y);
 
-      players_scores_.updatePlayersScores();
+      // Update the scores depending on the ball position received. 
+      bool isScoreMade = players_scores_.updatePlayersScores();
       
+      if (!isScoreMade) {
+        return;
+      }
+
       // Setting up the new score. 
-      auto new_players_score_msg = pong_ros_interfaces::msg::PlayersScores();
-      
       int score_left_player = players_scores_.getScoreLeftPlayer();
       int score_right_player = players_scores_.getScoreRightPlayer();
       
+      auto new_players_score_msg = pong_ros_interfaces::msg::PlayersScores();
       new_players_score_msg.left_player = score_left_player;
       new_players_score_msg.right_player = score_right_player;
       
@@ -68,15 +71,13 @@ class PlayersScoresNode : public rclcpp::Node {
     }
 
     // ROS2 declarations. 
+    PlayersScores players_scores_;
     
     rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ball_position_subscription;
     rclcpp::Publisher<pong_ros_interfaces::msg::PlayersScores>::SharedPtr score_publisher_;
-
-    PlayersScores players_scores_;
 };
 
 // Initializing the node. 
-
 int main(int argc, char* argv[]) {
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<PlayersScoresNode>());

@@ -12,7 +12,7 @@ BallPhysics::BallPhysics(double posX, double posY, double velX, double velY)
 	: ballPositionX(posX), ballPositionY(posY), ballVelocityX(velX), ballVelocityY(velY)
 {}
 
-// Getters for private atributes. 
+// Getters.
 double BallPhysics::getBallPositionX() const {
 	return ballPositionX;
 }
@@ -26,7 +26,7 @@ double BallPhysics::getBallVelocityY() const {
 	return ballVelocityY;
 }
 
-// Setter for private atributes.
+// Setters.
 void BallPhysics::setBallPosition(double x, double y) {
   ballPositionX = x;
   ballPositionY = y;

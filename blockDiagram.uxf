@@ -1,0 +1,63 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram note</help_text><element><id>UMLClass</id><coordinates><x>207</x><y>378</y><w>126</w><h>144</h></coordinates><panel_attributes>*Node: visualization*
+--
+Node to show the ball,
+paddles and 
+score of the game. 
+
+--
+It is subscribed to the
+ball position, the two
+paddles positions and 
+the score. 
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>432</x><y>441</y><w>108</w><h>36</h></coordinates><panel_attributes>/ball_position</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>450</y><w>126</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>216</x><y>585</y><w>108</w><h>36</h></coordinates><panel_attributes>/players_scores</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>522</y><w>135</w><h>144</h></coordinates><panel_attributes>*Node: score*
+--
+Node computing wheter
+a player made a point
+in the game. 
+
+--
+It is subscribed to the 
+ball position topic and 
+publishes the scores 
+of the two players. </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>261</x><y>513</y><w>27</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>315</x><y>594</y><w>117</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>648</x><y>387</y><w>144</w><h>144</h></coordinates><panel_attributes>*Node: game_controller*
+--
+Node where the logic of 
+the game is happening. 
+It manages the collisions 
+and the ball physics. 
+
+--
+It is subscribed to paddles
+positions and publishes the 
+ball position. 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>450</y><w>135</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>477</x><y>468</y><w>27</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>648</x><y>27</y><w>144</w><h>144</h></coordinates><panel_attributes>*Node: image_input*
+--
+Node that given a image 
+with a flash can calculate 
+the position. 
+
+--
+It publishes the light 
+position of the given 
+image. </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>216</x><y>99</y><w>144</w><h>144</h></coordinates><panel_attributes>*Node: paddles_physics*
+--
+Node to calculate the 
+paddles positions in 
+the game. 
+
+--
+It is subscribed to the 
+key code and light position 
+topics and pusblishes the 
+paddles positions. </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>441</x><y>225</y><w>108</w><h>36</h></coordinates><panel_attributes>/keyboard_key</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>450</x><y>108</y><w>108</w><h>36</h></coordinates><panel_attributes>/light_position</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>648</x><y>207</y><w>144</w><h>144</h></coordinates><panel_attributes>*Node: keyboard_input*
+--
+Node to manage the 
+keyboard inputs of 
+the players. 
+
+--
+It publishes the code of 
+the pressed key.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>117</y><w>117</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;40;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>171</y><w>108</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;100;80</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>90</y><w>117</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;40;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>234</y><w>126</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;120;60</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>423</x><y>396</y><w>135</w><h>36</h></coordinates><panel_attributes>/left_paddle_position
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>423</x><y>297</y><w>135</w><h>36</h></coordinates><panel_attributes>/right_paddle_position</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>405</y><w>117</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>405</y><w>117</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>315</x><y>234</y><w>189</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>306</y><w>198</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;200;10</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>306</y><w>117</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>234</y><w>180</w><h>81</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;70;10;10</additional_attributes></element></diagram>

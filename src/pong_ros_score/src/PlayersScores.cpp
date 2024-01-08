@@ -12,27 +12,33 @@ PlayersScores::PlayersScores(double posX, double posY, int first, int second, bo
 	: ballPositionX(posX), ballPositionY(posY), scoreLeftPlayer(first), scoreRightPlayer(second), test(testInput)
 {}
 
-// Updating the position
-void PlayersScores::updatePlayersScores() {
-
-	// Computing whether a score was made
-	if (ballPositionX - 15 <= 0 && test == false) {
+bool PlayersScores::updatePlayersScores() {
+	// if (ballPositionX - 15 <= 0 && test == false) {
+	// 	scoreLeftPlayer++;
+	// 	test = true;
+	// } else if (ballPositionX + 15 >= screenWidth && test == false) {
+	// 	scoreRightPlayer++;
+	// 	test = true;
+	// } else if (ballPositionX - 15 <= 0 && test == true) {
+	// 	test = true;
+	// } else if (ballPositionX + 15 >= screenWidth && test == true ) {
+	// 	test = true; 
+	// } else {
+	// 	test = false;
+	// }
+	if (ballPositionX - 15 <= 0) {
 		scoreLeftPlayer++;
-		test = true;
-	} else if (ballPositionX + 15 >= screenWidth && test == false) {
-		scoreRightPlayer++;
-		test = true;
-	} else if (ballPositionX - 15 <= 0 && test == true) {
-		test = true;
-	} else if (ballPositionX + 15 >= screenWidth && test == true ) {
-		test = true; 
-	} else {
-		test = false;
+    return true;
 	}
-	
+  
+  if (ballPositionX + 15 >= screenWidth) {
+		scoreRightPlayer++;
+    return true;
+	} 
+
+  return false;
 }
 
-// Retrieving the class private data
 double PlayersScores::getBallPositionX() const {
 	return ballPositionX;
 }
@@ -46,7 +52,6 @@ int PlayersScores::getScoreRightPlayer() const {
 	return scoreRightPlayer;
 }
 
-// Setting the class private data
 void PlayersScores::setBallPositionX(double posX) {
 	ballPositionX = posX;
 }

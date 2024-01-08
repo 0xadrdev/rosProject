@@ -38,6 +38,9 @@ namespace pong_ros_constants {
   constexpr char TOPIC_LEFT_PADDLE_POSITION[] = "left_paddle_position";
   constexpr char TOPIC_RIGHT_PADDLE_POSITION[] = "right_paddle_position";
   constexpr char TOPIC_PLAYERS_SCORES[] = "players_scores";
+  constexpr char TOPIC_IMAGE_INPUT[] = "image";
+  constexpr char TOPIC_LIGHT_POSITION[] = "players_scores";
+  
 }
 
 #endif // CONSTANTS_H

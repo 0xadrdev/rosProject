@@ -23,10 +23,10 @@
 using std::placeholders::_1;
 using namespace pong_ros_constants;
 
-class PongVisualizationNode : public rclcpp::Node
-{
+class PongVisualizationNode : public rclcpp::Node {
   public:
-    PongVisualizationNode():Node("pong_visualization_node") {
+    PongVisualizationNode() 
+    : Node("pong_visualization_node") {
       ball_position_subscription_ = this -> create_subscription<pong_ros_interfaces::msg::BallPosition>(
       TOPIC_BALL_POSITION, 10, std::bind(&PongVisualizationNode::handle_ball_position_subscription, this, _1));
 
@@ -45,46 +45,41 @@ class PongVisualizationNode : public rclcpp::Node
     }
 
   private:
-  
-    void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & msg) const {
-      // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << msg.x << "' y: '" << msg.y << "'");
+    void handle_ball_position_subscription(const pong_ros_interfaces::msg::BallPosition & ballPositionMsg) const {
+      // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard x: '" << ballPositionMsg.x << "' y: '" << ballPositionMsg.y << "'");
 
-      pong_visualization_ -> setBallPosition(msg.x, msg.y);
+      pong_visualization_ -> setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
+      pong_visualization_ -> render();
     }
     
-    void handle_left_paddle_subscription(const std_msgs::msg::Float64::SharedPtr msg) const {
-      // RCLCPP_INFO(this -> get_logger(), "Received first paddle position: %f", msg -> data);
+    void handle_left_paddle_subscription(const std_msgs::msg::Float64::SharedPtr leftPaddlePositionMsg) const {
+      // RCLCPP_INFO(this -> get_logger(), "Received first paddle position: %f", leftPaddlePositionMsg -> data);
 
-      pong_visualization_ -> setLeftPaddlePosition(msg -> data);
+      pong_visualization_ -> setLeftPaddlePosition(leftPaddlePositionMsg -> data);
     }
 
-    void handle_right_paddle_subscription(const std_msgs::msg::Float64::SharedPtr msg) const {
-      // RCLCPP_INFO(this -> get_logger(), "Received second paddle position: %f", msg -> data);
+    void handle_right_paddle_subscription(const std_msgs::msg::Float64::SharedPtr rightPaddlePosition) const {
+      // RCLCPP_INFO(this -> get_logger(), "Received second paddle position: %f", rightPaddlePosition -> data);
 
-      pong_visualization_ -> setRightPaddlePosition(msg -> data);
+      pong_visualization_ -> setRightPaddlePosition(rightPaddlePosition -> data);
     }
 
-    void handle_players_score_subscription(const pong_ros_interfaces::msg::PlayersScores & msg) const {
-      // RCLCPP_INFO(this -> get_logger(), "Received score: %d - %d", msg.left_player, msg.right_player);
+    void handle_players_score_subscription(const pong_ros_interfaces::msg::PlayersScores & playersScores) const {
+      // RCLCPP_INFO(this -> get_logger(), "Received score: %d - %d", playersScores.left_player, playersScores.right_player);
 
-      // pong_visualization_ -> setFieldText(std::to_string(msg.left_player) + std::to_string(msg.right_player));
-      pong_visualization_ -> setFieldText(std::to_string(msg.left_player) + std::string("  ") + std::to_string(msg.right_player));
-      pong_visualization_ -> render();
+      // pong_visualization_ -> setFieldText(std::to_string(playersScores.left_player) + std::to_string(playersScores.right_player));
+      pong_visualization_ -> setFieldText(std::to_string(playersScores.left_player) + std::string("  ") + std::to_string(playersScores.right_player));
     }
 
     // ROS2 declarations. 
-    
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr left_paddle_position_subscription_;
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr right_paddle_subscription_;
-
     rclcpp::Subscription<pong_ros_interfaces::msg::BallPosition>::SharedPtr ball_position_subscription_;
     rclcpp::Subscription<pong_ros_interfaces::msg::PlayersScores>::SharedPtr  score_players_subscription;
-    
     std::shared_ptr<PongVisualization> pong_visualization_ ;
 };
 
 // Initialing the node. 
-
 int main(int argc, char** argv) {
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<PongVisualizationNode>());

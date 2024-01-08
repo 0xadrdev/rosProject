@@ -1,0 +1,56 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>509</y><w>210</w><h>210</h></coordinates><panel_attributes>PongController
+--
+- ballPhysics: BallPhysics
+- leftPaddlePosition: double
+- rightPaddlePosition: double
+- collisionType: int
+--
++ determineCollisonType()
++ updateBallPosition()
++ incrementVelocity()
++ getCollisionType(): int
++ getBallPositionX(): double
++ getBallPositionY(): double
++ setLeftPaddlePosition(): double
++ setRightPaddlePosition(): double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>179</y><w>210</w><h>190</h></coordinates><panel_attributes>LightPositionNode
+--
++ setPixelColor(): void
++ copyImageProperties(): void
++ getImageWidth(): void
++ getImageHeight(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>179</y><w>210</w><h>190</h></coordinates><panel_attributes>keyboard_input.cpp
+--
+-id: Long
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>509</y><w>210</w><h>190</h></coordinates><panel_attributes>PaddlesControllerNode
+--
+-id: Long
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>179</y><w>210</w><h>210</h></coordinates><panel_attributes>PlayersScores
+--
+- ballPositionX
+- ballPositionY
+- scoreLeftPlayer
+- scoreRightPlayer 
+--
++ getBallPositionX()
++ getBallPositionY()
++ getScoreLeftPlayer()
++ getScoreRightPlayer()
++ setBallPositionX()
++ setBallPositionY()
++ setScoreLeftPlayer()
++ setScoreRightPlayer() 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>509</y><w>210</w><h>190</h></coordinates><panel_attributes>PongVisualization
+--
+setLeftPaddlePosition()
+setRightPaddlePosition()
+setBallPosition()
+setFieldText()
+render()
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

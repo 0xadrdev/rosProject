@@ -15,13 +15,11 @@ find_package(rosidl_default_generators REQUIRED)
 
 set(msg_files
   "msg/BallPosition.msg"
-  "msg/BallVelocity.msg"
   "msg/PlayersScores.msg"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/BallPosition.msg"
-  "msg/BallVelocity.msg"
   "msg/PlayersScores.msg"
 )
 

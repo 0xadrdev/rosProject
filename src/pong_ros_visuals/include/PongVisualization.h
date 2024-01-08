@@ -13,17 +13,14 @@
 using namespace pong_ros_constants;
 
 class PongVisualization {
-private:
-    // (copy of) state
+  private:
     double leftPaddlePosition  = 300; /// Vertical position of right bat. Units are up to the project group
     double rightPaddlePosition = 300; /// Vertical position of right bat. Units are up to the project group
     double ballPositionX = 0; /// Horizontal position of the (center of) the ball. Units are up to the project group
     double ballPositionY = 0; /// Vertical position of the (center of) the ball. Units are up to the project group
-
     std::string fieldText = "";
 
-public:
-    
+  public:
     /** Constructor
      * Default
      */
@@ -40,7 +37,6 @@ public:
      * Units are up to the project group.
      */
     void setRightPaddlePosition(double v);
-
     
     /** Set the horizontal and vertical position of the (center of) the ball.
      * Units are up to the project group.
@@ -64,5 +60,4 @@ public:
      * interact with from outside the PongVisualization class.
      */
     PongRosSdl pong_ros_sdl;
-
 };
