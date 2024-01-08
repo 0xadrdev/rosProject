@@ -24,13 +24,19 @@ void PongController::determineCollisionType() {
 		collisionType = OUTSIDE_RIGHT_COLLISION; 
 	} else if (ballPositionX - 15 <= 0 && collisionType == NO_COLLISION) {
 		collisionType = OUTSIDE_LEFT_COLLISION;
-	} else if (ballPositionY - BALL_SIZE / 2 <= WALL_HEIGHT && collisionType == NO_COLLISION) {							       
+	} else if (ballPositionY - BALL_SIZE / 2 <= WALL_HEIGHT 
+    && collisionType == NO_COLLISION) {							       
 		collisionType = TOP_WALL_COLLISION; 	
-	} else if (ballPositionY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT && collisionType == NO_COLLISION) {
+	} else if (ballPositionY + BALL_SIZE / 2 >= SCREEN_HEIGHT - WALL_HEIGHT 
+    && collisionType == NO_COLLISION) {
 		collisionType = BOTTOM_WALL_COLLISION;	
-	} else if ((ballPositionX - BALL_SIZE / 4 <= PADDLE_WIDTH + BALL_SIZE / 4) && (abs(leftPaddlePosition - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2) && collisionType == NO_COLLISION){	
+	} else if ((ballPositionX - BALL_SIZE / 4 <= PADDLE_WIDTH + BALL_SIZE / 4)
+    && (abs(leftPaddlePosition - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2)
+    && collisionType == NO_COLLISION){	
 		collisionType = LEFT_PADDLE_COLLISION; 
-	} else if ((ballPositionX + BALL_SIZE / 4 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 4) && (abs(rightPaddlePosition - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2) && collisionType == NO_COLLISION) {
+	} else if ((ballPositionX + BALL_SIZE / 4 >= SCREEN_WIDTH - PADDLE_WIDTH - BALL_SIZE / 4) 
+    && (abs(rightPaddlePosition - ballPositionY - BALL_SIZE / 4) <= PADDLE_HEIGHT / 2) 
+    && collisionType == NO_COLLISION) {
 		collisionType = RIGHT_PADDLE_COLLISION;	
 	} else {
 		collisionType = NO_COLLISION;

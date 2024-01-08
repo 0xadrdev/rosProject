@@ -58,9 +58,9 @@ class PaddlesControllerNode : public rclcpp::Node {
 
       paddles_controller_.setRightPaddleVelocity(5);
 
-      if (keyCode == 66 && rightPaddlePosition < 535) {
+      if (keyCode == 66 && rightPaddlePosition < 535) { // Presed up arrow. 
         paddles_controller_.updateRightPaddleUp();
-      } else if (keyCode == 65 && rightPaddlePosition > 65) {
+      } else if (keyCode == 65 && rightPaddlePosition > 65) { // Presed down arrow. 
         paddles_controller_.updateRightPaddleDown();
 
       } 
