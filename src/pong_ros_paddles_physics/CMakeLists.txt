@@ -12,8 +12,14 @@ find_package(std_msgs REQUIRED)
 
 add_executable(${PROJECT_NAME}
     src/PaddlesControllerNode.cpp
+    src/PaddlesController.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs)
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 install(TARGETS 
   ${PROJECT_NAME}

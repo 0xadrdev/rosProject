@@ -1,56 +1,70 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>509</y><w>210</w><h>210</h></coordinates><panel_attributes>PongController
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>280</w><h>210</h></coordinates><panel_attributes>PongController
 --
 - ballPhysics: BallPhysics
 - leftPaddlePosition: double
 - rightPaddlePosition: double
 - collisionType: int
 --
-+ determineCollisonType()
-+ updateBallPosition()
-+ incrementVelocity()
+&lt;&lt;Constructor&gt;&gt;
+PongController(BallPhysics, double, double, int)
++ determineCollisonType(): void
++ updateBallPosition(): void 
++ incrementVelocity(): void
 + getCollisionType(): int
 + getBallPositionX(): double
 + getBallPositionY(): double
 + setLeftPaddlePosition(): double
 + setRightPaddlePosition(): double
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>179</y><w>210</w><h>190</h></coordinates><panel_attributes>LightPositionNode
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>LightPositionNode
 --
 + setPixelColor(): void
 + copyImageProperties(): void
 + getImageWidth(): void
 + getImageHeight(): void 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>179</y><w>210</w><h>190</h></coordinates><panel_attributes>keyboard_input.cpp
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>keyboard_input.cpp
 --
 -id: Long
 --
 #Operation(i: int): int
 /+AbstractOperation()/
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>509</y><w>210</w><h>190</h></coordinates><panel_attributes>PaddlesControllerNode
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>330</y><w>300</w><h>220</h></coordinates><panel_attributes>PaddlesController
 --
--id: Long
+- leftPaddlePosition: double
+- rightPaddlePosition: double
+- leftPaddleVelocity: double 
+- rightPaddleVelocity: double
 --
-#Operation(i: int): int
-/+AbstractOperation()/
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>179</y><w>210</w><h>210</h></coordinates><panel_attributes>PlayersScores
+&lt;&lt;Constructor&gt;&gt;
+PaddlesConstroller(double, double, double, double)
++ updateLeftPaddleDown(): void
++ updateLeftPaddleUp(): void
++ updateRightPaddleDown(): void
++ updateRightPaddleUp(): void
++ getLeftPaddlePosition(): double
++ getRightPaddlePosition(): double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>0</y><w>210</w><h>140</h></coordinates><panel_attributes>PlayersScores
 --
 - ballPositionX
 - ballPositionY
 - scoreLeftPlayer
 - scoreRightPlayer 
 --
-+ getBallPositionX()
-+ getBallPositionY()
 + getScoreLeftPlayer()
 + getScoreRightPlayer()
-+ setBallPositionX()
-+ setBallPositionY()
-+ setScoreLeftPlayer()
-+ setScoreRightPlayer() 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>509</y><w>210</w><h>190</h></coordinates><panel_attributes>PongVisualization
++ setBallPosition()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>320</y><w>270</w><h>220</h></coordinates><panel_attributes>PongVisualization
 --
-setLeftPaddlePosition()
-setRightPaddlePosition()
-setBallPosition()
-setFieldText()
-render()
+leftPaddlePosition: double
+rightPaddlePosition: double
+ballPositionX: double
+ballPositionY: double
+fieldText: string
+--
+&lt;&lt;Constructor&gt;&gt;pong_ros_sdl(string, int, int, int)
+setLeftPaddlePosition(double): void
+setRightPaddlePosition(double): void
+setBallPosition(double, double): void
+setFieldText(string): void
+render(): void
+pong_ros_sdl: PongRosSdl 
 </panel_attributes><additional_attributes></additional_attributes></element></diagram>

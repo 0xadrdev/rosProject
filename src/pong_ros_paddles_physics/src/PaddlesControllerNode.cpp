@@ -16,6 +16,7 @@
 #include "std_msgs/msg/int16.hpp"
 #include "std_msgs/msg/float64.hpp"
 #include "../../pong_ros_core/include/Constants.h"
+#include "PaddlesController.h"
 
 using std::placeholders::_1;
 using namespace pong_ros_constants;
@@ -34,49 +35,47 @@ class PaddlesControllerNode : public rclcpp::Node {
       // Publishers. 
       left_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>(TOPIC_LEFT_PADDLE_POSITION, 10);
       right_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>(TOPIC_RIGHT_PADDLE_POSITION, 10);
+
+      paddles_controller_ = PaddlesController();
     }
 
   private:
-    double leftPaddlePosition = 300;
-    double rightPaddlePosition = 300;
+    // double leftPaddlePosition = 300;
+    // double rightPaddlePosition = 300;
 
-    double light_paddle_velocity = 50;
-    double keyboard_paddle_velocity = 5;
+    // double light_paddle_velocity = 50;
+    // double keyboard_paddle_velocity = 5;
 
     void handle_keyboard_input_subscription(const std_msgs::msg::Int16::SharedPtr keyCodeMsg) {
-      // Confirming data is read
       // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard '" << keyCodeMsg -> data << "'");
-      int key_code = keyCodeMsg -> data;
-
-      // Setting up the message. 
-      auto paddle_position_msg = std_msgs::msg::Float64();
       
-      if (key_code == 115 && leftPaddlePosition < 535) { 
-          paddle_position_msg.data = leftPaddlePosition + keyboard_paddle_velocity;
-      	  leftPaddlePosition = leftPaddlePosition + keyboard_paddle_velocity;
-      } else if (key_code == 119 && leftPaddlePosition > 65) {
-      	  paddle_position_msg.data = leftPaddlePosition - keyboard_paddle_velocity;
-      	  leftPaddlePosition = leftPaddlePosition - keyboard_paddle_velocity;
-      } else {
-      	  paddle_position_msg.data = leftPaddlePosition; 
-      }
+      int keyCode = keyCodeMsg -> data;
+      double leftPaddlePosition = paddles_controller_.getLeftPaddlePosition();
+      double rightPaddlePosition = paddles_controller_.getRightPaddlePosition();
+
+      if (keyCode == 115 && leftPaddlePosition < 535) { // Pressed W
+        paddles_controller_.updateLeftPaddleUp();
+      } else if (keyCode == 119 && leftPaddlePosition > 65) { // Presed S
+        paddles_controller_.updateLeftPaddleDown();
+      } 
+
+      paddles_controller_.setRightPaddleVelocity(5);
+
+      if (keyCode == 66 && rightPaddlePosition < 535) {
+        paddles_controller_.updateRightPaddleUp();
+      } else if (keyCode == 65 && rightPaddlePosition > 65) {
+        paddles_controller_.updateRightPaddleDown();
+
+      } 
+
+      // Publish the new paddles positions. 
+      auto left_paddle_position_msg = std_msgs::msg::Float64();
+      left_paddle_position_msg.data = paddles_controller_.getLeftPaddlePosition();
+      left_paddle_position_publisher_ -> publish(left_paddle_position_msg);
 
       auto right_paddle_position_msg = std_msgs::msg::Float64();
-
-      if (key_code == 66 && rightPaddlePosition < 535) {
-          right_paddle_position_msg.data = rightPaddlePosition + keyboard_paddle_velocity;
-      	  rightPaddlePosition = rightPaddlePosition + keyboard_paddle_velocity;
-      } else if (key_code == 65 && rightPaddlePosition > 65) {
-      	  right_paddle_position_msg.data = rightPaddlePosition - keyboard_paddle_velocity;
-      	  rightPaddlePosition = rightPaddlePosition - keyboard_paddle_velocity;
-      } else {
-      	  right_paddle_position_msg.data = rightPaddlePosition; 
-      }
-      
-      // Publish the message
-      left_paddle_position_publisher_ -> publish(paddle_position_msg);
+      right_paddle_position_msg.data = paddles_controller_.getRightPaddlePosition();
       right_paddle_position_publisher_ -> publish(right_paddle_position_msg);
-      
       // RCLCPP_INFO(this -> get_logger(), "Publishing first_paddle_position: %1f", paddle_position_msg.data);
     }
     
@@ -85,21 +84,19 @@ class PaddlesControllerNode : public rclcpp::Node {
       // RCLCPP_INFO_STREAM(this -> get_logger(), "I heard '" << lightPositionMsg -> data << "'");
       
       int lightPosition = lightPositionMsg -> data;
-      
-      // Setting up the message. 
-      auto right_paddle_position_msg = std_msgs::msg::Float64();
-      
-      if (lightPosition >= 150 && rightPaddlePosition <= 5) {
-          right_paddle_position_msg.data = rightPaddlePosition + light_paddle_velocity;
-      	  rightPaddlePosition = rightPaddlePosition + light_paddle_velocity;
-      } else if (lightPosition <= 100 && rightPaddlePosition >= 80) {
-      	  right_paddle_position_msg.data = rightPaddlePosition - light_paddle_velocity;
-      	  rightPaddlePosition = rightPaddlePosition - light_paddle_velocity;
-      } else {
-      	  right_paddle_position_msg.data = rightPaddlePosition; 
+      double rightPaddlePosition = paddles_controller_.getRightPaddlePosition();
+
+      paddles_controller_.setRightPaddleVelocity(50);
+
+      if (lightPosition >= 150 && rightPaddlePosition <= 535) {
+        paddles_controller_.updateRightPaddleUp();
+      } else if (lightPosition <= 100 && rightPaddlePosition >= 65) {
+        paddles_controller_.updateRightPaddleDown();
       }
       
-      // Publish the message
+      // Publish the new paddle position. 
+      auto right_paddle_position_msg = std_msgs::msg::Float64();
+      right_paddle_position_msg.data = paddles_controller_.getRightPaddlePosition();
       right_paddle_position_publisher_ -> publish(right_paddle_position_msg);
       
       // RCLCPP_INFO(this -> get_logger(), "Publishing second_paddle_position: %1f", right_paddle_position_msg.data);
@@ -109,6 +106,8 @@ class PaddlesControllerNode : public rclcpp::Node {
     rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr light_position_subscription_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr left_paddle_position_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr right_paddle_position_publisher_;
+
+    PaddlesController paddles_controller_; 
 };
 
 // Initializing the node. 

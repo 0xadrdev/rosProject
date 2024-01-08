@@ -7,31 +7,36 @@
 //==============================================================
 
 #include "PlayersScores.h"
+#include "../../pong_ros_core/include/Constants.h"
 
-PlayersScores::PlayersScores(double posX, double posY, int first, int second, bool testInput)
-	: ballPositionX(posX), ballPositionY(posY), scoreLeftPlayer(first), scoreRightPlayer(second), test(testInput)
+using namespace pong_ros_constants; 
+
+PlayersScores::PlayersScores(double posX, double posY, int first, int second)
+	: ballPositionX(posX), ballPositionY(posY), scoreLeftPlayer(first), scoreRightPlayer(second)
 {}
 
 bool PlayersScores::updatePlayersScores() {
 	// if (ballPositionX - 15 <= 0 && test == false) {
 	// 	scoreLeftPlayer++;
 	// 	test = true;
-	// } else if (ballPositionX + 15 >= screenWidth && test == false) {
+	// } else if (ballPositionX + 15 >= SCREEN_WIDTH && test == false) {
 	// 	scoreRightPlayer++;
 	// 	test = true;
 	// } else if (ballPositionX - 15 <= 0 && test == true) {
 	// 	test = true;
-	// } else if (ballPositionX + 15 >= screenWidth && test == true ) {
+	// } else if (ballPositionX + 15 >= SCREEN_WIDTH && test == true ) {
 	// 	test = true; 
 	// } else {
 	// 	test = false;
 	// }
+  
+  // 15 = BALL_WIDTH / 2
 	if (ballPositionX - 15 <= 0) {
 		scoreLeftPlayer++;
     return true;
 	}
   
-  if (ballPositionX + 15 >= screenWidth) {
+  if (ballPositionX + 15 >= SCREEN_WIDTH) {
 		scoreRightPlayer++;
     return true;
 	} 
@@ -39,12 +44,6 @@ bool PlayersScores::updatePlayersScores() {
   return false;
 }
 
-double PlayersScores::getBallPositionX() const {
-	return ballPositionX;
-}
-double PlayersScores::getBallPositionY() const {
-	return ballPositionY;
-}
 int PlayersScores::getScoreLeftPlayer() const {
 	return scoreLeftPlayer; 
 }
@@ -52,15 +51,8 @@ int PlayersScores::getScoreRightPlayer() const {
 	return scoreRightPlayer;
 }
 
-void PlayersScores::setBallPositionX(double posX) {
-	ballPositionX = posX;
+void PlayersScores::setBallPosition(double x, double y) {
+  ballPositionX = x; 
+  ballPositionY = y;
 }
-void PlayersScores::setBallPositionY(double posY) {
-	ballPositionY = posY;
-}
-void PlayersScores::setScoreLeftPlayer(int first) {
-	scoreLeftPlayer = first;
-}
-void PlayersScores::setScoreRightPlayer(int second) {
-	scoreRightPlayer = second;
-}
+

@@ -46,8 +46,10 @@ class PlayersScoresNode : public rclcpp::Node {
       
       // TODO: Solo publico el mensaje cuando cambia el score, es decir cuando updateScore me devuelve True; 
       
-      players_scores_.setBallPositionX(ballPositionMsg.x);
-      players_scores_.setBallPositionY(ballPositionMsg.y);
+      // players_scores_.setBallPositionX(ballPositionMsg.x);
+      // players_scores_.setBallPositionY(ballPositionMsg.y);
+
+      players_scores_.setBallPosition(ballPositionMsg.x, ballPositionMsg.y);
 
       // Update the scores depending on the ball position received. 
       bool isScoreMade = players_scores_.updatePlayersScores();
