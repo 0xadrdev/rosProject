@@ -28,7 +28,7 @@ using namespace pong_ros_constants;
 class LightPositionNode : public rclcpp::Node {
   public:
     LightPositionNode()
-    : Node("subpub_light") {
+    : Node("light_position_node") {
       // Subscriptions
       image_input_subscription_ = this -> create_subscription<sensor_msgs::msg::Image>(
       TOPIC_IMAGE_INPUT, 10,std::bind(&LightPositionNode::handle_image_input_susbcription, this, _1));
