@@ -16,11 +16,19 @@ keyboard, while the right paddle can be controlled also with the camera.
 	. install/setup.bash
 	ros2 launch pong_ros_bringup _launch.xml
 
-Until this point the two paddles can be controlled with the keyboard. If you want to 
-control the right paddle with the flash light, do: 
+Until this point the two paddles can be controlled with the keyboard. The right paddle with 
+the up and down arrows and the left paddle with the K and W keys. 
+
+If you want to control the right paddle with the flash light, do: 
 
 1. In a new terminal: 
-  ros2 run image_tools cam2image history:=keep_last
+  ros2 run image_tools cam2image --ros-args --remap history:=keep_last
 2. In a new terminal: 
 	cd <rosProject>
   ros2 run pong_ros_image_input image
+
+The next step is only for applying a region of interest: 
+
+3. In a new terminal: 
+  cd <rosProject>
+  ros2 param set /light_position_node apply_region_of_interest true

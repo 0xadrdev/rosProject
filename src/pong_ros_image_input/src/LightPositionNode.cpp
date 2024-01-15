@@ -29,6 +29,9 @@ class LightPositionNode : public rclcpp::Node {
   public:
     LightPositionNode()
     : Node("light_position_node") {
+      // Parameter 
+      this -> declare_parameter("apply_region_of_interest", false);
+
       // Subscriptions
       image_input_subscription_ = this -> create_subscription<sensor_msgs::msg::Image>(
       TOPIC_IMAGE_INPUT, 10,std::bind(&LightPositionNode::handle_image_input_susbcription, this, _1));
@@ -41,6 +44,13 @@ class LightPositionNode : public rclcpp::Node {
    void handle_image_input_susbcription(const sensor_msgs::msg::Image::SharedPtr imageMsg) {
       int imageWidth = getImageWidth(imageMsg);
       int imageHeight = getImageHeight(imageMsg);
+
+      // Getting the ROS parameter. 
+      bool applyRegionOfInterest = this -> get_parameter("apply_region_of_interest").as_bool();
+
+      if (applyRegionOfInterest) {
+        imageWidth = imageWidth / 2;
+      }
 
       // Grayscaling the image:
       sensor_msgs::msg::Image::SharedPtr grayImage(new sensor_msgs::msg::Image);
@@ -84,7 +94,7 @@ class LightPositionNode : public rclcpp::Node {
       // Publish the message
       paddle_pos_publisher_ -> publish(lightPositionMsg);
 
-      RCLCPP_INFO(this -> get_logger(), "lightPosition: %f", lightPositionMsg.data);
+      // RCLCPP_INFO(this -> get_logger(), "lightPosition: %f", lightPositionMsg.data);
     }
 
     // ROS2 declarations. 

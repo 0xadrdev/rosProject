@@ -70,7 +70,7 @@ class PongControllerNode : public rclcpp::Node {
 
       int collisionDetected = pong_controller_.getCollisionType();
       if (collisionDetected == NO_COLLISION) return;
-      RCLCPP_INFO(this->get_logger(), "Collision Detected: %d", collisionDetected);
+      // RCLCPP_INFO(this->get_logger(), "Collision Detected: %d", collisionDetected);
       // RCLCPP_INFO(this->get_logger(), "New ball position: (%f, %f)", ball_position_msg.x, ball_position_msg.y);
     }
 
