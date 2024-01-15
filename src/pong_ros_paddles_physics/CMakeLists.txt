@@ -11,8 +11,8 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
 add_executable(${PROJECT_NAME}
-    src/PaddlesControllerNode.cpp
-    src/PaddlesController.cpp
+    src/PaddlesPhysicsNode.cpp
+    src/PaddlesPhysics.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs)
 

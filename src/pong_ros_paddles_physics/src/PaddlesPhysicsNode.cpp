@@ -1,5 +1,5 @@
 //==============================================================
-// Filename : PaddlesControllerNode.cpp
+// Filename : PaddlesPhysicsNode.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
@@ -16,30 +16,30 @@
 #include "std_msgs/msg/int16.hpp"
 #include "std_msgs/msg/float64.hpp"
 #include "../../pong_ros_core/include/Constants.h"
-#include "PaddlesController.h"
+#include "PaddlesPhysics.h"
 
 using std::placeholders::_1;
 using namespace pong_ros_constants;
 
-class PaddlesControllerNode : public rclcpp::Node {
+class PaddlesPhysicsNode : public rclcpp::Node {
   public:
-    PaddlesControllerNode()
-    : Node("paddles_controller_node") {
+    PaddlesPhysicsNode()
+    : Node("paddles_physics_node") {
 
       // Subscriptions
       keyboard_input_subscription_ = this -> create_subscription<std_msgs::msg::Int16>(
-      "/keyboard_input/key", 1, std::bind(&PaddlesControllerNode::handle_keyboard_input_subscription, this, _1));
+      "/keyboard_input/key", 1, std::bind(&PaddlesPhysicsNode::handle_keyboard_input_subscription, this, _1));
 
       light_position_subscription_ = this -> create_subscription<std_msgs::msg::Float64>(
-      TOPIC_LIGHT_POSITION, 1,std::bind(&PaddlesControllerNode::handle_light_position_subscription, this, _1));
+      TOPIC_LIGHT_POSITION, 1,std::bind(&PaddlesPhysicsNode::handle_light_position_subscription, this, _1));
       
       // Publishers. 
       left_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>(TOPIC_LEFT_PADDLE_POSITION, 10);
 
       right_paddle_position_publisher_ = this -> create_publisher<std_msgs::msg::Float64>(TOPIC_RIGHT_PADDLE_POSITION, 10);
 
-      // Instance of the PaddlesController()
-      paddles_controller_ = PaddlesController();
+      // Instance of the PaddlesPhysics()
+      paddles_controller_ = PaddlesPhysics();
     }
 
   private:
@@ -105,13 +105,13 @@ class PaddlesControllerNode : public rclcpp::Node {
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr left_paddle_position_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr right_paddle_position_publisher_;
 
-    PaddlesController paddles_controller_; 
+    PaddlesPhysics paddles_controller_; 
 };
 
 // Initializing the node. 
 int main(int argc, char* argv[]) {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<PaddlesControllerNode>());
+  rclcpp::spin(std::make_shared<PaddlesPhysicsNode>());
   rclcpp::shutdown();
   
   return 0;

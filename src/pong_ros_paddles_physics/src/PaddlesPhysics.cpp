@@ -1,14 +1,14 @@
 //==============================================================
-// Filename : PaddlesController.cpp
+// Filename : PaddlesPhysics.cpp
 // Authors : Jordi Perez Diago 
 // Group : 
 // License : Apache license 2.0
-// Description : PaddlesController class to control the paddles physics. 
+// Description : PaddlesPhysics class to control the paddles physics. 
 //==============================================================
 
-#include "PaddlesController.h"
+#include "PaddlesPhysics.h"
 
-PaddlesController::PaddlesController(double l, double r, double vl, double vr)
+PaddlesPhysics::PaddlesPhysics(double l, double r, double vl, double vr)
 	: leftPaddlePosition(l), rightPaddlePosition(r), leftPaddleVelocity(vl), rightPaddleVelocity(vr)
 {}
 
@@ -17,7 +17,7 @@ PaddlesController::PaddlesController(double l, double r, double vl, double vr)
  * 
  * @return nothing 
  */
-void PaddlesController::updateLeftPaddleUp() {
+void PaddlesPhysics::updateLeftPaddleUp() {
   leftPaddlePosition += leftPaddleVelocity;
 }
 
@@ -26,7 +26,7 @@ void PaddlesController::updateLeftPaddleUp() {
  * 
  * @return nothing 
  */
-void PaddlesController::updateLeftPaddleDown() {
+void PaddlesPhysics::updateLeftPaddleDown() {
   leftPaddlePosition -= leftPaddleVelocity;
 }
 
@@ -35,7 +35,7 @@ void PaddlesController::updateLeftPaddleDown() {
  * 
  * @return nothing 
  */
-void PaddlesController::updateRightPaddleUp() {
+void PaddlesPhysics::updateRightPaddleUp() {
   rightPaddlePosition += rightPaddleVelocity;
 }
 
@@ -44,19 +44,19 @@ void PaddlesController::updateRightPaddleUp() {
  * 
  * @return nothing 
  */
-void PaddlesController::updateRightPaddleDown() {
+void PaddlesPhysics::updateRightPaddleDown() {
   rightPaddlePosition -= rightPaddleVelocity;
 }
 
-double PaddlesController::getLeftPaddlePosition() {
+double PaddlesPhysics::getLeftPaddlePosition() {
   return leftPaddlePosition;
 }
 
-double PaddlesController::getRightPaddlePosition() {
+double PaddlesPhysics::getRightPaddlePosition() {
   return rightPaddlePosition;
 }
 
-void PaddlesController::setRightPaddleVelocity(double v) { 
+void PaddlesPhysics::setRightPaddleVelocity(double v) { 
   rightPaddleVelocity = v;
 }
 
